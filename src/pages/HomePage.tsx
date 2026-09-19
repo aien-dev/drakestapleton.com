@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BenchmarkSection } from "../components/BenchmarkSection";
 import { InterestForm } from "../components/InterestForm";
 import { ChapterNav, SectionLead } from "../components/PagePrimitives";
 import { PRACTICE_HOME_METRICS } from "../data/practice";
@@ -11,6 +12,7 @@ const chapters = [
   { href: "#work", number: "04", label: "Work" },
   { href: "#software", number: "05", label: "Software" },
   { href: "#latest", number: "06", label: "Latest" },
+  { href: "#benchmarks", number: "07", label: "Performance" },
 ];
 
 const perseverance = [
@@ -389,6 +391,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <BenchmarkSection />
 
       <section className="interest-home" id="interest">
         <div className="page-boundary interest-home-grid">

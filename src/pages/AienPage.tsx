@@ -180,10 +180,10 @@ export function AienPage() {
             </ul>
           </div>
           <div>
-            <p className="aegis-eval-label">Public Repository State</p>
+            <p className="aegis-eval-label">Public Benchmark Suite</p>
             <p>
-              All seventeen repositories are published on GitHub under the aien-dev organization with
-              verified test suites and zero compiler warnings.
+              Review the automated benchmark suite, raw telemetry data files, and verification scripts
+              at <a href="https://github.com/aien-dev/benchmarks" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>github.com/aien-dev/benchmarks</a>.
             </p>
           </div>
         </div>
@@ -224,6 +224,14 @@ export function AienPage() {
             rel="noopener noreferrer"
           >
             Visit github.com/aien-dev
+          </a>
+          <a
+            className="portrait-link"
+            href="https://github.com/aien-dev/benchmarks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View aien-dev/benchmarks
           </a>
           <a
             className="portrait-link quiet"
