@@ -53,7 +53,7 @@ const lifeRecord = [
 ];
 
 const inheritances = [
-  ["Mom", "fought for me, showed me how to leave what hurts, returned to school in her forties, and crossed her stage eight days before I crossed mine."],
+  ["Mom", "is my absolute warrior, my best friend, and my hero. She fought for me, returned to school in her forties, and crossed her stage eight days before I crossed mine."],
   ["Granny and Papa", "gave us land, food, roots, and a humble home on the farm. They showed me that a life grows larger through what it gives away."],
   ["Dad", "was a carpenter, gave me the Ballentine name, put farm work in my hands, taught me to be useful, and showed me that love can choose a family."],
   ["The people who found me", "taught me that gratitude moves forward. You turn around and reach for someone else."],
@@ -241,6 +241,25 @@ export function HomePage() {
           ))}
         </div>
         <div className="family-story-grid">
+          <article className="family-story mom-story">
+            <p className="chapter-tag">My Warrior &amp; My Hero</p>
+            <h3>Mom is my absolute warrior and the person I idolize.</h3>
+            <p>
+              Mom has been my warrior, my best friend, and my hero. When my biological father beat
+              my mother and me, Mom fought with every ounce of strength she had to protect my brother
+              and me, break away from the abuse, and lead us to safety. Dad took us in as his own and
+              adopted both of us, but Mom stood in the fire first.
+            </p>
+            <p>
+              I idolize her and want to be just like her. She was so strong and she remains so very strong.
+              Every day, I strive to be as strong as her. She returned to school in her forties, finished
+              what life interrupted, and crossed her college graduation stage eight days before I crossed mine.
+            </p>
+            <p>
+              The only thing I have ever wanted is to make her proud. I am blessed to have such a strong
+              woman in my life to show me the way.
+            </p>
+          </article>
           <article className="family-story foster-story">
             <p className="chapter-tag">The home Devin and I opened</p>
             <h3>We opened our home to young people who needed steady adults.</h3>

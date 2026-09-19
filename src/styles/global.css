@@ -347,6 +347,7 @@ h4 { margin: 0; }
 .family-story { padding: clamp(30px, 4vw, 48px); border: 1px solid var(--line); border-top: 5px solid var(--red); background: var(--white); }
 .family-story h3 { color: var(--navy); font-size: clamp(28px, 3.5vw, 42px); }
 .family-story > p:not(.chapter-tag) { margin: 18px 0 0; color: var(--copy); font-size: 17px; line-height: 1.72; }
+.mom-story { grid-column: 1 / -1; }
 .dad-story { color: var(--white); border-color: var(--navy); background: var(--navy); }
 .dad-story .chapter-tag { color: var(--on-dark-muted); }
 .dad-story h3 { color: var(--white); }
