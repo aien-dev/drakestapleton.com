@@ -153,7 +153,7 @@ export function ResearchPage() {
           titleId="research-arch-heading"
         >
           <p>
-            A four-tier native control plane executing directly on unified silicon without Python intervention.
+            A four-tier native control plane executing directly on unified silicon free of Python intervention.
           </p>
         </SectionLead>
 
@@ -455,7 +455,7 @@ export function ResearchPage() {
         </p>
         <p>
           By implementing pure compiled architectures, pre-mapped physical KV pooling, and zero-copy sequence branching,
-          the AIEN Sovereign Inference Stack proves that high-performance local AI is achievable without proprietary
+          the AIEN Sovereign Inference Stack proves that high-performance local AI is achievable free of proprietary
           enclosure, external cloud handshakes, or subscription-gated tokens.
         </p>
         <div style={{ marginTop: "32px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
