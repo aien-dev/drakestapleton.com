@@ -53,7 +53,7 @@ const lifeRecord = [
 ];
 
 const inheritances = [
-  ["Mom", "is my absolute warrior, my best friend, and my hero. She fought for me, returned to school in her forties, and crossed her stage eight days before I crossed mine."],
+  ["Mom", "is my absolute warrior, my hero, and my idol. She fought for us, pushed through every trial, returned to school in her forties, and crossed her graduation stage eight days before I crossed mine."],
   ["Granny and Papa", "gave us land, food, roots, and a humble home on the farm. They showed me that a life grows larger through what it gives away."],
   ["Dad", "was a carpenter, gave me the Ballentine name, put farm work in my hands, taught me to be useful, and showed me that love can choose a family."],
   ["The people who found me", "taught me that gratitude moves forward. You turn around and reach for someone else."],
@@ -242,23 +242,63 @@ export function HomePage() {
         </div>
         <div className="family-story-grid">
           <article className="family-story mom-story">
-            <p className="chapter-tag">My Warrior &amp; My Hero</p>
-            <h3>Mom is my absolute warrior and the person I idolize.</h3>
-            <p>
-              Mom has been my warrior, my best friend, and my hero. When my biological father beat
-              my mother and me, Mom fought with every ounce of strength she had to protect my brother
-              and me, break away from the abuse, and lead us to safety. Dad took us in as his own and
-              adopted both of us, but Mom stood in the fire first.
-            </p>
-            <p>
-              I idolize her and want to be just like her. She was so strong and she remains so very strong.
-              Every day, I strive to be as strong as her. She returned to school in her forties, finished
-              what life interrupted, and crossed her college graduation stage eight days before I crossed mine.
-            </p>
-            <p>
-              The only thing I have ever wanted is to make her proud. I am blessed to have such a strong
-              woman in my life to show me the way.
-            </p>
+            <div className="mom-story-grid">
+              <div className="mom-story-text">
+                <p className="chapter-tag">My Warrior &amp; My Hero</p>
+                <h3>Mom is my absolute warrior and the person I idolize.</h3>
+                <blockquote className="mom-quote">
+                  “When someone claims you are unable to do something, look them in the eye and say: Watch me.”
+                </blockquote>
+                <p>
+                  Mom has been my warrior, my best friend, and my hero. When my biological father beat
+                  my mother and me, Mom fought with every ounce of strength she had to protect my brother
+                  and me, break away from the abuse, and lead us to safety. Dad took us in as his own and
+                  adopted both of us, but Mom stood in the fire first.
+                </p>
+                <p>
+                  I idolize her and want to be just like her. She was strong through every trial, and she remains
+                  so very strong today. I strive every single day to match her strength. She returned to school
+                  in her forties, finished what life interrupted, and crossed her college graduation stage eight
+                  days before I crossed mine.
+                </p>
+                <p>
+                  Mom endures. She pushes through every barrier in her way. That relentless drive is where I get
+                  every ounce of my fire. All my endurance, all my stubborn resolve, and all my work trace directly
+                  back to the drive she instilled in me. All her life, people tried to define what she was allowed
+                  to achieve. She rejected their small expectations, protected our home, and made sure I grew up
+                  with fierce dignity.
+                </p>
+                <p>
+                  That spirit defines how I build. When skeptics told me I was unqualified to build native cognitive
+                  engines or create sovereign AI because I began outside traditional software engineering, I took
+                  that doubt and turned it into fuel. Mom taught me to step up, use the newest tools, and push forward
+                  until reality changes. That fierce fire, combined with Dad's dedication to sacrificing himself for
+                  other people, created who I am today. The only thing I have ever wanted is to make her proud.
+                </p>
+              </div>
+              <div className="mom-story-gallery">
+                <figure className="mom-photo-card primary">
+                  <img
+                    src="/images/drake-and-mom-graduation.jpg"
+                    alt="Drake Stapleton and his mother celebrating graduation together in May 2016"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    May 2016: Celebrating graduation week together. Mom crossed her stage at Volunteer State eight days before I crossed mine at Western Kentucky University.
+                  </figcaption>
+                </figure>
+                <figure className="mom-photo-card secondary">
+                  <img
+                    src="/images/mom-graduation-ceremony.jpg"
+                    alt="Mom in her graduation cap and gown at Volunteer State Community College"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    Mom earning her college degree at Volunteer State Community College, finishing what life interrupted.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
           </article>
           <article className="family-story foster-story">
             <p className="chapter-tag">The home Devin and I opened</p>
