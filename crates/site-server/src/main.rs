@@ -3,7 +3,7 @@ mod routes;
 mod state;
 mod telemetry;
 
-use axum::{routing::get, Router};
+use axum::{routing::{get, post}, Router};
 use std::net::SocketAddr;
 use std::path::Path;
 use std::time::Duration;
@@ -74,6 +74,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let app = Router::new()
         .route("/api/health", get(routes::health::health_check))
+        .route("/api/chat", post(routes::chat::handle_chat))
         .route("/api/live/stream", get(routes::stream::stream_telemetry))
         .route("/api/live/telemetry", get(routes::stream::get_telemetry))
         .nest_service("/assets", ServeDir::new(assets_dir))
