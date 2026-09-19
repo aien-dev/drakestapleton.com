@@ -204,6 +204,12 @@ export function ResearchPage() {
       <section className="aegis-knockout" aria-labelledby="research-empirical-heading">
         <p className="portrait-index">Section 04</p>
         <h2 id="research-empirical-heading">Empirical Telemetry &amp; Live Pressure Verification.</h2>
+        <div className="aegis-scope-strip" style={{ marginTop: "16px", marginBottom: "24px" }}>
+          <span>Scope: Control Plane Metadata</span>
+          <span>Indexing: Unified Memory Pointers</span>
+          <span>Physical Tensor Backing: Stage 2-4</span>
+        </div>
+
         <p>
           All measurements conducted directly on workstation spark-b87b (NVIDIA Grace Blackwell GB10, aarch64, Linux 7.0.0-1019-nvidia).
           Zero simulation models: measurements represent physical hardware counters, operating system process tables, and live network sockets.
@@ -211,7 +217,7 @@ export function ResearchPage() {
 
         {/* KV Cache Table */}
         <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
-          Table 1: Paged KV Cache Manager Allocation Throughput (aien-kv-cache)
+          Table 1: Paged KV Cache Block-Table Allocator Throughput (Control Plane Metadata)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Workload: 10,000 sequence allocations (160,000 physical blocks, block size = 16 tokens).
@@ -254,7 +260,7 @@ export function ResearchPage() {
                 <th style={{ padding: "10px" }}>Zero-Copy Fork Latency</th>
                 <th style={{ padding: "10px" }}>Naive Memory Copy Est.</th>
                 <th style={{ padding: "10px" }}>Measured Acceleration</th>
-                <th style={{ padding: "10px" }}>Physical Memory Saved</th>
+                <th style={{ padding: "10px" }}>Projected Tensor Memory Saved</th>
               </tr>
             </thead>
             <tbody>
