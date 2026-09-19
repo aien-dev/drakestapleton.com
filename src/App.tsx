@@ -13,6 +13,7 @@ import { PathPage } from "./pages/PathPage";
 import { SoftwarePage } from "./pages/SoftwarePage";
 import { SymphonyPage } from "./pages/SymphonyPage";
 import { WhatILearnedPage } from "./pages/WhatILearnedPage";
+import { ResearchPage } from "./pages/ResearchPage";
 import { WorkflowPage } from "./pages/WorkflowPage";
 
 function Portfolio() {
@@ -24,6 +25,7 @@ function Portfolio() {
         <Route path="/atlas" element={<AtlasPage />} />
         <Route path="/aegis" element={<AegisPage />} />
         <Route path="/aien" element={<AienPage />} />
+        <Route path="/research" element={<ResearchPage />} />
         <Route path="/path" element={<PathPage />} />
         <Route path="/software" element={<SoftwarePage />} />
         <Route path="/evidence" element={<EvidencePage />} />

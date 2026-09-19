@@ -33,6 +33,7 @@ fn main() {
     let required_routes = vec![
         ("index.html", "/"),
         ("aien/index.html", "/aien"),
+        ("research/index.html", "/research"),
         ("atlas/index.html", "/atlas"),
         ("aegis/index.html", "/aegis"),
         ("software/index.html", "/software"),
