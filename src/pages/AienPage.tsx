@@ -93,8 +93,8 @@ const architectureTenets = [
     body: "The architecture executes across NVIDIA Grace Blackwell, Apple Silicon MacBooks, standard x86_64 Linux servers, and AMD ROCm accelerators.",
   },
   {
-    title: "One Team Commons",
-    body: "All seventeen ecosystem repositories reside under the Sovereign Resource Commons License. Developers, startups, and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency with zero revenue caps. Under our One Team Covenant, frontier labs training models on this work share their resulting model weights openly with humanity.",
+    title: "Open Collaboration Commons",
+    body: "All ecosystem repositories provide open-source code under the Apache-2.0 license. Developers, startups, and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency with zero revenue caps. Under our Open Cooperation Covenant, participating organizations share research and resulting model weights openly with humanity.",
   },
 ];
 
