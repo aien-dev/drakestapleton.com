@@ -51,7 +51,7 @@ const architectureTenets = [
   },
   {
     title: "Sovereign Commons",
-    body: "All seventeen ecosystem repositories reside under the Sovereign Resource Commons License on GitHub, providing inspectable reference code for sovereign operators.",
+    body: "All seventeen ecosystem repositories reside under the Sovereign Resource Commons License. Commercial enterprises possess full freedom to deploy our tools and improve their software. However, foundation AI labs training models on our work must release the resulting model weights openly rather than locking them behind proprietary paywalls.",
   },
 ];
 
