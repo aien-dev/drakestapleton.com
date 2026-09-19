@@ -14,6 +14,7 @@ const routes = [
   { rel: "atlas/index.html", path: "/atlas", ...pageMetadata["/atlas"] },
   { rel: "aegis/index.html", path: "/aegis", ...pageMetadata["/aegis"] },
   { rel: "aien/index.html", path: "/aien", ...pageMetadata["/aien"] },
+  { rel: "research/index.html", path: "/research", ...pageMetadata["/research"] },
   { rel: "what-i-learned/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"] },
   { rel: "what-broke/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"], redirect: true },
   { rel: "path/index.html", path: "/path", ...pageMetadata["/path"] },
@@ -49,6 +50,7 @@ function noscriptSummary(page) {
     ["/interest", "Conversation"],
     ["/aegis", "AEGIS"],
     ["/aien", "AIEN"],
+    ["/research", "Research"],
     ["/symphony", "Symphony"],
   ];
   const nav = links.map(([href, label]) => `<a href="${href}">${label}</a>`).join(" ");

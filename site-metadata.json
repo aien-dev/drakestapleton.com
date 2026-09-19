@@ -54,5 +54,9 @@
   "/404": {
     "title": "Page Directory | Drake Stapleton",
     "description": "Choose a page from Drake Stapleton's site."
+  },
+  "/research": {
+    "title": "LLM Inference Research & Architecture | Drake Stapleton",
+    "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Sub-Microsecond Paged KV Cache, and Grace Blackwell Telemetry."
   }
 }

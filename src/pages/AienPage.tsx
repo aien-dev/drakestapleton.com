@@ -266,6 +266,7 @@ export function AienPage() {
           Atlas provides the memory. AEGIS secures the boundary. AIEN runs the engine.
         </blockquote>
         <div className="portrait-actions">
+          <Link className="portrait-link" to="/research">Read Inference Research Paper</Link>
           <Link className="portrait-link" to="/aegis">
             Explore AEGIS
           </Link>
