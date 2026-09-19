@@ -7,3 +7,4 @@ crates/site-builder/target
 *.local
 .vite
 __pycache__/
+*.log
