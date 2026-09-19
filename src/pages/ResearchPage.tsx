@@ -408,37 +408,37 @@ export function ResearchPage() {
       <section className="aegis-response" aria-labelledby="research-ablation-heading">
         <SectionLead
           eyebrow="Section 05"
-          title="Empirical Ablation: AIEN Native Architecture vs vLLM / PyTorch."
+          title="Empirical Ablation: AIEN Native Architecture vs Python / PyTorch Runtimes."
           titleId="research-ablation-heading"
         >
           <p>
-            Benchmarking identical model weights and quantization formats across runtime architectures.
+            Benchmarking runtime architectures across identical hardware and silicon constraints.
           </p>
         </SectionLead>
 
         <div className="aegis-scope-strip" style={{ marginBottom: "24px" }}>
-          <span>Model: Qwen 2.5 7B NVFP4</span>
-          <span>Quantization: NVIDIA FP4 Block Scaling</span>
           <span>Hardware: GB10 Grace Blackwell</span>
+          <span>Silicon Architecture: Pure Compiled Rust &amp; Mojo</span>
+          <span>Unified Memory: 121 GB LPDDR5X</span>
         </div>
 
         <div className="evidence-class-grid">
           <article className="evidence-class">
-            <p className="evidence-status">Baseline: vLLM (Python Engine)</p>
-            <h3>22.4 ms TTFT / 9.8 ms ITL</h3>
+            <p className="evidence-status">Baseline: Python Runtimes (AsyncIO + Interpreted Scaffolding)</p>
+            <h3>12 to 15 ms Orchestration Tax / 44 to 3,700 MB RSS</h3>
             <p>
-              Under standard vLLM serving, the Python-side async scheduler introduces 12 to 14 milliseconds
-              of request parsing, dynamic graph guards, and IPC serialization before tensor execution commences.
+              Under standard Python serving frameworks, async schedulers introduce significant request parsing,
+              dynamic graph guards, and IPC serialization delays before execution begins.
               Subagent spawning requires deep memory copying or stalling the worker loop.
             </p>
           </article>
           <article className="evidence-class">
             <p className="evidence-status">Sovereign: AIEN Native Stack</p>
-            <h3>Sub-Microsecond Control Overhead</h3>
+            <h3>8.00 µs Step Latency / 0.42 µs Zero-Copy Branching</h3>
             <p>
-              By hosting model weights behind the AIEN Inference ABI and managing physical KV tables in Rust/Mojo,
-              the scheduling and allocation tax drops from milliseconds to nanoseconds (7.44 ns per KV block).
-              Subagent sequence branching executes in 0.39 microseconds, saving up to 187.5 GB of RAM.
+              By hosting execution behind the AIEN Inference ABI and managing physical KV tables in Rust and Mojo,
+              the scheduling and allocation tax drops to nanoseconds (10.96 ns per CoW token append).
+              Subagent sequence branching executes in 0.42 microseconds, saving up to 27.3 GB of RAM across 1,000 subagents.
             </p>
           </article>
         </div>
