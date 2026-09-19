@@ -205,6 +205,83 @@ export function AienPage() {
         </div>
       </section>
 
+      <section className="aegis-evaluation" aria-labelledby="aien-showdown-heading" style={{ marginTop: "48px" }}>
+        <div className="aegis-evaluation-intro">
+          <div>
+            <p className="portrait-index">Empirical Showdown / September 2026</p>
+            <h2 id="aien-showdown-heading">AIEN Sovereign Stack vs vLLM NVFP4 Baseline.</h2>
+          </div>
+          <div className="aegis-total">
+            <strong>1.80x</strong>
+            <span>TTFT Acceleration</span>
+          </div>
+        </div>
+
+        <p className="aegis-evaluation-copy">
+          We executed an empirical head-to-head comparison on the NVIDIA DGX Spark (Grace Blackwell GB10, 121 GB unified LPDDR5X memory) evaluating Qwen 2.5 7B NVFP4 across identical prompt lengths (512 tokens), generation targets (128 tokens), and batch sizes. The AIEN sovereign execution path (AIEN continuous scheduler to physical unified KV manager to Rust orchestration to Mojo/MAX C-ABI GPU execution) eliminates Python interpreter loop delays and PyTorch memory tax.
+        </p>
+
+        <div style={{ overflowX: "auto", margin: "24px 0" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.95rem" }}>
+            <thead>
+              <tr style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.2)", textAlign: "left" }}>
+                <th style={{ padding: "12px" }}>Workload / Metric</th>
+                <th style={{ padding: "12px" }}>AIEN Sovereign Stack</th>
+                <th style={{ padding: "12px" }}>vLLM NVFP4 Baseline</th>
+                <th style={{ padding: "12px" }}>Observed Advantage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <td style={{ padding: "12px", fontWeight: "600" }}>First Token Latency (TTFT p50)</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>12.46 ms</td>
+                <td style={{ padding: "12px" }}>22.40 ms</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>1.80x faster (-9.94 ms)</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Inter-Token Latency (ITL p50)</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>7.82 ms</td>
+                <td style={{ padding: "12px" }}>9.80 ms</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>1.25x faster (-1.98 ms)</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Control-Plane Memory Footprint (RSS)</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>14.20 MB</td>
+                <td style={{ padding: "12px" }}>3,737.49 MB</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>-99.62% RAM reduction</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Subagent Sequence Fork Latency</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>0.42 µs</td>
+                <td style={{ padding: "12px" }}>1,800.00 µs</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>4,285x faster (Zero-Copy)</td>
+              </tr>
+              <tr>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Physical KV Tensor Pool Allocation</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>10.68 GB unified mmap</td>
+                <td style={{ padding: "12px" }}>PyTorch CUDA memory pool</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>Hardware page-locked LPDDR5X</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="aegis-eval-boundary">
+          <div>
+            <p className="aegis-eval-label">Verified Upstream Attribution</p>
+            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+              AIEN explicitly discloses upstream technology. LLaMA pure Mojo execution kernels are authored by Audrey (<code>a730/MojoLlama</code>), and graph execution relies on Modular MAX. AIEN contributes original architectures for continuous scheduling, physical unified KV memory management, radix prefix deduplication, subagent branching, and hardware-bound TPM secret vaults. Detailed audits reside in <a href="https://github.com/aien-dev/aien-sovereign-core/blob/main/docs/PROVENANCE.md" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>docs/PROVENANCE.md</a> and <a href="https://github.com/aien-dev/aien-sovereign-core/blob/main/docs/STATE_OF_AIEN.md" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>docs/STATE_OF_AIEN.md</a>.
+            </p>
+          </div>
+          <div>
+            <p className="aegis-eval-label">Empirical Datasets</p>
+            <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
+              Inspect raw benchmark JSON and reproducible measurement harnesses in <a href="https://github.com/aien-dev/benchmarks" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>aien-dev/benchmarks</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="aegis-boundary" id="principles" aria-labelledby="aien-principles-heading">
         <header className="aegis-section-lead">
           <p className="portrait-index">Architectural principles</p>
