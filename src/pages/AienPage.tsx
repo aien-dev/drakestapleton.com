@@ -33,7 +33,7 @@ const performanceMetrics = [
   { label: "Memory RSS", score: "4.78 MB", rate: "openclaw-rs heartbeat" },
   { label: "Entity TTFB", score: "3.56 ms", rate: "p50 @ 2,056 req/s" },
   { label: "INT8 Embedding", score: "4.09 ms", rate: "ONNX Runtime" },
-  { label: "Public Crates", score: "17 / 17", rate: "100% verified tests" },
+  { label: "Hardware Test Suites", score: "100% Passing", rate: "On-premise DGX Spark GB10" },
 ];
 
 const concurrencyPressureData = [
@@ -276,7 +276,7 @@ export function AienPage() {
             </thead>
             <tbody>
               <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
-                <td style={{ padding: "12px", fontWeight: "600" }}>Continuous Batching Step Latency</td>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Control-Plane Scheduler Step Latency</td>
                 <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>8.00 µs (C=1 to 16)</td>
                 <td style={{ padding: "12px" }}>12,000.00 µs (AsyncIO)</td>
                 <td style={{ padding: "12px", color: "#22c55e" }}>Sub-microsecond native scheduling</td>
@@ -329,16 +329,16 @@ export function AienPage() {
         <div className="aegis-evaluation-intro">
           <div>
             <p className="portrait-index">Concurrency Pressure & Silicon Scaling</p>
-            <h2 id="aien-pressure-heading">Sustained throughput across C=1 to C=256 streams.</h2>
+            <h2 id="aien-pressure-heading">Control-Plane Scheduler Throughput across C=1 to C=256 streams.</h2>
           </div>
           <div className="aegis-total">
             <strong>3.12M</strong>
-            <span>tokens / sec @ C=256</span>
+            <span>seq steps / sec @ C=256</span>
           </div>
         </div>
 
         <p className="aegis-evaluation-copy">
-          We subjected the continuous batching scheduler and paged unified memory KV pool to concurrent load sweeps up to 256 simultaneous generation streams on Grace Blackwell hardware. Flat tail latencies hold across the sweep, maintaining 10.75W to 10.90W host power draw and sub-millijoule energy efficiency per token.
+          We evaluated the pure Rust continuous batching scheduler and paged unified memory KV manager under concurrent load sweeps up to 256 simultaneous sequence streams on Grace Blackwell hardware. The control plane sustains over 3.1 million scheduling steps and KV slot dispatches per second with sub-microsecond latency, ensuring that scheduling overhead never bottlenecks physical GPU matrix multiplication.
         </p>
 
         <div style={{ overflowX: "auto", margin: "24px 0" }}>

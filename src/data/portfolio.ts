@@ -11,7 +11,7 @@ export const CHIPS = [
 export const METRICS = [
   { title: "One thesis", body: "The operating system around AI determines the quality of the work." },
   { title: "16 months", body: "dated, SHA-deduped history · Apr 2025 - Aug 2026" },
-  { title: "4,701", body: "unique commits across 94 own trees" },
+  { title: "4,701", body: "internal workstation commits across 94 project trees" },
   { title: "Production desk", body: "Claude, Codex, and Grok as governed engines" },
 ];
 
