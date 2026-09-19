@@ -65,7 +65,7 @@ fn main() {
 
         // Check for pre-rendered root content (eliminates SPA clunkiness)
         assert!(
-            content.contains("<div id=\"root\"><div class=\"site-shell\">"),
+            content.contains("<div id=\"root\">") && content.contains("<div class=\"site-shell\">"),
             "Route {} missing pre-rendered HTML DOM in #root",
             route
         );

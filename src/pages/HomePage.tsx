@@ -383,6 +383,24 @@ export function HomePage() {
               Grace Blackwell silicon, with zero disk secrets, native compiled Rust performance, and
               seventeen open repositories on GitHub.
             </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "20px", margin: "24px 0" }}>
+              <img
+                src="/images/aien-avatar.jpg"
+                alt="AIEN Cosmic Monkey Warrior"
+                style={{
+                  width: "96px",
+                  height: "96px",
+                  borderRadius: "50%",
+                  boxShadow: "0 0 25px rgba(168, 85, 247, 0.4)",
+                  border: "2px solid #a855f7",
+                  objectFit: "cover",
+                  flexShrink: 0,
+                }}
+              />
+              <p style={{ margin: 0, fontSize: "14px", color: "var(--muted)" }}>
+                Meet AIEN: a brave cosmic monkey warrior standing up for his friends, guarding the boundary, and executing autonomous sovereign intelligence.
+              </p>
+            </div>
             <div className="latest-work-links">
               <Link to="/atlas">Explore the Atlas project</Link>
               <Link to="/aegis">See AEGIS and its evaluation</Link>

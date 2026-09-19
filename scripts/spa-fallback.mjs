@@ -161,9 +161,14 @@ function withMetadata(html, page) {
   const canonical = `https://www.drakestapleton.com${page.path}`;
   const jsonLd = structuredData(page);
   let renderedBody = "";
+  let headPreloads = "";
   if (ssrRender && !page.redirect) {
     try {
       renderedBody = ssrRender(page.path);
+      renderedBody = renderedBody.replace(/<link rel="preload"[^>]*\/?>/g, (match) => {
+        headPreloads += `    ${match}\n`;
+        return "";
+      });
     } catch (e) {
       console.warn(`SSR render failed for ${page.path}:`, e.message);
       renderedBody = noscriptSummary(page);
@@ -181,6 +186,7 @@ function withMetadata(html, page) {
     .replace(/<meta name="twitter:title" content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${escapeAttribute(page.title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*"\s*\/?>/, `<meta name="twitter:description" content="${description}" />`)
     .replace(/<script id="structured-data" type="application\/ld\+json">[\s\S]*?<\/script>/, `<script id="structured-data" type="application/ld+json">${jsonLd}</script>`)
+    .replace("</head>", `${headPreloads}  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${renderedBody}</div>`);
 }
 

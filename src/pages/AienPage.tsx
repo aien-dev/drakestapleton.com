@@ -60,6 +60,21 @@ export function AienPage() {
 
   return (
     <main className="wrap portrait-wrap aegis-page aien-page">
+      <div style={{ display: "flex", justifyContent: "center", paddingTop: "24px", marginBottom: "16px" }}>
+        <img
+          src="/images/aien-avatar.jpg"
+          alt="AIEN Cosmic Monkey Warrior"
+          style={{
+            width: "180px",
+            height: "180px",
+            borderRadius: "50%",
+            boxShadow: "0 0 40px rgba(168, 85, 247, 0.45)",
+            border: "3px solid #a855f7",
+            objectFit: "cover",
+          }}
+        />
+      </div>
+
       <PageIntro
         eyebrow="AIEN / Sovereign Cognitive Architecture"
         title="Compiled, vaulted, and sovereign on dedicated silicon."
