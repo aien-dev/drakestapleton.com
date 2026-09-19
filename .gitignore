@@ -1,5 +1,8 @@
 node_modules
 dist
+dist-ssr
+target
+crates/site-builder/target
 .DS_Store
 *.local
 .vite

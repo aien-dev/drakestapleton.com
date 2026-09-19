@@ -23,6 +23,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build:portfolio
+      - run: cargo run --release --manifest-path crates/site-builder/Cargo.toml -- dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

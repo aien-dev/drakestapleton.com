@@ -10,26 +10,26 @@ export const CHIPS = [
 
 export const METRICS = [
   { title: "One thesis", body: "The operating system around AI determines the quality of the work." },
-  { title: "16 months", body: "dated, SHA-deduped history · Apr 2025–Aug 2026" },
+  { title: "16 months", body: "dated, SHA-deduped history · Apr 2025 - Aug 2026" },
   { title: "4,701", body: "unique commits across 94 own trees" },
   { title: "Production desk", body: "Claude, Codex, and Grok as governed engines" },
 ];
 
 export const STORY = [
   {
-    era: "2025 — ship software with models in the loop.",
+    era: "2025: ship software with models in the loop.",
     body: "Ledger, CRM, SDS parsing, meetings, DMAIC. I learned what “done” means when an LLM is helping write the system.",
   },
   {
-    era: "Early 2026 — ship operator products.",
-    body: "MobPay, DefiantMob, MobHub, BeltBrain, and DHG became live desks for access, money movement, ledgers, and planning.",
+    era: "Early 2026: ship operator products.",
+    body: "MobPay, DefiantMob, BeltBrain, and DHG became live desks for access, money movement, ledgers, and planning.",
   },
   {
-    era: "Mid 2026 — the accidental agent platform.",
+    era: "Mid 2026: the accidental agent platform.",
     body: "Inside MobPay I built MobDev (task → brief) and a multi-vendor panel arena. Every rule was still prose. The model still got a vote.",
   },
   {
-    era: "Jul 2026 onward — build the operating desk.",
+    era: "Jul 2026 onward: build the operating desk.",
     body: "Atlas Harness (formerly codeharness) turns that prose into typed policy, clear work lanes, completion checks, source records, recovery, and evaluation. Atlas Symphony is the named process that runs that desk.",
   },
 ];
@@ -44,14 +44,14 @@ export const ARCH = [
 
 export const CASES = [
   {
-    title: "Atlas Symphony — the named process",
+    title: "Atlas Symphony: the named process",
     meta: "First run 30 Jul 2026 · invented and first operated by Drake Stapleton",
-    body: "Atlas is the orchestrator. Symphony is the process: exclusive lanes, a gatekeeper, cost-aware model routing, and a human who still owns GO. This is the public record — who started it, who sat in the first chairs, and the diagrams.",
+    body: "Atlas is the orchestrator. Symphony is the process: exclusive lanes, a gatekeeper, cost-aware model routing, and a human who still owns GO. This is the public record: who started it, who sat in the first chairs, and the diagrams.",
     href: "/symphony",
     featured: true,
   },
   {
-    title: "Atlas Harness — an operating desk for AI work",
+    title: "Atlas Harness: an operating desk for AI work",
     meta: "Jul 2026 → present · TypeScript / Python · formerly codeharness · 406 spine commits",
     body: "A policy and recovery layer for coding tools. The desk defines who may act, when work is complete, which lane owns it, and what evidence remains.",
     points: [
@@ -61,7 +61,7 @@ export const CASES = [
     ],
   },
   {
-    title: "MobDev + Panel Arena — the use case that forced the architecture",
+    title: "MobDev + Panel Arena: the use case that forced the architecture",
     meta: "Inside MobPay / The Midnight Mob · 1,081 commits on the product tree",
     body: "A live operations desk grew an internal agent platform: task-to-brief, six-vendor panel review, a prompt compiler that emitted the operating contract. I ran thousands of agent sessions against that contract, then stopped treating the contract as prose.",
   },
@@ -69,8 +69,8 @@ export const CASES = [
 
 export const SIDE_CASES = [
   {
-    title: "DefiantMob & MobHub",
-    meta: "Production operator software · 250 + 70 commits",
+    title: "DefiantMob",
+    meta: "Production operator software · 250 commits",
     body: "Member ops, ledgers, training-desk automation, payouts. The substrate agent systems have to touch.",
   },
   {
@@ -81,7 +81,7 @@ export const SIDE_CASES = [
   {
     title: "DHG / HiveMind / Toolbox",
     meta: "Community platform + 804-commit toolkit",
-    body: "Where I learned “hive” as an org pattern — later made strict inside Atlas (notify ≠ command).",
+    body: "Where I learned “hive” as an org pattern, later codified inside Atlas (notify ≠ command).",
   },
   {
     title: "2025 foundations",
@@ -104,7 +104,7 @@ export const ROLE_MAP: [string, string, string][] = [
 export const TREES: [string, string, string, string][] = [
   ["Atlas Harness", "Operating desk: policy, lanes, reviews, evaluation", "406", "118k"],
   ["Midnight Mob / MobPay", "Production ops + the agent platform that forced Atlas", "1,081", "466k"],
-  ["DefiantMob + MobHub", "Second production domain, ledgers, automation", "320", "504k"],
+  ["DefiantMob", "Second production domain, ledgers, automation", "250", "420k"],
   ["BeltBrain", "Decision engine / system of record", "234", "141k"],
   ["DHG Toolbox + platform", "Long-running product + hive as org language", "1,003", "267k"],
   ["Financial Ledger + 2025 line", "Correctness before agents", "670+", "198k+"],

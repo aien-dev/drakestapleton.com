@@ -166,7 +166,10 @@ export function SoftwarePage() {
           take the next step.
         </p>
         <div className="portrait-actions">
-          <Link className="portrait-link" to="/atlas">
+          <Link className="portrait-link" to="/aien">
+            Inspect AIEN architecture
+          </Link>
+          <Link className="portrait-link quiet" to="/atlas">
             Continue into the Atlas story
           </Link>
           <Link className="portrait-link quiet" to="/evidence">

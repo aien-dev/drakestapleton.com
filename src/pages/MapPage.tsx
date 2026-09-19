@@ -6,7 +6,7 @@ export function MapPage() {
 
   return (
     <main className="wrap wide map-page">
-      <p className="kicker">Diagram · 18 Jun – 13 Aug 2026</p>
+      <p className="kicker">Diagram · 18 Jun - 13 Aug 2026</p>
       <h1>Bird’s-eye</h1>
       <p className="lede">
         This timeline covers six concurrent Atlas workstreams from June through August 2026. The first-run

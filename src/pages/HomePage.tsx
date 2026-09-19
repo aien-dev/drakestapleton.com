@@ -134,7 +134,7 @@ export function HomePage() {
               by love while believing that being fully known could cost me everything.
             </p>
             <p>
-              That farm is where I want you to stand for a minute, because it's where the other lessons started. It smelled like alfalfa and cut grass with just a smidge of manure underneath—the honest smell of a place that works for what it has. At the end of that path was Granny's kitchen, where something was always being made for someone else. It taught me that work was not just about the output, but about the care you put into the foundation.
+              That farm is where I want you to stand for a minute, because it's where the other lessons started. It smelled like alfalfa and cut grass with just a smidge of manure underneath: the honest smell of a place that works for what it has. At the end of that path was Granny's kitchen, where something was always being made for someone else. It taught me that work centered on the care poured into the foundation, well beyond raw output.
             </p>
             <p>
               Disappearing meant studying every room before I entered it. I learned how to stand, talk, and
@@ -266,7 +266,7 @@ export function HomePage() {
               father who chose me. Stapleton marks the life Devin and I chose together.
             </p>
             <p>
-              I remember standing in that courtroom in 2007. The judge asked me why I wanted the name change. I told him: "I don't want the same middle name as my biological father. And the first name is misspelled and wanted to fix it." He chuckled and said, "Well that's a good enough reason for me. Granted." It was the best day of my life. I was thirteen and took the name 'Drake' for myself.
+              I remember standing in that courtroom in 2007. The judge asked me why I wanted the name change. I told him: "I requested a distinct middle name from my biological father, and wanted to correct the spelling of my first name." He chuckled and said, "Well that's a good enough reason for me. Granted." It was the best day of my life. I was thirteen and took the name 'Drake' for myself.
             </p>
             <p>
               Dad put farm work in my hands and taught me to be useful. He showed me that love can choose a
@@ -376,9 +376,15 @@ export function HomePage() {
               I am now extending Atlas into AEGIS, an on-prem defender for authorized networks. Its
               first adapter passed 59 of 62 checks in a frozen project suite on August 20, 2026.
             </p>
+            <p>
+              AIEN expands this foundation into a full sovereign cognitive architecture on dedicated
+              Grace Blackwell silicon, with zero disk secrets, native compiled Rust performance, and
+              seventeen open repositories on GitHub.
+            </p>
             <div className="latest-work-links">
               <Link to="/atlas">Explore the Atlas project</Link>
               <Link to="/aegis">See AEGIS and its evaluation</Link>
+              <Link to="/aien">Discover the AIEN sovereign architecture</Link>
             </div>
           </div>
         </div>
@@ -404,7 +410,7 @@ export function HomePage() {
         <h2>Freedom Fighter. AI Architect. Operator.</h2>
         <p>
           I build software and operate AI systems that produce results. My portfolio
-          documents 16 months of continuous AI orchestration—managing GPU compute, designing
+          documents 16 months of continuous AI orchestration: managing GPU compute, designing
           complex workflows, and enforcing clear authorization boundaries. I turn raw
           compute and fuzzy requirements into durable, verifiable, and production-ready work.
         </p>

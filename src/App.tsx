@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { AegisPage } from "./pages/AegisPage";
+import { AienPage } from "./pages/AienPage";
 import { AtlasPage } from "./pages/AtlasPage";
 import { EvidencePage } from "./pages/EvidencePage";
 import { FirstRunPage } from "./pages/FirstRunPage";
@@ -22,6 +23,7 @@ function Portfolio() {
         <Route path="/interest" element={<InterestPage />} />
         <Route path="/atlas" element={<AtlasPage />} />
         <Route path="/aegis" element={<AegisPage />} />
+        <Route path="/aien" element={<AienPage />} />
         <Route path="/path" element={<PathPage />} />
         <Route path="/software" element={<SoftwarePage />} />
         <Route path="/evidence" element={<EvidencePage />} />

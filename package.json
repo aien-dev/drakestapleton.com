@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "vite --mode portfolio",
     "dev:portfolio": "vite --mode portfolio",
-    "build": "tsc --noEmit && vite build --mode portfolio && node scripts/spa-fallback.mjs portfolio && node scripts/verify-build.mjs portfolio",
-    "build:portfolio": "tsc --noEmit && vite build --mode portfolio && node scripts/spa-fallback.mjs portfolio && node scripts/verify-build.mjs portfolio",
+    "build": "tsc --noEmit && vite build --mode portfolio && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/spa-fallback.mjs portfolio && node scripts/verify-build.mjs portfolio",
+    "build:portfolio": "tsc --noEmit && vite build --mode portfolio && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/spa-fallback.mjs portfolio && node scripts/verify-build.mjs portfolio",
+    "build:rust": "cargo run --release --manifest-path crates/site-builder/Cargo.toml -- dist",
     "check:copy": "node scripts/check-copy.mjs",
     "preview": "vite preview",
     "test:waitlist": "python3 -m unittest discover -s server -p 'test_*.py'",

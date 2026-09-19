@@ -13,6 +13,7 @@ const pageMetadata = JSON.parse(readFileSync(new URL("../site-metadata.json", im
 const routes = [
   { rel: "atlas/index.html", path: "/atlas", ...pageMetadata["/atlas"] },
   { rel: "aegis/index.html", path: "/aegis", ...pageMetadata["/aegis"] },
+  { rel: "aien/index.html", path: "/aien", ...pageMetadata["/aien"] },
   { rel: "what-i-learned/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"] },
   { rel: "what-broke/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"], redirect: true },
   { rel: "path/index.html", path: "/path", ...pageMetadata["/path"] },
@@ -47,6 +48,7 @@ function noscriptSummary(page) {
     ["/atlas", "Atlas"],
     ["/interest", "Conversation"],
     ["/aegis", "AEGIS"],
+    ["/aien", "AIEN"],
     ["/symphony", "Symphony"],
   ];
   const nav = links.map(([href, label]) => `<a href="${href}">${label}</a>`).join(" ");
@@ -141,11 +143,34 @@ function structuredData(page) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replaceAll("<", "\\u003c");
 }
 
+let ssrRender = null;
+const ssrPath = join(process.cwd(), "dist-ssr/entry-server.js");
+if (existsSync(ssrPath)) {
+  try {
+    const ssrModule = await import(ssrPath);
+    ssrRender = ssrModule.render;
+    console.log("SSR pre-rendering active: pre-rendering full semantic HTML for all routes");
+  } catch (err) {
+    console.warn("SSR module failed to load, using noscript fallback:", err.message);
+  }
+}
+
 function withMetadata(html, page) {
   const title = escapeText(page.title);
   const description = escapeAttribute(page.description);
   const canonical = `https://www.drakestapleton.com${page.path}`;
   const jsonLd = structuredData(page);
+  let renderedBody = "";
+  if (ssrRender && !page.redirect) {
+    try {
+      renderedBody = ssrRender(page.path);
+    } catch (e) {
+      console.warn(`SSR render failed for ${page.path}:`, e.message);
+      renderedBody = noscriptSummary(page);
+    }
+  } else {
+    renderedBody = noscriptSummary(page);
+  }
   return html
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/?>/, `<meta name="description" content="${description}" />`)
@@ -156,7 +181,7 @@ function withMetadata(html, page) {
     .replace(/<meta name="twitter:title" content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${escapeAttribute(page.title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*"\s*\/?>/, `<meta name="twitter:description" content="${description}" />`)
     .replace(/<script id="structured-data" type="application\/ld\+json">[\s\S]*?<\/script>/, `<script id="structured-data" type="application/ld+json">${jsonLd}</script>`)
-    .replace('<div id="root"></div>', `<div id="root"></div>${noscriptSummary(page)}`);
+    .replace('<div id="root"></div>', `<div id="root">${renderedBody}</div>`);
 }
 
 function writePage(rel, html) {

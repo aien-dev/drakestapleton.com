@@ -7,6 +7,7 @@ const LINKS = [
   { to: "/evidence", label: "Audit", end: true },
   { to: "/atlas", label: "Atlas", end: true },
   { to: "/aegis", label: "AEGIS", end: true },
+  { to: "/aien", label: "AIEN", end: true },
   { to: "/interest", label: "Conversation", end: true },
 ];
 

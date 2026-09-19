@@ -87,7 +87,7 @@ export function SymphonyPage() {
         </Link>
         <Link className="card" to="/symphony/map">
           <h3>Bird’s-eye</h3>
-          <p className="meta">Jun 18 – Aug 13 2026</p>
+          <p className="meta">Jun 18 - Aug 13 2026</p>
           <p>Six concurrent Atlas workstreams shown on a shared timeline.</p>
         </Link>
       </div>

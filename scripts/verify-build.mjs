@@ -16,6 +16,7 @@ const scripts = readdirSync("dist/assets")
 const requiredPages = [
   "404.html",
   "aegis/index.html",
+  "aien/index.html",
   "atlas/index.html",
   "what-i-learned/index.html",
   "path/index.html",
@@ -60,6 +61,9 @@ if (mode === "waitlist") {
   const aegis = readFileSync("dist/aegis/index.html", "utf8");
   assert(aegis.includes("AEGIS Defensive Atlas Extension"), "AEGIS static metadata is missing");
   assert(aegis.includes("https://www.drakestapleton.com/aegis"), "AEGIS canonical URL is missing");
+  const aien = readFileSync("dist/aien/index.html", "utf8");
+  assert(aien.includes("AIEN Sovereign Cognitive Architecture"), "AIEN static metadata is missing");
+  assert(aien.includes("https://www.drakestapleton.com/aien"), "AIEN canonical URL is missing");
   assert(scripts.includes("59/62"), "AEGIS evaluation result is missing from the portfolio bundle");
   assert(!scripts.includes("Discuss a partnership"), "Sales language remains in the portfolio bundle");
   assert(!scripts.includes("License AEGIS"), "AEGIS sales language remains in the portfolio bundle");

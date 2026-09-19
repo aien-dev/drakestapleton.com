@@ -23,6 +23,10 @@
     "title": "AEGIS Defensive Atlas Extension | Drake Stapleton",
     "description": "AEGIS extends Atlas into on-prem cyber defense for authorized networks, with containment, evidence preservation, and a verified 59 of 62 project evaluation."
   },
+  "/aien": {
+    "title": "AIEN Sovereign Cognitive Architecture | Drake Stapleton",
+    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture operating on dedicated NVIDIA DGX Spark Grace Blackwell silicon."
+  },
   "/evidence": {
     "title": "AI Work Evidence & Sources | Drake Stapleton",
     "description": "Inspect the source record behind Drake Stapleton's AI architecture, software, GPU operations, model work, and research."
