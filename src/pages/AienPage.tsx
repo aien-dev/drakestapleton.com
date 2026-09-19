@@ -51,7 +51,7 @@ const architectureTenets = [
   },
   {
     title: "Sovereign Commons",
-    body: "All seventeen ecosystem repositories reside under the Sovereign Resource Commons License. Commercial enterprises possess full freedom to deploy our tools and improve their software. However, foundation AI labs training models on our work must release the resulting model weights openly rather than locking them behind proprietary paywalls.",
+    body: "All seventeen ecosystem repositories reside under the Sovereign Resource Commons License. Hardware makers and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency and expand bandwidth. However, foundation AI labs training models on our work must release the resulting model weights openly rather than locking them behind artificial token paywalls.",
   },
 ];
 
@@ -84,7 +84,7 @@ export function AienPage() {
         <br />
         <span>your hardware, your memory, your code.</span>
         <br />
-        Every token accounted for.”
+        Permanent local intelligence, zero metered tokens.”
       </blockquote>
 
       <section className="aegis-house" aria-labelledby="aien-triad-heading">
