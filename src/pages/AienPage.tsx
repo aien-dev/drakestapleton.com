@@ -338,7 +338,7 @@ export function AienPage() {
         </div>
 
         <p className="aegis-evaluation-copy">
-          We evaluated the pure Rust continuous batching scheduler and paged unified memory KV manager under concurrent load sweeps up to 256 simultaneous sequence streams on Grace Blackwell hardware. The control plane sustains over 3.1 million scheduling steps and KV slot dispatches per second with sub-microsecond latency, ensuring that scheduling overhead never bottlenecks physical GPU matrix multiplication.
+          We evaluated the pure Rust continuous batching scheduler and paged unified memory KV manager under concurrent load sweeps up to 256 simultaneous sequence streams on Grace Blackwell hardware. The control plane sustains over 3.1 million scheduling steps and KV slot dispatches per second with sub-microsecond latency, ensuring that scheduling overhead remains decoupled from physical GPU matrix multiplication.
         </p>
 
         <div style={{ overflowX: "auto", margin: "24px 0" }}>

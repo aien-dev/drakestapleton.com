@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
 import { BenchmarkSection } from "../components/BenchmarkSection";
 import { InterestForm } from "../components/InterestForm";
-import { ChapterNav, SectionLead } from "../components/PagePrimitives";
+import { SectionLead } from "../components/PagePrimitives";
+import { StickyChapterNav } from "../components/StickyChapterNav";
 import { PRACTICE_HOME_METRICS } from "../data/practice";
 import { usePageMeta } from "../lib/usePageMeta";
 
-const chapters = [
-  { href: "#formation", number: "01", label: "Formation" },
-  { href: "#drive", number: "02", label: "Drive" },
-  { href: "#people", number: "03", label: "People" },
-  { href: "#work", number: "04", label: "Work" },
-  { href: "#software", number: "05", label: "Software" },
-  { href: "#latest", number: "06", label: "Latest" },
-  { href: "#benchmarks", number: "07", label: "Performance" },
-];
 
 const perseverance = [
   {
@@ -77,9 +69,12 @@ export function HomePage() {
     <main className="portrait-page home-page">
       <section className="home-hero page-boundary">
         <div className="hero-copy">
-          <p className="kicker">Drake Stapleton / Freedom Fighter</p>
+          <p className="kicker">
+            <span className="keep-together">Drake Stapleton</span> /{" "}
+            <span className="keep-together">Freedom Fighter</span>
+          </p>
           <h1>
-            I keep finding <span>the strength.</span>
+            <span className="keep-together">I keep finding </span> <span>the strength.</span>
           </h1>
           <blockquote>I am a Freedom Fighter. I turn raw compute into verifiable production work.</blockquote>
           <p className="home-hero-lede">
@@ -102,15 +97,16 @@ export function HomePage() {
         </aside>
       </section>
 
-      <div className="page-boundary">
-        <ChapterNav links={chapters} />
-      </div>
+      <StickyChapterNav />
 
       <section className="manifesto-band">
         <div className="page-boundary manifesto-inner">
           <p className="portrait-index">In my own words</p>
           <blockquote>
-            “I am living as myself. I am claiming my own life and my own purpose. I decide what I can become.”
+            <span className="keep-together">“I am living as myself.</span>{" "}
+            <span className="keep-together">I am claiming my own life</span>{" "}
+            <span className="keep-together">and my own purpose.</span>{" "}
+            <span className="keep-together">I decide what I can become.”</span>
           </blockquote>
           <p>
             I have spent years learning how to see my own life clearly. This site is me{" "}
@@ -215,7 +211,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="life-record" aria-labelledby="life-record-title">
+      <section className="life-record" id="record" aria-labelledby="life-record-title">
         <div className="page-boundary life-record-grid">
           <div className="life-record-number" aria-hidden="true">32</div>
           <div>
@@ -247,7 +243,8 @@ export function HomePage() {
                 <p className="chapter-tag">My Warrior &amp; My Hero</p>
                 <h3>Mom is my absolute warrior and the person I idolize.</h3>
                 <blockquote className="mom-quote">
-                  “When someone claims you are unable to do something, look them in the eye and say: Watch me.”
+                  <span className="keep-together">“When someone claims you are unable to do something,</span>{" "}
+                  <span className="keep-together">look them in the eye and say: Watch me.”</span>
                 </blockquote>
                 <p>
                   Mom has been my warrior, my best friend, and my hero. When my biological father beat
@@ -397,7 +394,10 @@ export function HomePage() {
         <div className="page-boundary software-home-grid">
           <div>
             <p className="portrait-index">05 / Software and AI</p>
-            <h2>I followed the questions into code.</h2>
+            <h2>
+              <span className="keep-together">I followed the questions</span>{" "}
+              <span className="keep-together">into code.</span>
+            </h2>
             <p>
               I began by asking GPT about consciousness. I wrote my way through cosmology, used the same
               questioning in Six Sigma and manufacturing, and learned to orchestrate coding models,
@@ -420,7 +420,10 @@ export function HomePage() {
         <div className="page-boundary latest-work-grid">
           <div>
             <p className="portrait-index">06 / Latest achievement</p>
-            <h2>Atlas is my greatest achievement so far.</h2>
+            <h2>
+              <span className="keep-together">Atlas is my greatest</span>{" "}
+              <span className="keep-together">achievement so far.</span>
+            </h2>
           </div>
           <div>
             <p>
@@ -488,7 +491,11 @@ export function HomePage() {
 
       <section className="home-closing page-boundary" id="identity">
         <p className="portrait-index">Identity</p>
-        <h2>Freedom Fighter. AI Architect. Operator.</h2>
+        <h2>
+          <span className="keep-together">Freedom Fighter.</span>{" "}
+          <span className="keep-together">AI Architect.</span>{" "}
+          <span className="keep-together">Operator.</span>
+        </h2>
         <p>
           I build software and operate AI systems that produce results. My portfolio
           documents 16 months of continuous AI orchestration: managing GPU compute, designing
@@ -498,7 +505,10 @@ export function HomePage() {
         <p>
           This site keeps the record of the systems, evidence, lessons, and person behind the work.
         </p>
-        <blockquote>“The people saved me. Now it's my turn.”</blockquote>
+        <blockquote>
+          <span className="keep-together">“The people saved me.</span>{" "}
+          <span className="keep-together">Now it's my turn.”</span>
+        </blockquote>
         <div className="home-closing-actions">
           <Link to="/interest">Start a conversation</Link>
           <a href="https://github.com/dhgmonkey" rel="me">GitHub</a>
