@@ -5,7 +5,7 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::Instant;
-use tokio::sync::{broadcast, RwLock};
+use tokio::sync::{broadcast, RwLock, Semaphore};
 
 #[derive(Clone)]
 pub struct AppState {
@@ -15,8 +15,9 @@ pub struct AppState {
     pub start_time: Instant,
     pub latest_telemetry: Arc<RwLock<TelemetryPacket>>,
     pub telemetry_tx: broadcast::Sender<TelemetryPacket>,
-    #[allow(dead_code)]
     pub redactor_patterns: Arc<Vec<(Regex, &'static str)>>,
+    pub http_client: reqwest::Client,
+    pub chat_semaphore: Arc<Semaphore>,
 }
 
 fn build_redactor_patterns() -> Vec<(Regex, &'static str)> {
@@ -83,6 +84,13 @@ impl AppState {
 
         let (telemetry_tx, _) = broadcast::channel(64);
         let initial_telemetry = TelemetryPacket::default();
+        let http_client = reqwest::Client::builder()
+            .timeout(std::time::Duration::from_secs(120))
+            .build()
+            .map_err(|e| format!("Failed to build reqwest client: {}", e))?;
+
+        // Maximum 2 concurrent visitor chat requests to protect GPU compute
+        let chat_semaphore = Arc::new(Semaphore::new(2));
 
         Ok(Self {
             routes: Arc::new(routes),
@@ -91,6 +99,16 @@ impl AppState {
             latest_telemetry: Arc::new(RwLock::new(initial_telemetry)),
             telemetry_tx,
             redactor_patterns: Arc::new(build_redactor_patterns()),
+            http_client,
+            chat_semaphore,
         })
+    }
+
+    pub fn redact(&self, input: &str) -> String {
+        let mut result = input.to_string();
+        for (pattern, replacement) in self.redactor_patterns.iter() {
+            result = pattern.replace_all(&result, *replacement).to_string();
+        }
+        result
     }
 }
