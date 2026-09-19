@@ -25,8 +25,8 @@ export const PRACTICE_METRICS = [
   },
   {
     value: "4,701",
-    label: "unique commits",
-    detail: "Distinct commit SHAs across the same 94 project trees.",
+    label: "internal workstation commits",
+    detail: "Distinct commit SHAs across 94 project trees on local workstations and DGX clusters, now distilling into public open source.",
   },
   {
     value: "3,622",
@@ -46,8 +46,8 @@ export const PRACTICE_METRICS = [
 ];
 
 export const PRACTICE_HOME_METRICS = [
-  { value: "4,701", label: "unique commits" },
-  { value: "4.97M", label: "source lines present" },
+  { value: "4,701", label: "internal workstation commits" },
+  { value: "4.97M", label: "source lines across 94 trees" },
   { value: "3,622", label: "retained AI sessions" },
   { value: "79.9M", label: "documented AI I/O tokens" },
 ];

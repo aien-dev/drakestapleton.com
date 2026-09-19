@@ -18,9 +18,10 @@ export function BenchmarkSection() {
             <span className="benchmark-tag">Memory Footprint</span>
             <h3>Resident Set Size (RSS)</h3>
             <p>
-              Native compiled Rust daemons cut memory footprint by over ninety-nine percent.
-              Standard Python agent frameworks consume 3.7 gigabytes while idling, exhausting system resources.
-              AIEN operates in under 5 megabytes, leaving maximum memory available for local neural model weights.
+              Native compiled Rust daemons significantly reduce memory footprint compared to standard Python runtimes.
+              While full-stack Python agent frameworks load PyTorch and LangChain dependencies into 3.7+ gigabytes of RSS,
+              standalone native Rust daemons (openclaw-rs, cortex-rs) operate in under 10 megabytes.
+              Even against a minimal Uvicorn baseline (45 megabytes), native compilation frees substantial RAM on Grace Blackwell GB10 for unified neural weights and paged KV pools.
             </p>
           </div>
 
@@ -30,9 +31,9 @@ export function BenchmarkSection() {
               
               {/* Row 1: Python Full Stack */}
               <text x="20" y="32" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">Python Agent Stack</text>
-              <text x="20" y="46" fill="#bca9c2" fontSize="9" fontFamily="ui-sans-serif, sans-serif">FastAPI + LangChain</text>
+              <text x="20" y="46" fill="#bca9c2" fontSize="9" fontFamily="ui-sans-serif, sans-serif">FastAPI + LangChain + PyTorch</text>
               <rect x="180" y="24" width="220" height="18" rx="3" fill="#d7755d" />
-              <text x="410" y="38" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">3,737 MB <tspan fill="#ffd0c7" fontSize="9">(Baseline)</tspan></text>
+              <text x="410" y="38" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">3,737 MB <tspan fill="#ffd0c7" fontSize="9">(Framework)</tspan></text>
 
               {/* Row 2: ONNX INT8 */}
               <text x="20" y="80" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">cortex-encoder-rs</text>
