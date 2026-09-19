@@ -131,7 +131,7 @@ export function BenchmarkSection() {
         <article className="silicon-highlight-card">
           <strong>100%</strong>
           <h4>Verified Pass Rate</h4>
-          <p>All eighteen repositories pass unit, integration, and invariant checks with zero warnings.</p>
+          <p>All ecosystem repositories pass unit, integration, and invariant checks with zero warnings.</p>
         </article>
       </div>
 

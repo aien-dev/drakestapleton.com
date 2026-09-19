@@ -381,7 +381,7 @@ export function HomePage() {
             <p>
               AIEN expands this foundation into a full sovereign cognitive architecture on dedicated
               Grace Blackwell silicon, with zero disk secrets, native compiled Rust performance, and
-              seventeen open repositories on GitHub.
+              open-source repositories on GitHub.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "20px", margin: "24px 0" }}>
               <img
