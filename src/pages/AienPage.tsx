@@ -46,8 +46,8 @@ const architectureTenets = [
     body: "Core gateways, task dispatchers, memory daemons, and supervisor harnesses run pure compiled Rust and Mojo. Zero interpreter overhead touches the primary hot path.",
   },
   {
-    title: "Dedicated Silicon",
-    body: "The system executes on the NVIDIA DGX Spark workstation powered by Grace Blackwell silicon, driving local Modular MAX neural graph execution.",
+    title: "Hardware Agnostic Silicon",
+    body: "The architecture executes across NVIDIA Grace Blackwell, Apple Silicon MacBooks, standard x86_64 Linux servers, and AMD ROCm accelerators.",
   },
   {
     title: "Sovereign Commons",
@@ -66,14 +66,14 @@ export function AienPage() {
         className="aegis-hero"
       >
         <p>
-          AIEN is the sovereign cognitive architecture operating on the NVIDIA DGX Spark workstation.
+          AIEN is the sovereign cognitive architecture operating across portable silicon.
           It couples pure compiled Rust and Mojo performance with hardware-bound secret protection,
-          bidirectional semantic memory, and local Grace Blackwell model execution.
+          bidirectional semantic memory, and local neural model execution.
         </p>
       </PageIntro>
 
       <div className="aegis-scope-strip" aria-label="AIEN project scope">
-        <span>NVIDIA DGX Spark</span>
+        <span>Universal Hardware</span>
         <span>Hardware TPM Vault</span>
         <span>Compiled Native Rust</span>
         <span>Sovereign Commons</span>
@@ -155,9 +155,10 @@ export function AienPage() {
         </div>
 
         <p className="aegis-evaluation-copy">
-          Replacing interpreter daemons with native Rust binaries reduced runtime footprint by over
-          ninety-nine percent. Axum endpoints deliver sub-four-millisecond response times under concurrent
-          load, while ONNX Runtime executes quantized embeddings on local hardware.
+          Replacing interpreter daemons with native Rust binaries dropped memory footprint from
+          3.7 gigabytes down to under 5 megabytes, keeping system memory free for local LLM weights.
+          Axum endpoints deliver 3.5 millisecond response times under concurrent load, ten times faster
+          than traditional Python frameworks.
         </p>
 
         <div className="aegis-eval-grid" aria-label="AIEN performance benchmarks">
@@ -235,11 +236,11 @@ export function AienPage() {
           </a>
           <a
             className="portrait-link quiet"
-            href="https://github.com/aien-dev/aien-sovereign-core"
+            href="https://github.com/aien-dev/drakestapleton.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View aien-sovereign-core
+            View aien-dev/drakestapleton.com
           </a>
         </div>
       </section>

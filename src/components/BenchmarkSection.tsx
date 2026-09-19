@@ -18,8 +18,9 @@ export function BenchmarkSection() {
             <span className="benchmark-tag">Memory Footprint</span>
             <h3>Resident Set Size (RSS)</h3>
             <p>
-              Native compiled Rust daemons cut memory footprint by over ninety-nine percent compared to
-              interpreted Python runtimes.
+              Native compiled Rust daemons cut memory footprint by over ninety-nine percent.
+              Standard Python agent frameworks consume 3.7 gigabytes while idling, exhausting system resources.
+              AIEN operates in under 5 megabytes, leaving maximum memory available for local neural model weights.
             </p>
           </div>
 
@@ -71,7 +72,8 @@ export function BenchmarkSection() {
             <h3>Latency (p50 TTFB) & Throughput</h3>
             <p>
               Axum microservices deliver sub-four-millisecond response times under concurrent load,
-              sustaining ten times higher request throughput than Python.
+              ten times faster than standard Python servers. Agents search memory, dispatch tools,
+              and complete actions with instant response.
             </p>
           </div>
 
@@ -121,9 +123,9 @@ export function BenchmarkSection() {
         </article>
 
         <article className="silicon-highlight-card">
-          <strong>4.39 ms</strong>
-          <h4>Mojo SIMD Kernel</h4>
-          <p>Compiled Mojo SIMD vector reduction process invocation including parse and serialization.</p>
+          <strong>Multi-Platform</strong>
+          <h4>Universal Hardware Support</h4>
+          <p>Runs across Apple Silicon MacBooks, standard x86_64 Linux servers, AMD ROCm, and NVIDIA hardware.</p>
         </article>
 
         <article className="silicon-highlight-card">
@@ -137,17 +139,27 @@ export function BenchmarkSection() {
         <div>
           <h3>Reproduce the benchmark suite</h3>
           <p>
-            Review the automated harness, raw telemetry data files, and verification scripts on GitHub:
+            Review the automated harness, raw telemetry data files, and website sources on GitHub:
           </p>
         </div>
-        <a
-          href="https://github.com/aien-dev/benchmarks"
-          className="portrait-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View aien-dev/benchmarks
-        </a>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+          <a
+            href="https://github.com/aien-dev/benchmarks"
+            className="portrait-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View aien-dev/benchmarks
+          </a>
+          <a
+            href="https://github.com/aien-dev/drakestapleton.com"
+            className="portrait-link quiet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View aien-dev/drakestapleton.com
+          </a>
+        </div>
       </div>
     </section>
   );

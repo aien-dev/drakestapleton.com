@@ -25,7 +25,7 @@
   },
   "/aien": {
     "title": "AIEN Sovereign Cognitive Architecture | Drake Stapleton",
-    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture operating on dedicated NVIDIA DGX Spark Grace Blackwell silicon."
+    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture portable across Apple Silicon, Linux, and Grace Blackwell silicon."
   },
   "/evidence": {
     "title": "AI Work Evidence & Sources | Drake Stapleton",
