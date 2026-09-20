@@ -42,16 +42,16 @@ const authorityBoundaries = [
     body: "Every automated action targets systems, devices, accounts, and sessions under the operator's authority.",
   },
   {
-    title: "Short allow-list",
-    body: "Automatic containment is limited to tested actions with explicit policy, ownership, rollback, and evidence rules.",
+    title: "Tested actions",
+    body: "Containment relies on pre-cleared, bounded operations: revoke token, isolate host, block IP, terminate session.",
   },
   {
-    title: "Human authority",
-    body: "Ambiguous attribution, broader changes, and activity beyond the authorized edge require a human decision.",
+    title: "Human escalation",
+    body: "Novel attack patterns, uncertain attribution, or production-impacting cuts escalate to human incident responders.",
   },
   {
-    title: "Evidence first",
-    body: "The response record gives the incident team a clear account of what happened.",
+    title: "Forensic preservation",
+    body: "Every observation, decision, and intervention generates a timestamped, signed receipt for forensic review.",
   },
 ];
 
@@ -79,24 +79,25 @@ export function AegisPage() {
       </div>
 
       <blockquote className="aegis-tagline">
-        “Aegis online. I watch the logs.
+        “Authorized perimeter defense:
         <br />
-        <span>You touchy. I knock you out.</span>
+        <span>detect intrusion, contain session, preserve evidence.</span>
         <br />
-        Period.”
+        Decisive policy containment inside the wire.”
       </blockquote>
 
       <section className="aegis-house" aria-labelledby="aegis-house-heading">
-        <p className="portrait-index">The idea</p>
+        <p className="portrait-index">The architecture</p>
         <div>
           <h2 id="aegis-house-heading">The network is the house.</h2>
           <p>
             Data, payroll, source code, models, and trade secrets live behind the same boundary. AEGIS
-            treats that boundary like a house: watch the door, recognize forced entry, remove access, and
-            preserve the record.
+            treats that boundary like a house: watch the door, recognize unauthorized access, isolate sessions, and
+            preserve forensic trails for incident teams.
           </p>
           <p className="aegis-law">
-            “Stand your ground” is the project metaphor. The authorized network defines the ground.
+            Early internal lore summarized the operating posture as &ldquo;You touchy, I knock you out.&rdquo; In production, that
+            means deterministic policy containment: verified allow-lists, session revocation, human escalation gates, and forensic audit preservation.
           </p>
         </div>
       </section>
@@ -214,6 +215,11 @@ export function AegisPage() {
         <p>
           The August 20 adapter and its 59/62 frozen-suite result establish the first AEGIS model milestone.
         </p>
+        <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+          <Link to="/evidence#claim-aegis-adapter-eval" style={{ color: "var(--red)", textDecoration: "underline" }}>
+            Inspect AEGIS frozen evaluation record in the Evidence Hub
+          </Link>
+        </p>
       </section>
 
       <section className="soul-closing aegis-closing">
@@ -223,7 +229,10 @@ export function AegisPage() {
           house.
         </blockquote>
         <div className="portrait-actions">
-          <Link className="portrait-link" to="/interest">
+          <Link className="portrait-link" to="/evidence">
+            Inspect Evidence Hub
+          </Link>
+          <Link className="portrait-link quiet" to="/interest">
             Start a conversation
           </Link>
           <Link className="portrait-link quiet" to="/atlas">

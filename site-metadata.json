@@ -25,11 +25,11 @@
   },
   "/aien": {
     "title": "AIEN Sovereign Cognitive Architecture | Drake Stapleton",
-    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture portable across Apple Silicon, Linux, and Grace Blackwell silicon."
+    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture verified on Grace Blackwell silicon with multi-platform runtime targets."
   },
   "/evidence": {
-    "title": "AI Work Evidence & Sources | Drake Stapleton",
-    "description": "Inspect the source record behind Drake Stapleton's AI architecture, software, GPU operations, model work, and research."
+    "title": "Canonical Evidence Hub & Verified Claims | Drake Stapleton",
+    "description": "Inspect the canonical evidence hub, structured claims index, physical Grace Blackwell silicon telemetry, and historical audit packages."
   },
   "/what-i-learned": {
     "title": "What I Learned | Drake Stapleton",
@@ -57,6 +57,6 @@
   },
   "/research": {
     "title": "LLM Inference Research & Architecture | Drake Stapleton",
-    "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Sub-Microsecond Paged KV Cache, and Grace Blackwell Telemetry."
+    "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Paged Unified Memory KV Cache, and Grace Blackwell Telemetry."
   }
 }
