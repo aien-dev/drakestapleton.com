@@ -47,7 +47,7 @@ const lifeRecord = [
 const inheritances = [
   ["Mom", "is my absolute warrior, my hero, and my idol. She fought for us, pushed through every trial, returned to school in her forties, and crossed her graduation stage eight days before I crossed mine."],
   ["Granny and Papa", "gave us land, food, roots, and a humble home on the farm. They showed me that a life grows larger through what it gives away."],
-  ["Dad", "was a carpenter, gave me the Ballentine name, put farm work in my hands, taught me to be useful, and showed me that love can choose a family."],
+  ["Dad (Russell Ballentine)", "married Mom after she brought us to safety, put farm work in my hands, adopted my brother and me, and showed me that love can choose a family."],
   ["The people who found me", "taught me that gratitude moves forward. You turn around and reach for someone else."],
 ];
 
@@ -249,8 +249,8 @@ export function HomePage() {
                 <p>
                   Mom has been my warrior, my best friend, and my hero. When my biological father beat
                   my mother and me, Mom fought with every ounce of strength she had to protect my brother
-                  and me, break away from the abuse, and lead us to safety. Dad took us in as his own and
-                  adopted both of us, but Mom stood in the fire first.
+                  and me, break away from the abuse, and lead us to safety. She later married Russell Ballentine,
+                  who took us in as his own sons and became the dad who raised us. But Mom stood in the fire first.
                 </p>
                 <p>
                   I idolize her and want to be just like her. She was strong through every trial, and she remains
@@ -308,8 +308,7 @@ export function HomePage() {
               for that responsibility.
             </p>
             <p>
-              My stepdad adopted my brother and me and became our dad. He chose us, on paper and in every other
-              way. I also had Mom beside me through the hardest parts of growing up. Devin and I wanted to offer
+              Russell adopted my brother and me and became our dad in every way that mattered. He chose us, on paper and in daily life. I also had Mom beside me through the hardest parts of growing up. Devin and I wanted to offer
               that same presence to young people carrying more uncertainty. When COVID closed the world down,
               the placements ended. The love and the grief both stayed with us.
             </p>
@@ -318,13 +317,17 @@ export function HomePage() {
             <p className="chapter-tag">Ballentine Day / December 3, 2007</p>
             <h3>Dad keeps meeting me at the next door.</h3>
             <p>
-              Dad made official what he had already lived: he adopted my brother and me. Our family calls
-              that date Ballentine Day. I became Michael Drake Ballentine and carried Dad's name for eleven
-              years. When Devin and I married in 2018, I became Michael Drake Stapleton. Ballentine marks the
-              father who chose me. Stapleton marks the life Devin and I chose together.
+              Russell Ballentine made official what he had already lived: he adopted my brother and me. Our family
+              calls that date Ballentine Day. I became Michael Drake Ballentine and carried Dad's name for eleven
+              years. When Devin and I married in 2018, I became Michael Drake Stapleton. Ballentine marks the dad
+              who chose me. Stapleton marks the life Devin and I chose together.
             </p>
             <p>
-              I remember standing in that courtroom in 2007. The judge asked me why I wanted the name change. I told him: "I requested a distinct middle name from my biological father, and wanted to correct the spelling of my first name." He chuckled and said, "Well that's a good enough reason for me. Granted." It was the best day of my life. I was thirteen and took the name 'Drake' for myself.
+              I remember standing in that courtroom in 2007, leaving behind the man who had hurt us and taking
+              Dad's name. The judge asked me why I wanted the name change. I told him: "I requested a distinct middle
+              name to establish a clean boundary from my biological father, and wanted to correct the spelling of
+              my first name." He chuckled and said, "Well that's a good enough reason for me. Granted." It was the
+              best day of my life. I was thirteen, taking Russell's family name and claiming 'Drake' for myself.
             </p>
             <p>
               Dad put farm work in my hands and taught me to be useful. He showed me that love can choose a
