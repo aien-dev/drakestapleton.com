@@ -37,7 +37,7 @@ Google Ads and Google Tag telemetry track inbound campaigns and outbound reposit
 
 - Outbound repository clicks (`repo_outbound_click`) capture developer interest on GitHub destinations.
 - Form submissions on `/interest` fire conversation lead conversion events (`conversion`, `generate_lead`).
-- Content Security Policy headers whitelist Google Tag Manager, Google Analytics, and Google Ads beacon endpoints.
+- Content Security Policy headers whitelist Google Tag Manager, Google Analytics, and Google Ads telemetry endpoints.
 - Build injection via `GOOGLE_ADS_ID` or `VITE_GOOGLE_ADS_ID` activates production script loading. When omitted, an in-memory queue prevents runtime client errors.
 - Comprehensive campaign structures, search ad groups, negative keywords, and UTM conventions reside in [ops/GOOGLE_ADS_ACQUISITION.md](ops/GOOGLE_ADS_ACQUISITION.md).
 
