@@ -1,3 +1,4 @@
+import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
 import { BenchmarkSection } from "../components/BenchmarkSection";
 import { InterestForm } from "../components/InterestForm";
@@ -47,7 +48,7 @@ const lifeRecord = [
 const inheritances = [
   ["Mom", "is my absolute warrior, my hero, and my idol. She fought for us, pushed through every trial, returned to school in her forties, and crossed her graduation stage eight days before I crossed mine."],
   ["Granny and Papa", "gave us land, food, roots, and a humble home on the farm. They showed me that a life grows larger through what it gives away."],
-  ["Dad (Russell Ballentine)", "married Mom after she brought us to safety, put farm work in my hands, adopted my brother and me, and showed me that love can choose a family."],
+  ["Dad (Russell Ballentine)", "welcomed my brother and me after Mom brought us to safety, put farm work in my hands, adopted us, and showed me that love can choose a family."],
   ["The people who found me", "taught me that gratitude moves forward. You turn around and reach for someone else."],
 ];
 
@@ -249,8 +250,8 @@ export function HomePage() {
                 <p>
                   Mom has been my warrior, my best friend, and my hero. When my biological father beat
                   my mother and me, Mom fought with every ounce of strength she had to protect my brother
-                  and me, break away from the abuse, and lead us to safety. She later married Russell Ballentine,
-                  who took us in as his own sons and became the dad who raised us. But Mom stood in the fire first.
+                  and me, break away from the abuse, and lead us to safety. Russell took us in as his own,
+                  adopted both of us, and gave us the security of a real father, but Mom stood in the fire first.
                 </p>
                 <p>
                   I idolize her and want to be just like her. She was strong through every trial, and she remains
@@ -301,14 +302,22 @@ export function HomePage() {
             <p className="chapter-tag">The home Devin and I opened</p>
             <h3>We opened our home to young people who needed steady adults.</h3>
             <p>
-              I was 24 and Devin was 22, still kids ourselves, when we married in October 2018. By December,
-              before our first Christmas as husbands, our first foster placement was home with us. From
-              December 2018 until COVID made us stop in spring 2020, we cared for six foster children. All
-              six were Level 5 placements, young people the system struggled to place with families prepared
-              for that responsibility.
+              I was 24 and Devin was 22, still young ourselves, when we married in October 2018. By December,
+              before our first Christmas as husbands, our first placement arrived. From December 2018 until
+              COVID closed placements down in spring 2020, we cared for six foster children. All six were Level 5
+              placements: young people carrying severe trauma, whom the state system struggled to place with families
+              prepared for the weight of that care.
             </p>
             <p>
-              Russell adopted my brother and me and became our dad in every way that mattered. He chose us, on paper and in daily life. I also had Mom beside me through the hardest parts of growing up. Devin and I wanted to offer
+              The work was tender, exhausting, and real. When our first two girls arrived, we spent our first
+              evenings together sitting patiently on the floor, gently combing and picking lice out of their hair,
+              washing clean clothes, and proving through quiet consistency that our home was safe. We took them
+              to the park, watched them run toward the playground fire truck, and watched fear give way to real
+              laughter. They were allowed to be children again.
+            </p>
+            <p>
+              My stepdad adopted my brother and me and became our dad. He chose us, on paper and in every other
+              way. I also had Mom beside me through the hardest parts of growing up. Devin and I wanted to offer
               that same presence to young people carrying more uncertainty. When COVID closed the world down,
               the placements ended. The love and the grief both stayed with us.
             </p>
@@ -317,23 +326,26 @@ export function HomePage() {
             <p className="chapter-tag">Ballentine Day / December 3, 2007</p>
             <h3>Dad keeps meeting me at the next door.</h3>
             <p>
-              Russell Ballentine made official what he had already lived: he adopted my brother and me. Our family
-              calls that date Ballentine Day. I became Michael Drake Ballentine and carried Dad's name for eleven
-              years. When Devin and I married in 2018, I became Michael Drake Stapleton. Ballentine marks the dad
-              who chose me. Stapleton marks the life Devin and I chose together.
+              My dad was Russell Ballentine. Mom married him after getting us away from the violence
+              we had survived, and Russell welcomed my brother and me with an open heart. On December 3,
+              2007, he made official what he had already lived every day: he adopted both of us as his own
+              sons. Our family calls that date Ballentine Day. I carried Dad's name with pride for eleven
+              years as Michael Drake Ballentine. When Devin and I married in 2018, I became Michael Drake
+              Stapleton. Ballentine marks the dad who chose me. Stapleton marks the life Devin and I chose
+              together.
             </p>
             <p>
-              I remember standing in that courtroom in 2007, leaving behind the man who had hurt us and taking
-              Dad's name. The judge asked me why I wanted the name change. I told him: "I requested a distinct middle
-              name to establish a clean boundary from my biological father, and wanted to correct the spelling of
-              my first name." He chuckled and said, "Well that's a good enough reason for me. Granted." It was the
-              best day of my life. I was thirteen, taking Russell's family name and claiming 'Drake' for myself.
+              Standing in that courtroom at thirteen, leaving my biological father's shadow behind, felt like
+              stepping into the light. The judge asked why I wanted the name change. I told him I wanted
+              Dad's family name, wanted to correct the spelling of my first name, and chose 'Drake' as a distinct
+              name of my own. The judge smiled, chuckled, and said, "Well that's a good enough reason for me.
+              Granted." It was the best day of my life.
             </p>
             <p>
-              Dad put farm work in my hands and taught me to be useful. He showed me that love can choose a
-              family. He was a preacher, and he left handwritten sermons and years of thought behind. Those
-              pages still ask something of me. I built Atlas around memory, truth, dignity, and the questions
-              I still carry.
+              Dad put farm work in my hands and taught me to be useful. He showed me that fatherhood is an act
+              of devotion: a man choosing to stand up for children and give them roots. He was a carpenter and
+              a preacher, leaving handwritten sermons and notebooks of quiet wisdom behind. Those pages still
+              speak to me. I built Atlas around memory, truth, dignity, and the questions he taught me to ask.
             </p>
             <p>
               Devin and Dad share a February 13 birthday. On that date in 2024, I received the offer
@@ -514,7 +526,7 @@ export function HomePage() {
         </blockquote>
         <div className="home-closing-actions">
           <Link to="/interest">Start a conversation</Link>
-          <a href="https://github.com/dhgmonkey" rel="me">GitHub</a>
+          <a href="https://github.com/dhgmonkey" rel="me" onClick={() => trackRepoOutbound("dhgmonkey", "https://github.com/dhgmonkey")}>GitHub</a>
         </div>
       </section>
       <p className="ai-transparency" style={{textAlign: 'center', marginTop: '40px', color: 'var(--muted)', fontSize: '12px'}}>
