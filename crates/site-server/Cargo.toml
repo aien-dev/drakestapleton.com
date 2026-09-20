@@ -14,4 +14,4 @@ reqwest = { version = "0.13.5", features = ["json", "stream"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.53.1", features = ["full"] }
-tower-http = { version = "0.7.1", features = ["fs", "cors"] }
+tower-http = { version = "0.7.1", features = ["fs", "cors", "compression-gzip", "compression-br"] }

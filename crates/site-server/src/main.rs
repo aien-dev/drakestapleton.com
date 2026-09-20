@@ -7,6 +7,7 @@ use axum::{routing::{get, post}, Router};
 use std::net::SocketAddr;
 use std::path::Path;
 use std::time::Duration;
+use tower_http::compression::CompressionLayer;
 use tower_http::cors::{Any, CorsLayer};
 use tower_http::services::ServeDir;
 
@@ -39,7 +40,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("[INIT] Cached {} static routes in Spark RAM.", state.routes.len());
 
-    // Background Telemetry Task: samples hardware and broadcasts to SSE clients
     let telemetry_state = state.clone();
     tokio::spawn(async move {
         let mut interval = tokio::time::interval(Duration::from_secs(2));
@@ -52,13 +52,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 &latest_milestone,
             );
 
-            // Update in-memory snapshot
             {
                 let mut lock = telemetry_state.latest_telemetry.write().await;
                 *lock = packet.clone();
             }
 
-            // Broadcast to active SSE subscribers (ignore error if zero listeners)
             let _ = telemetry_state.telemetry_tx.send(packet);
         }
     });
@@ -81,6 +79,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .nest_service("/images", ServeDir::new(images_dir))
         .nest_service("/js", ServeDir::new(public_js_dir))
         .fallback(routes::pages::serve_page)
+        .layer(CompressionLayer::new())
         .layer(cors)
         .with_state(state);
 

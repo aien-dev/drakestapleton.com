@@ -1,4 +1,5 @@
 use crate::telemetry::TelemetryPacket;
+use axum::body::Bytes;
 use regex::Regex;
 use std::collections::HashMap;
 use std::fs;
@@ -9,7 +10,7 @@ use tokio::sync::{broadcast, RwLock, Semaphore};
 
 #[derive(Clone)]
 pub struct AppState {
-    pub routes: Arc<HashMap<String, String>>,
+    pub routes: Arc<HashMap<String, Bytes>>,
     #[allow(dead_code)]
     pub static_dir: PathBuf,
     pub start_time: Instant,
@@ -24,8 +25,8 @@ fn build_redactor_patterns() -> Vec<(Regex, &'static str)> {
     vec![
         (Regex::new(r"-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----").unwrap(), "[REDACTED_PRIVATE_KEY]"),
         (Regex::new(r"\b(ey[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,})\b").unwrap(), "[REDACTED_JWT_TOKEN]"),
-        (Regex::new(r"(?i)\b(bearer\s+)([a-zA-Z0-9_\-\.]{12,})").unwrap(), "$1[REDACTED_BEARER_TOKEN]"),
-        (Regex::new(r"(?i)(api[_-]?key|secret|password|passwd|token)\s*[:=]\s*([^\s,;]{8,})").unwrap(), "$1=[REDACTED_SECRET]"),
+        (Regex::new(r"(?i)\b(bearer\s+)([a-zA-Z0-9_\-\.]{12,})").unwrap(), "[REDACTED_BEARER_TOKEN]"),
+        (Regex::new(r"(?i)(api[_-]?key|secret|password|passwd|token)\s*[:=]\s*([^\s,;]{8,})").unwrap(), "=[REDACTED_SECRET]"),
         (Regex::new(r"\b(sk-[a-zA-Z0-9_-]{20,})\b").unwrap(), "[REDACTED_OPENAI_KEY]"),
         (Regex::new(r"\b(sk-ant-[a-zA-Z0-9_-]{20,})\b").unwrap(), "[REDACTED_ANTHROPIC_KEY]"),
         (Regex::new(r"\b(hf_[a-zA-Z0-9]{20,})\b").unwrap(), "[REDACTED_HUGGINGFACE_TOKEN]"),
@@ -79,7 +80,7 @@ impl AppState {
                 raw
             };
 
-            routes.insert(route.to_string(), injected);
+            routes.insert(route.to_string(), Bytes::from(injected));
         }
 
         let (telemetry_tx, _) = broadcast::channel(64);
