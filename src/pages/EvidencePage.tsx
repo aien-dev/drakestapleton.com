@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
-import { CLAIMS, EVIDENCE_CLASS_DEFINITIONS, ClaimRecord } from "../data/claims";
+import { CLAIMS, EVIDENCE_CLASS_DEFINITIONS } from "../data/claims";
 import { AUDIT_SCOPE, NEXT_SOURCES, VERIFIED_FINDINGS } from "../data/historyAudit";
 import { usePageMeta } from "../lib/usePageMeta";
 
