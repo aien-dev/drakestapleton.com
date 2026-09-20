@@ -15,8 +15,6 @@ const scripts = readdirSync("dist/assets")
   .join("\n");
 const requiredPages = [
   "404.html",
-  "projects/index.html",
-  "life/index.html",
   "aegis/index.html",
   "aien/index.html",
   "research/index.html",
@@ -70,14 +68,6 @@ if (mode === "waitlist") {
   const research = readFileSync("dist/research/index.html", "utf8");
   assert(research.includes("LLM Inference Research & Architecture"), "Research static metadata is missing");
   assert(research.includes("https://www.drakestapleton.com/research"), "Research canonical URL is missing");
-  const projects = readFileSync("dist/projects/index.html", "utf8");
-  assert(projects.includes("Sovereign Systems: Atlas, AEGIS, and AIEN"), "Projects static metadata is missing");
-  assert(projects.includes("https://www.drakestapleton.com/projects"), "Projects canonical URL is missing");
-  const life = readFileSync("dist/life/index.html", "utf8");
-  assert(life.includes("Life Record, Family & Personal Journey"), "Life static metadata is missing");
-  assert(life.includes("https://www.drakestapleton.com/life"), "Life canonical URL is missing");
-  const about = readFileSync("dist/about/index.html", "utf8");
-  assert(about.includes("noindex, follow"), "about is indexable");
   assert(scripts.includes("59/62"), "AEGIS evaluation result is missing from the portfolio bundle");
   assert(!scripts.includes("Discuss a partnership"), "Sales language remains in the portfolio bundle");
   assert(!scripts.includes("License AEGIS"), "AEGIS sales language remains in the portfolio bundle");

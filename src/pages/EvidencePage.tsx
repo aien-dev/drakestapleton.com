@@ -1,54 +1,32 @@
-import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
-import {
-  SITE_CLAIMS,
-  EVIDENCE_CLASS_DEFINITIONS,
-  type ClaimRecord,
-  type EvidenceClass,
-} from "../data/claims";
-import { AUDIT_SCOPE, NEXT_SOURCES } from "../data/historyAudit";
+import { AUDIT_SCOPE, EVIDENCE_CLASSES, NEXT_SOURCES, VERIFIED_FINDINGS } from "../data/historyAudit";
 import { usePageMeta } from "../lib/usePageMeta";
 
 export function EvidencePage() {
   usePageMeta("/evidence");
 
-  const [selectedClass, setSelectedClass] = useState<string>("ALL");
-  const [selectedCategory, setSelectedCategory] = useState<string>("ALL");
-
-  const categories = useMemo(() => {
-    const set = new Set<string>();
-    SITE_CLAIMS.forEach((c) => set.add(c.category));
-    return ["ALL", ...Array.from(set).sort()];
-  }, []);
-
-  const evidenceClasses = useMemo(() => {
-    return ["ALL", ...Object.keys(EVIDENCE_CLASS_DEFINITIONS)];
-  }, []);
-
-  const filteredClaims = useMemo(() => {
-    return SITE_CLAIMS.filter((claim) => {
-      const matchClass = selectedClass === "ALL" || claim.evidenceClass === selectedClass;
-      const matchCat = selectedCategory === "ALL" || claim.category === selectedCategory;
-      return matchClass && matchCat;
-    });
-  }, [selectedClass, selectedCategory]);
-
   return (
     <main className="wrap portrait-wrap evidence-page">
-      <PageIntro
-        eyebrow="Canonical Trust Hub / Documented Record"
-        title="The documented record."
-        className="path-header evidence-header"
-      >
+      <PageIntro eyebrow="Forensic history audit / current record" title="The documented record." className="path-header evidence-header">
         <p>
-          Every technical metric, industrial cost savings, scientific publication, and personal milestone
-          across this site is cataloged here as a structured record. We distinguish public physical
-          reproductions from internal corporate audit records and personal historical archives.
+          This page organizes verified work, reconstructed history, direct project sessions, and the
+          sources that will make the record fuller.
         </p>
       </PageIntro>
 
-      {/* Forensic History Audit Telemetry */}
+      <section className="audit-status" aria-labelledby="audit-status-title">
+        <div>
+          <p className="portrait-index">Current scope</p>
+          <h2 id="audit-status-title">The current audit covers a defined source set.</h2>
+        </div>
+        <p>
+          The complete nine-file audit package is part of this record. It reports 33 project records, 168
+          evidence claims, 88 dated events, and 180 retrieved merged pull requests. The original ChatGPT
+          export is the next source for an account-wide conversation history.
+        </p>
+      </section>
+
       <section className="audit-metrics" aria-label="Audit scope">
         {AUDIT_SCOPE.map((metric) => (
           <div className="audit-metric" key={metric.label}>
@@ -58,151 +36,39 @@ export function EvidencePage() {
         ))}
       </section>
 
-      {/* Evidence Classes Hierarchy */}
       <section className="evidence-section" aria-labelledby="classes-title">
-        <p className="portrait-index">Verification Hierarchy</p>
-        <h2 id="classes-title">Six Defined Evidence Classes</h2>
-        <p className="evidence-classes-note">
-          Different assertions carry different levels of independent verification. Public reproductions
-          provide one-command physical validation on target hardware, whereas private records reflect
-          internal corporate ledgers or personal documentation.
-        </p>
-
+        <p className="portrait-index">Evidence classes</p>
+        <h2 id="classes-title">Four different kinds of evidence.</h2>
         <div className="evidence-class-grid">
-          {(Object.entries(EVIDENCE_CLASS_DEFINITIONS) as [EvidenceClass, { description: string; verificationLevel: string }][]).map(
-            ([cls, details]) => (
-              <article className="evidence-class" key={cls}>
-                <span className="evidence-class-pill">{cls}</span>
-                <h3>{details.verificationLevel}</h3>
-                <p>{details.description}</p>
-              </article>
-            )
-          )}
-        </div>
-      </section>
-
-      {/* Filter Bar */}
-      <section className="claims-directory-section" aria-labelledby="claims-title">
-        <div className="section-lead">
-          <p className="portrait-index">Structured Claims Catalog</p>
-          <div>
-            <h2 id="claims-title">Canonical Claims Database</h2>
-            <p>
-              Inspect individual assertions, evidence categories, verification dates, source links,
-              and reproduction commands.
-            </p>
-          </div>
-        </div>
-
-        <div className="claims-filter-bar">
-          <div className="filter-group">
-            <label htmlFor="category-filter">Category:</label>
-            <select
-              id="category-filter"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="claims-select"
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat === "ALL" ? "All Categories" : cat}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <label htmlFor="class-filter">Evidence Class:</label>
-            <select
-              id="class-filter"
-              value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
-              className="claims-select"
-            >
-              {evidenceClasses.map((cls) => (
-                <option key={cls} value={cls}>
-                  {cls === "ALL" ? "All Evidence Classes" : cls}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="claims-count-badge">
-            Showing {filteredClaims.length} of {SITE_CLAIMS.length} claims
-          </div>
-        </div>
-
-        {/* Claims Cards */}
-        <div className="claims-list">
-          {filteredClaims.map((claim: ClaimRecord) => (
-            <article className="claim-record-card" id={claim.id} key={claim.id}>
-              <div className="claim-card-top">
-                <div className="claim-id-row">
-                  <a href={`#${claim.id}`} className="claim-id-anchor">
-                    #{claim.id}
-                  </a>
-                  <span className="claim-category-tag">{claim.category}</span>
-                  <span className={`claim-class-tag class-${claim.evidenceClass.toLowerCase().replace(/\s+/g, "-")}`}>
-                    {claim.evidenceClass}
-                  </span>
-                </div>
-                <span className="claim-period">{claim.period}</span>
-              </div>
-
-              <h3 className="claim-short-title">{claim.shortClaim}</h3>
-              <p className="claim-full-wording">{claim.fullWording}</p>
-
-              <div className="claim-metadata-grid">
-                <div>
-                  <strong>Status &amp; Verification</strong>
-                  <p>{claim.status}</p>
-                </div>
-                <div>
-                  <strong>Verification Date</strong>
-                  <p>{claim.verificationDate}</p>
-                </div>
-              </div>
-
-              {(claim.sourceUrl || claim.repoPath || claim.reproduction) && (
-                <div className="claim-verification-details">
-                  {claim.sourceUrl && (
-                    <div className="claim-detail-row">
-                      <span className="detail-label">Source URL:</span>
-                      <a
-                        href={claim.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="detail-link"
-                      >
-                        {claim.sourceUrl}
-                      </a>
-                    </div>
-                  )}
-
-                  {claim.repoPath && (
-                    <div className="claim-detail-row">
-                      <span className="detail-label">Repository Path:</span>
-                      <code>{claim.repoPath}</code>
-                    </div>
-                  )}
-
-                  {claim.reproduction && (
-                    <div className="claim-detail-row reproduction-row">
-                      <span className="detail-label">Reproduction Command:</span>
-                      <code>{claim.reproduction}</code>
-                    </div>
-                  )}
-                </div>
-              )}
+          {EVIDENCE_CLASSES.map((item) => (
+            <article className="evidence-class" key={item.title}>
+              <p className="evidence-status">{item.status}</p>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Next Sources Section */}
+      <section className="evidence-section" aria-labelledby="findings-title">
+        <p className="portrait-index">Strongest current findings</p>
+        <h2 id="findings-title">Findings supported by the current record.</h2>
+        <div className="finding-list">
+          {VERIFIED_FINDINGS.map((finding, index) => (
+            <article className="finding" key={finding.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3>{finding.title}</h3>
+                <p>{finding.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="evidence-section audit-gaps" aria-labelledby="gaps-title">
-        <p className="portrait-index">Ongoing Telemetry</p>
-        <h2 id="gaps-title">Planned Additions to the Archive</h2>
+        <p className="portrait-index">Next sources</p>
+        <h2 id="gaps-title">What comes next.</h2>
         <ul>
           {NEXT_SOURCES.map((gap) => (
             <li key={gap}>{gap}</li>
@@ -210,23 +76,19 @@ export function EvidencePage() {
         </ul>
       </section>
 
-      {/* Closing Actions */}
       <section className="portrait-closing compact">
-        <p className="portrait-index">Verification Navigation</p>
-        <h2>Grounding Every Decision in Proof.</h2>
+        <p className="portrait-index">How I use this audit</p>
+        <h2>The record grows source by source.</h2>
         <p>
-          All systems, industrial savings, and benchmarks reference verifiable records.
-          Select a system to explore the architectural implementation.
+          The audit documents systems I built, operated, and repaired alongside my leadership work. Every
+          source is cataloged by evidence class.
         </p>
         <div className="portrait-actions">
-          <Link className="portrait-link" to="/projects">
-            Explore Sovereign Projects
-          </Link>
-          <Link className="portrait-link" to="/research">
-            Read Inference Paper
+          <Link className="portrait-link" to="/">
+            Return to the human story
           </Link>
           <Link className="portrait-link quiet" to="/path">
-            Career Journey
+            Follow the path
           </Link>
         </div>
       </section>

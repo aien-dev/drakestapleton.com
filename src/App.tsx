@@ -7,15 +7,13 @@ import { EvidencePage } from "./pages/EvidencePage";
 import { FirstRunPage } from "./pages/FirstRunPage";
 import { HomePage } from "./pages/HomePage";
 import { InterestPage } from "./pages/InterestPage";
-import { LifePage } from "./pages/LifePage";
 import { MapPage } from "./pages/MapPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { PathPage } from "./pages/PathPage";
-import { ProjectsPage } from "./pages/ProjectsPage";
-import { ResearchPage } from "./pages/ResearchPage";
 import { SoftwarePage } from "./pages/SoftwarePage";
 import { SymphonyPage } from "./pages/SymphonyPage";
 import { WhatILearnedPage } from "./pages/WhatILearnedPage";
+import { ResearchPage } from "./pages/ResearchPage";
 import { WorkflowPage } from "./pages/WorkflowPage";
 
 function Portfolio() {
@@ -23,9 +21,6 @@ function Portfolio() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/life" element={<LifePage />} />
-        <Route path="/about" element={<LifePage />} />
         <Route path="/interest" element={<InterestPage />} />
         <Route path="/atlas" element={<AtlasPage />} />
         <Route path="/aegis" element={<AegisPage />} />
