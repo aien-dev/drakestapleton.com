@@ -1,3 +1,4 @@
+import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
 import { usePageMeta } from "../lib/usePageMeta";
@@ -462,6 +463,7 @@ export function AienPage() {
             href="https://github.com/aien-dev"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackRepoOutbound("aien-dev", "https://github.com/aien-dev")}
           >
             Visit github.com/aien-dev
           </a>
@@ -470,6 +472,7 @@ export function AienPage() {
             href="https://github.com/aien-dev/benchmarks"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackRepoOutbound("benchmarks", "https://github.com/aien-dev/benchmarks")}
           >
             View aien-dev/benchmarks
           </a>
@@ -478,6 +481,7 @@ export function AienPage() {
             href="https://github.com/aien-dev/drakestapleton.com"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackRepoOutbound("drakestapleton.com", "https://github.com/aien-dev/drakestapleton.com")}
           >
             View aien-dev/drakestapleton.com
           </a>

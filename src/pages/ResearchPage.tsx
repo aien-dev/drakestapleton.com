@@ -1,3 +1,4 @@
+import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
 import { PageIntro, SectionLead } from "../components/PagePrimitives";
 import { usePageMeta } from "../lib/usePageMeta";
@@ -465,6 +466,7 @@ export function ResearchPage() {
             rel="noopener noreferrer"
             className="aegis-action-primary"
             style={{ textDecoration: "none" }}
+            onClick={() => trackRepoOutbound("aien-sovereign-core", "https://github.com/aien-dev/aien-sovereign-core")}
           >
             Inspect Core Crate Code
           </a>
@@ -474,6 +476,7 @@ export function ResearchPage() {
             rel="noopener noreferrer"
             className="aegis-action-secondary"
             style={{ textDecoration: "none" }}
+            onClick={() => trackRepoOutbound("benchmarks", "https://github.com/aien-dev/benchmarks")}
           >
             Reproduce Live Benchmarks
           </a>

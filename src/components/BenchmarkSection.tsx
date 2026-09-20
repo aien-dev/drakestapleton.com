@@ -1,3 +1,4 @@
+import { trackRepoOutbound } from "../lib/tracking";
 export function BenchmarkSection() {
   return (
     <section className="benchmarks-section page-boundary" id="benchmarks" aria-labelledby="benchmarks-heading">
@@ -149,6 +150,7 @@ export function BenchmarkSection() {
             className="portrait-link"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackRepoOutbound("benchmarks", "https://github.com/aien-dev/benchmarks")}
           >
             View aien-dev/benchmarks
           </a>
@@ -157,6 +159,7 @@ export function BenchmarkSection() {
             className="portrait-link quiet"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackRepoOutbound("drakestapleton.com", "https://github.com/aien-dev/drakestapleton.com")}
           >
             View aien-dev/drakestapleton.com
           </a>
