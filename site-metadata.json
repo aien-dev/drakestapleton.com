@@ -1,7 +1,19 @@
 {
   "/": {
-    "title": "Drake Stapleton | Freedom Fighter, AI Architect & Operator",
-    "description": "The personal project record of Drake Stapleton, Freedom Fighter, AI Architect & Operator: model training, research, Atlas, and what our generation can build with AI."
+    "title": "Drake Stapleton | AI Architect, Systems Builder & Operator",
+    "description": "AI architect, systems builder, scientist, and product engineer building accountable local AI systems on dedicated silicon. Explore sovereign systems, empirical benchmarks, and career records."
+  },
+  "/projects": {
+    "title": "Sovereign Systems: Atlas, AEGIS, and AIEN | Drake Stapleton",
+    "description": "Explore the sovereign systems family built by Drake Stapleton: Atlas continuity soul, AEGIS perimeter defense, and AIEN compiled runtime on dedicated silicon."
+  },
+  "/life": {
+    "title": "Life Record, Family & Personal Journey | Drake Stapleton",
+    "description": "The personal journey, family history, foster care service, and foundational values of Drake Stapleton: from Tennessee roots to graduate chemistry and autonomous systems."
+  },
+  "/about": {
+    "title": "Life Record, Family & Personal Journey | Drake Stapleton",
+    "description": "The personal journey, family history, foster care service, and foundational values of Drake Stapleton: from Tennessee roots to graduate chemistry and autonomous systems."
   },
   "/interest": {
     "title": "Start a Conversation | Drake Stapleton",
@@ -25,11 +37,11 @@
   },
   "/aien": {
     "title": "AIEN Sovereign Cognitive Architecture | Drake Stapleton",
-    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture portable across Apple Silicon, Linux, and Grace Blackwell silicon."
+    "description": "AIEN is Drake Stapleton's compiled, TPM-vaulted sovereign cognitive architecture running native Rust and Mojo across portable dedicated silicon."
   },
   "/evidence": {
-    "title": "AI Work Evidence & Sources | Drake Stapleton",
-    "description": "Inspect the source record behind Drake Stapleton's AI architecture, software, GPU operations, model work, and research."
+    "title": "Canonical Trust Hub & Claims Catalog | Drake Stapleton",
+    "description": "Inspect the canonical evidence catalog, structured claim records, verified benchmarks, and reproduction instructions behind Drake Stapleton's systems."
   },
   "/what-i-learned": {
     "title": "What I Learned | Drake Stapleton",
