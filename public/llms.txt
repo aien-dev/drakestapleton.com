@@ -1,24 +1,18 @@
 # Drake Stapleton
-> AI Architect & Operator · Freedom Fighter. A personal record of projects, research, and the journey behind the work. Open to good conversation and research collaborations that advance accountable AI on dedicated silicon.
+> Freedom Fighter, AI Architect & Operator. A personal record of projects, research, and the life behind the work. Open to good conversation and research partnerships that advance what our generation can build with AI.
 
-Drake Stapleton documents sovereign systems architecture, native inference runtimes, hardware TPM key vault protection, industrial manufacturing engineering, and the Atlas continuity program.
+Drake Stapleton documents production orchestration, GPU systems, model training, community work, and Atlas.
 
 ## Pages
-- [Home](https://www.drakestapleton.com/): overview, proof strip, and systems summary
-- [Projects](https://www.drakestapleton.com/projects): the sovereign systems family (Atlas, AEGIS, AIEN)
-- [Research](https://www.drakestapleton.com/research): LLM inference research paper and telemetry on Grace Blackwell
-- [Life](https://www.drakestapleton.com/life): personal journey, family history, foster care service, and foundational values
-- [Evidence Hub](https://www.drakestapleton.com/evidence): canonical claims database, verification levels, and reproduction commands
-- [Career Path](https://www.drakestapleton.com/path): chemist to manufacturing engineer to AI Architect
-- [Software](https://www.drakestapleton.com/software): systems architecture and software engineering record
-- [Atlas](https://www.drakestapleton.com/atlas): personal accountable AI research and continuous record
-- [AEGIS](https://www.drakestapleton.com/aegis): defensive perimeter containment and evidence preservation
-- [AIEN](https://www.drakestapleton.com/aien): sovereign cognitive architecture on dedicated silicon
+- [Home](https://www.drakestapleton.com/): life and project record
+- [Conversation](https://www.drakestapleton.com/interest): leave a note
+- [Career path](https://www.drakestapleton.com/path): chemist to manufacturing engineer to AI Architect
+- [Orchestration](https://www.drakestapleton.com/software): AI architecture practice and evidence
+- [Audit](https://www.drakestapleton.com/evidence): source and evidence record
+- [Atlas](https://www.drakestapleton.com/atlas): personal accountable AI research
+- [AEGIS](https://www.drakestapleton.com/aegis): on-prem defensive Atlas extension and August 20 evaluation
 - [Symphony](https://www.drakestapleton.com/symphony): multi-model orchestration process
-- [Contact](https://www.drakestapleton.com/interest): start a conversation
 
-## Contact & Repositories
-- GitHub (Personal): https://github.com/dhgmonkey
-- GitHub (Sovereign Commons): https://github.com/aien-dev
-- Benchmarks: https://github.com/aien-dev/benchmarks
-- Conversation: https://www.drakestapleton.com/interest
+## Contact
+- GitHub: https://github.com/dhgmonkey
+- Conversation and AI research: https://www.drakestapleton.com/interest

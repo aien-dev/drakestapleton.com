@@ -11,9 +11,6 @@ const indexPath = join(dist, "index.html");
 const indexHtml = readFileSync(indexPath, "utf8");
 const pageMetadata = JSON.parse(readFileSync(new URL("../site-metadata.json", import.meta.url), "utf8"));
 const routes = [
-  { rel: "projects/index.html", path: "/projects", ...pageMetadata["/projects"] },
-  { rel: "life/index.html", path: "/life", ...pageMetadata["/life"] },
-  { rel: "about/index.html", path: "/life", ...pageMetadata["/about"], redirect: true },
   { rel: "atlas/index.html", path: "/atlas", ...pageMetadata["/atlas"] },
   { rel: "aegis/index.html", path: "/aegis", ...pageMetadata["/aegis"] },
   { rel: "aien/index.html", path: "/aien", ...pageMetadata["/aien"] },
@@ -46,8 +43,6 @@ function escapeText(value) {
 function noscriptSummary(page) {
   const links = [
     ["/", "Home"],
-    ["/projects", "Projects"],
-    ["/life", "About"],
     ["/path", "Path"],
     ["/software", "Software"],
     ["/evidence", "Evidence"],
