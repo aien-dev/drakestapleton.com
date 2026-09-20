@@ -130,7 +130,7 @@ export function ResearchPage() {
             <h3>Unshared Multi-Agent Memory Replication</h3>
             <p>
               Autonomous multi-agent architectures require subagents to branch dynamically from a common reasoning
-              trajectory. When serving engines run without cross-sequence block sharing or when subagents run in isolated
+              trajectory. When serving engines maintain independent per-sequence block allocations or when subagents run in isolated
               process containers, runtimes duplicate KV tensor buffers across memory spaces, consuming hundreds of megabytes
               to gigabytes of physical RAM and requiring costly memory transfers.
             </p>

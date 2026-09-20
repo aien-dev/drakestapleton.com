@@ -82,7 +82,7 @@ export function BenchmarkSection() {
             <p>
               Native Axum microservices deliver sub-4 ms response times under concurrent load,
               measuring 3.56 ms p50 at 2,056 requests/sec on cortex-rs versus 38.4 ms at 214 requests/sec on a standard
-              asynchronous Python FastAPI baseline. Agents query memory and dispatch tools without interpreted runtime stalls.
+              asynchronous Python FastAPI baseline. Agents query memory and dispatch tools with direct compiled execution.
             </p>
             <p style={{ marginTop: "8px", fontSize: "12px" }}>
               <Link to="/evidence#claim-axum-latency" style={{ color: "var(--red)", textDecoration: "underline" }}>

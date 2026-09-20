@@ -60,7 +60,7 @@ export const EVIDENCE_CLASS_DEFINITIONS: Record<EvidenceClass, { label: string; 
   "SELF-REPORTED": {
     label: "Self-Reported",
     description: "First-person narrative accounts, architectural intent statements, and operational reflections.",
-    trustLevel: "Foundational (Personal Testimony without Automated Verification)",
+    trustLevel: "Foundational (Personal Narrative and Primary Experience)",
   },
 };
 
@@ -110,7 +110,7 @@ export const CLAIMS: ClaimRecord[] = [
   {
     id: "claim-cow-mutation-latency",
     shortClaim: "13.30 µs Copy-on-Write Page Mutation",
-    fullWording: "Copy-on-write page mutation during branch divergence executes in 13.30 µs (13,297 ns) on physical unified memory, isolating sequence state without blocking peer branches.",
+    fullWording: "Copy-on-write page mutation during branch divergence executes in 13.30 µs (13,297 ns) on physical unified memory, isolating sequence state while peer branches proceed concurrently.",
     category: "Memory & KV Cache",
     dateOrPeriod: "2026-09-20",
     evidenceClass: "PUBLIC REPRODUCTION",
@@ -138,7 +138,7 @@ export const CLAIMS: ClaimRecord[] = [
   {
     id: "claim-zero-disk-secrets",
     shortClaim: "Dynamic In-Memory Resolution from Hardware TPM 2.0",
-    fullWording: "Plaintext secrets, API keys, and private credentials are never written to disk in source files or environment configurations. SecretProvider resolves keys dynamically in volatile process memory from the physical TPM 2.0 security chip (/dev/tpmrm0) on Linux and Secure Enclave / Keychain on Apple Silicon.",
+    fullWording: "Plaintext secrets, API keys, and private credentials resolve dynamically into volatile process memory from the physical TPM 2.0 security chip (/dev/tpmrm0) on Linux and Secure Enclave / Keychain on Apple Silicon, keeping persistent storage free of plaintext keys.",
     category: "Security Architecture",
     dateOrPeriod: "2026-09-19",
     evidenceClass: "PUBLIC SOURCE",
