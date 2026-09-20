@@ -1,7 +1,8 @@
 use axum::{
+    body::Bytes,
     extract::{OriginalUri, State},
     http::{header, HeaderMap, HeaderValue, StatusCode},
-    response::{Html, IntoResponse, Response},
+    response::{IntoResponse, Response},
 };
 use crate::state::AppState;
 
@@ -22,15 +23,15 @@ pub async fn serve_page(
         let mut headers = HeaderMap::new();
         headers.insert(header::CONTENT_TYPE, HeaderValue::from_static("text/html; charset=utf-8"));
         headers.insert(header::CACHE_CONTROL, HeaderValue::from_static("public, max-age=300, stale-while-revalidate=86400"));
-        (StatusCode::OK, headers, Html(content.clone())).into_response()
+        (StatusCode::OK, headers, content.clone()).into_response()
     } else {
-        let not_found_html = state
+        let not_found_bytes = state
             .routes
             .get("/404")
             .cloned()
-            .unwrap_or_else(|| "<h1>404 - Page Not Found</h1>".to_string());
+            .unwrap_or_else(|| Bytes::from_static(b"<h1>404 - Page Not Found</h1>"));
         let mut headers = HeaderMap::new();
         headers.insert(header::CONTENT_TYPE, HeaderValue::from_static("text/html; charset=utf-8"));
-        (StatusCode::NOT_FOUND, headers, Html(not_found_html)).into_response()
+        (StatusCode::NOT_FOUND, headers, not_found_bytes).into_response()
     }
 }

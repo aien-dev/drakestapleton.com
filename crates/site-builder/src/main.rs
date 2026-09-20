@@ -10,19 +10,66 @@ struct PageMeta {
     description: String,
 }
 
+fn generate_sitemap_and_robots(dist: &Path, public_routes: &[(&str, &str)]) {
+    let mut sitemap = String::from("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n");
+    for (route, priority) in public_routes {
+        sitemap.push_str(&format!(
+            "  <url><loc>https://www.drakestapleton.com{}</loc><priority>{}</priority></url>\n",
+            route, priority
+        ));
+    }
+    sitemap.push_str("</urlset>\n");
+
+    let sitemap_path = dist.join("sitemap.xml");
+    fs::write(&sitemap_path, sitemap).expect("Failed to write sitemap.xml");
+
+    let robots = "User-agent: *\nAllow: /\nSitemap: https://www.drakestapleton.com/sitemap.xml\nLLMs: https://www.drakestapleton.com/llms.txt\n";
+    let robots_path = dist.join("robots.txt");
+    fs::write(&robots_path, robots).expect("Failed to write robots.txt");
+
+    println!("  [GEN] Emitted native sitemap.xml and robots.txt in: {}", dist.display());
+}
+
 fn main() {
     let start = Instant::now();
-    let target_dir = std::env::args().nth(1).unwrap_or_else(|| "dist".to_string());
+    let first_arg = std::env::args().nth(1).unwrap_or_else(|| "verify".to_string());
+    let (mode, target_dir) = if first_arg == "build" || first_arg == "verify" {
+        (first_arg, std::env::args().nth(2).unwrap_or_else(|| "dist".to_string()))
+    } else {
+        ("verify".to_string(), first_arg)
+    };
+
     let dist = Path::new(&target_dir);
 
     println!("============================================================");
     println!("  AIEN Native Static Site Builder & Integrity Verifier      ");
-    println!("  Target: {}", dist.display());
+    println!("  Mode: {} | Target: {}", mode, dist.display());
     println!("============================================================");
 
     if !dist.exists() {
         eprintln!("Error: Target directory '{}' does not exist.", dist.display());
         std::process::exit(1);
+    }
+
+    let public_routes = vec![
+        ("/", "1.0"),
+        ("/interest", "0.9"),
+        ("/software", "0.9"),
+        ("/path", "0.7"),
+        ("/evidence", "0.7"),
+        ("/atlas", "0.7"),
+        ("/aegis", "0.7"),
+        ("/aien", "0.7"),
+        ("/research", "0.7"),
+        ("/what-i-learned", "0.7"),
+        ("/symphony", "0.7"),
+        ("/symphony/first", "0.7"),
+        ("/symphony/workflow", "0.7"),
+        ("/symphony/map", "0.7"),
+    ];
+
+    if mode == "build" {
+        generate_sitemap_and_robots(dist, &public_routes);
     }
 
     let metadata_str = fs::read_to_string("site-metadata.json")
@@ -108,7 +155,7 @@ fn main() {
     println!("------------------------------------------------------------");
     println!("  Verified {} pre-rendered static routes ({} KB total)", verified_pages, total_bytes / 1024);
     println!("  Integrity & Unslop Invariants: PASS");
-    println!("  Verification completed in: {:.2?}", elapsed);
+    println!("  Completed in: {:.2?}", elapsed);
     println!("============================================================");
 }
 
