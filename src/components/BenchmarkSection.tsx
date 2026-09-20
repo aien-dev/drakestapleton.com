@@ -1,4 +1,5 @@
 import { trackRepoOutbound } from "../lib/tracking";
+
 export function BenchmarkSection() {
   return (
     <section className="benchmarks-section page-boundary" id="benchmarks" aria-labelledby="benchmarks-heading">
@@ -7,7 +8,7 @@ export function BenchmarkSection() {
         <div>
           <h2 id="benchmarks-heading">Real numbers: how fast sovereign architecture runs.</h2>
           <p>
-            Dedicated Grace Blackwell hardware. Pure compiled native Rust and Mojo. Zero disk secrets.
+            Dedicated Grace Blackwell hardware. Pure compiled native Rust and Mojo. Zero plaintext disk secrets.
             Every millisecond accounted for across live multi-threaded execution sweeps.
           </p>
         </div>
@@ -21,7 +22,7 @@ export function BenchmarkSection() {
             <p>
               Native compiled Rust daemons significantly reduce memory footprint compared to standard Python runtimes.
               While full-stack Python agent frameworks load PyTorch and LangChain dependencies into 3.7+ gigabytes of RSS,
-              standalone native Rust daemons (openclaw-rs, cortex-rs) operate in under 10 megabytes.
+              standalone native Rust daemons (openclaw-rs, cortex-rs) operate in under 16 megabytes.
               Even against a minimal Uvicorn baseline (45 megabytes), native compilation frees substantial RAM on Grace Blackwell GB10 for unified neural weights and paged KV pools.
             </p>
           </div>
@@ -46,24 +47,24 @@ export function BenchmarkSection() {
               <text x="20" y="128" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">Python Minimal</text>
               <text x="20" y="142" fill="#bca9c2" fontSize="9" fontFamily="ui-sans-serif, sans-serif">Single Uvicorn route</text>
               <rect x="180" y="120" width="16" height="18" rx="3" fill="#6d626a" />
-              <text x="206" y="134" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">45.3 MB</text>
+              <text x="206" y="134" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">44.8 MB</text>
 
               {/* Row 4: Cortex Graph */}
               <text x="20" y="176" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">cortex-rs</text>
               <text x="20" y="190" fill="#8eac78" fontSize="9" fontFamily="ui-sans-serif, sans-serif">Axum + SQLite WAL</text>
               <rect x="180" y="168" width="8" height="18" rx="3" fill="#7fb8a6" />
-              <text x="198" y="182" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">10.3 MB <tspan fill="#7fb8a6" fontSize="9">(-99.7%)</tspan></text>
+              <text x="198" y="182" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">10.3 MB <tspan fill="#7fb8a6" fontSize="9">(-77.0%)</tspan></text>
 
               {/* Row 5: Cockpit Gateway */}
               <text x="20" y="224" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">spark-cockpit-rs</text>
               <text x="20" y="238" fill="#8eac78" fontSize="9" fontFamily="ui-sans-serif, sans-serif">Telemetry Gateway</text>
               <rect x="180" y="216" width="7" height="18" rx="3" fill="#7fb8a6" />
-              <text x="197" y="230" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">8.6 MB <tspan fill="#7fb8a6" fontSize="9">(-99.8%)</tspan></text>
+              <text x="197" y="230" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">8.6 MB <tspan fill="#7fb8a6" fontSize="9">(-80.8%)</tspan></text>
 
               {/* Row 6: OpenClaw Heartbeat */}
               <text x="20" y="262" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">openclaw-rs</text>
               <rect x="180" y="254" width="5" height="18" rx="3" fill="#ef8b67" />
-              <text x="195" y="268" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">4.8 MB <tspan fill="#ef8b67" fontSize="9">(-99.87%)</tspan></text>
+              <text x="195" y="268" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">4.6 MB <tspan fill="#ef8b67" fontSize="9">(-89.8%)</tspan></text>
             </svg>
           </div>
         </article>
@@ -71,11 +72,11 @@ export function BenchmarkSection() {
         <article className="benchmark-card">
           <div className="benchmark-card-header">
             <span className="benchmark-tag">Response Speed</span>
-            <h3>Latency (p50 TTFB) & Throughput</h3>
+            <h3>Latency (p50 TTFB) &amp; Throughput</h3>
             <p>
               Axum microservices deliver sub-four-millisecond response times under concurrent load,
-              ten times faster than standard Python servers. Agents search memory, dispatch tools,
-              and complete actions with instant response.
+              achieving 3.7x to 7.7x lower latency than like-for-like CPython 3.12 + FastAPI baseline endpoints under 10-stream concurrency.
+              This minimizes server overhead when querying memory graphs and service health gateways.
             </p>
           </div>
 
@@ -126,8 +127,8 @@ export function BenchmarkSection() {
 
         <article className="silicon-highlight-card">
           <strong>Multi-Platform</strong>
-          <h4>Universal Hardware Support</h4>
-          <p>Runs across Apple Silicon MacBooks, standard x86_64 Linux servers, AMD ROCm, and NVIDIA hardware.</p>
+          <h4>Hardware Platform Tiers</h4>
+          <p>Runtime verified on NVIDIA Grace Blackwell GB10, Apple Silicon (macOS), and x86_64 Linux; AMD ROCm architected.</p>
         </article>
 
         <article className="silicon-highlight-card">
@@ -135,6 +136,21 @@ export function BenchmarkSection() {
           <h4>Verified Pass Rate</h4>
           <p>All ecosystem repositories pass unit, integration, and invariant checks with zero warnings.</p>
         </article>
+      </div>
+
+      <div className="benchmark-metadata-panel">
+        <p className="benchmark-metadata-line">
+          <strong>What was measured:</strong> Control-plane endpoint latency (TTFB) &amp; process Resident Set Size (RSS).
+        </p>
+        <p className="benchmark-metadata-line">
+          <strong>Test Environment:</strong> NVIDIA DGX Spark (Grace Blackwell GB10, aarch64, 121 GB unified LPDDR5X, Linux 7.0).
+        </p>
+        <p className="benchmark-metadata-line">
+          <strong>Scope Fence:</strong> Measures microservice control-plane routing; excludes forward GPU matrix multiply tensor math.
+        </p>
+        <p className="benchmark-metadata-line">
+          <strong>Artifact Provenance:</strong> Commit <code>1365c61</code> (2026-09-19) · Dataset: <code>benchmarks_latest.json</code>.
+        </p>
       </div>
 
       <div className="benchmarks-action-strip">
