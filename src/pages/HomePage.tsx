@@ -1,6 +1,5 @@
 import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
-import { BenchmarkSection } from "../components/BenchmarkSection";
 import { InterestForm } from "../components/InterestForm";
 import { SectionLead } from "../components/PagePrimitives";
 import { StickyChapterNav } from "../components/StickyChapterNav";
@@ -833,12 +832,14 @@ export function HomePage() {
               <Link to="/atlas">Explore the Atlas project</Link>
               <Link to="/aegis">See AEGIS and its evaluation</Link>
               <Link to="/aien">Discover the AIEN sovereign architecture</Link>
+              <a href="https://aienos.com" target="_blank" rel="noopener noreferrer">
+                System Documentation & Specs (aienos.com)
+              </a>
+              <Link to="/evidence">Audited Claims & Evidence Hub</Link>
             </div>
           </div>
         </div>
       </section>
-
-      <BenchmarkSection />
 
       <section className="interest-home" id="interest">
         <div className="page-boundary interest-home-grid">
@@ -901,9 +902,7 @@ export function HomePage() {
           fontSize: "12px",
         }}
       >
-        This site is AI-architected by Drake Stapleton. I maintain excellence
-        through relentless iteration, logged by 885 nights of less than 6 hours
-        sleep captured over the years.
+        Architected and operated by Drake Stapleton.
       </p>
     </main>
   );

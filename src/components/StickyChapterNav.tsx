@@ -15,8 +15,7 @@ export const HOMEPAGE_CHAPTERS: ChapterItem[] = [
   { id: "work", number: "05", label: "Work", summary: "Career ladder and impact" },
   { id: "software", number: "06", label: "Software and AI", summary: "Engineering and practice" },
   { id: "latest", number: "07", label: "Latest Work", summary: "Atlas and AIEN architecture" },
-  { id: "benchmarks", number: "08", label: "Performance", summary: "Grace Blackwell GB10 telemetry" },
-  { id: "identity", number: "09", label: "Identity", summary: "Freedom Fighter ethos" },
+  { id: "identity", number: "08", label: "Identity", summary: "Freedom Fighter ethos" },
 ];
 
 export function StickyChapterNav() {

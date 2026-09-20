@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { InterestForm } from "../components/InterestForm";
 import { PageIntro } from "../components/PagePrimitives";
-import { trackInterestConversion } from "../lib/tracking";
 import { usePageMeta } from "../lib/usePageMeta";
 
 export function InterestPage() {
@@ -10,12 +8,6 @@ export function InterestPage() {
   const received = params.get("received") === "1";
 
   usePageMeta("/interest");
-
-  useEffect(() => {
-    if (received) {
-      trackInterestConversion();
-    }
-  }, [received]);
 
   return (
     <main className="portrait-page interest-page">

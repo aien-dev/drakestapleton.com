@@ -22,14 +22,3 @@ export function trackRepoOutbound(repoName: string, destinationUrl: string) {
     event_label: repoName,
   });
 }
-
-export function trackInterestConversion() {
-  trackEvent("conversion", {
-    event_category: "lead",
-    event_label: "conversation_received",
-  });
-  trackEvent("generate_lead", {
-    event_category: "lead",
-    event_label: "conversation_form",
-  });
-}
