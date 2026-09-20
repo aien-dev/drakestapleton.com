@@ -56,7 +56,7 @@ const inheritances = [
   ],
   [
     "Dad (Russell Ballentine)",
-    "welcomed my brother and me after Mom brought us to safety, put farm work in my hands, adopted us, and showed me that love can choose a family.",
+    "welcomed my brother and me after Mom brought us to safety, adopted us, taught me by showing how to love and serve others, and proved that a father chooses his family.",
   ],
   [
     "The people who found me",
@@ -451,12 +451,12 @@ export function HomePage() {
               My dad was Russell Ballentine. He entered my life as my stepdad
               after Mom fought to get my brother and me away from my biological
               father, whose abuse we had survived. Russell met two terrified
-              boys with patience, dignity, and an open heart. He put farm work
-              in my hands, gave us a safe home, and treated us as his own sons
-              long before any legal proceeding. On December 3, 2007, he made
-              that devotion permanent: he officially adopted both of us in
-              court. Our family celebrates that date every year as Ballentine
-              Day. He chose us, on paper and in every single action of his life.
+              boys with patience, dignity, and an open heart. He gave us a safe
+              home, taught me by example, and treated us as his own sons long
+              before any legal proceeding. On December 3, 2007, he made that
+              devotion permanent: he officially adopted both of us in court. Our
+              family celebrates that date every year as Ballentine Day. He chose
+              us, on paper and in every single action of his life.
             </p>
             <p>
               Standing in that courtroom at thirteen, stepping completely away
@@ -478,13 +478,29 @@ export function HomePage() {
               build together.
             </p>
             <p>
-              Dad put farm work in my hands and taught me to be useful. He
-              showed me that fatherhood is an act of pure devotion: a man
-              choosing to stand up for children and give them roots. He was a
-              carpenter and a preacher, leaving handwritten sermons and
-              notebooks of quiet wisdom behind. Those pages still speak to me. I
-              built Atlas around memory, truth, dignity, and the questions he
-              taught me to ask.
+              Dad was a teacher who led by showing. He taught me discipline,
+              patience, what it means to be a man, and how to love family. He
+              showed me how to work hard for what you earn, remain patient, and
+              allow rewards to arrive in their own time. He taught me that
+              everything truly worth having requires deep, patient labor. He was
+              the kind of man who commuted from Bethpage through Gallatin out to
+              Clarksville, spending nearly two hours each way on the road just
+              to provide for his family. He had choices closer to home, yet he
+              drove that distance because he loved his craft and took deep pride
+              in his trade.
+            </p>
+            <p>
+              He was a gifted carpenter, building with precision, and served our
+              church as a junior preacher. The senior ministers gave him the
+              pulpit during evening services, especially on Wednesday nights,
+              where he shared practical, heartfelt messages. He loved the Bible
+              and Jesus, and he taught me to love every single person I
+              encounter. He showed me that our highest duty on this earth is to
+              give back to humanity: to love our neighbors as ourselves, serve
+              one another with gladness, and always go out of our way to help
+              anyone in need. His handwritten sermons and notebooks of quiet
+              wisdom still speak to me. I built Atlas around memory, truth,
+              dignity, and the questions he taught me to ask.
             </p>
             <p>
               Dad passed away in 2019. Devin and Dad share a February 13
