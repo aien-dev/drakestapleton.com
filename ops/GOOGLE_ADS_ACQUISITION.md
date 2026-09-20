@@ -18,7 +18,7 @@ Google Ads cannot directly track downstream conversions (stars, forks, clones) o
 | Landing Pages (drakestapleton.com/aien, /research)     |
 | - Pre-rendered semantic HTML with verified benchmarks  |
 | - Google Tag (gtag.js) instrumentation                 |
-| - CSP-compliant event beaconing                        |
+| - CSP-compliant event telemetry                        |
 +--------------------------------------------------------+
              |
              +------------------------------+
