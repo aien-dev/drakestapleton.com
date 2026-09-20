@@ -1,6 +1,6 @@
-import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
+import { trackRepoOutbound } from "../lib/tracking";
 import { usePageMeta } from "../lib/usePageMeta";
 
 const triadPillars = [
@@ -34,48 +34,47 @@ const performanceMetrics = [
   { label: "Memory RSS", score: "4.78 MB", rate: "openclaw-rs heartbeat" },
   { label: "Entity TTFB", score: "3.56 ms", rate: "p50 @ 2,056 req/s" },
   { label: "INT8 Embedding", score: "4.09 ms", rate: "ONNX Runtime" },
-  { label: "Hardware Test Suites", score: "100% Passing", rate: "On-premise DGX Spark GB10" },
+  { label: "Hardware Test Suites", score: "100% Passing", rate: "DGX Spark GB10 Silicon" },
 ];
 
-const concurrencyPressureData = [
-  { concurrency: "C = 1", ttft: "8.00 µs", itl: "150.7k steps/s", tps: "150,757 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 4", ttft: "8.00 µs", itl: "109.3k steps/s", tps: "437,243 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 8", ttft: "9.00 µs", itl: "94.8k steps/s", tps: "758,654 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 16", ttft: "8.00 µs", itl: "84.7k steps/s", tps: "1,355,459 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 32", ttft: "9.00 µs", itl: "58.9k steps/s", tps: "1,872,886 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 64", ttft: "9.00 µs", itl: "37.0k steps/s", tps: "2,317,778 tok/s", power: "11.05 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 128", ttft: "10.00 µs", itl: "22.1k steps/s", tps: "2,688,032 tok/s", power: "11.51 W", efficiency: "<0.0001 J/tok" },
-  { concurrency: "C = 256", ttft: "11.00 µs", itl: "12.5k steps/s", tps: "2,864,555 tok/s", power: "11.51 W", efficiency: "<0.0001 J/tok" },
+const continuousBatchingSweepData = [
+  { concurrency: "C = 1", ttft: "33.39 ms", itl: "22.26 ms", throughput: "44.65 tok/s", stepP50: "22.26 ms", power: "16.94 W", gpuUtil: "10%", kvBlocks: "8" },
+  { concurrency: "C = 2", ttft: "31.38 ms", itl: "20.92 ms", throughput: "94.87 tok/s", stepP50: "20.92 ms", power: "21.29 W", gpuUtil: "95%", kvBlocks: "16" },
+  { concurrency: "C = 4", ttft: "32.64 ms", itl: "21.76 ms", throughput: "46.17 tok/s", stepP50: "21.76 ms", power: "17.61 W", gpuUtil: "95%", kvBlocks: "14" },
+  { concurrency: "C = 8", ttft: "30.42 ms", itl: "20.28 ms", throughput: "245.66 tok/s", stepP50: "20.28 ms", power: "31.14 W", gpuUtil: "12%", kvBlocks: "46" },
+  { concurrency: "C = 16", ttft: "35.34 ms", itl: "23.56 ms", throughput: "553.14 tok/s", stepP50: "23.56 ms", power: "27.89 W", gpuUtil: "9%", kvBlocks: "110" },
+  { concurrency: "C = 32", ttft: "112.76 ms", itl: "75.17 ms", throughput: "222.77 tok/s", stepP50: "75.17 ms", power: "41.90 W", gpuUtil: "96%", kvBlocks: "166" },
+  { concurrency: "C = 64", ttft: "152.55 ms", itl: "101.70 ms", throughput: "510.16 tok/s", stepP50: "101.70 ms", power: "42.52 W", gpuUtil: "96%", kvBlocks: "416" },
 ];
 
 const multiModelBreadthData = [
+  { model: "TinyLlama-1.1B-Chat-v1.0", topology: "Dense Transformer (16 Layers, 4 KV Heads)", quant: "BF16 Canonical", ttft: "35.34 ms", itl: "23.56 ms", kv: "704.00 MB", status: "VERIFIED" },
   { model: "Nemotron-3.5-Lightning-30B", topology: "Hybrid Mamba+MoE (128 Experts)", quant: "BF16 GPU Seat", ttft: "426.91 ms", itl: "46.91 ms", kv: "4.60 GB", status: "VERIFIED" },
   { model: "Llama-3.2-1B-Instruct", topology: "Edge Dense 16 Layers (8 Heads)", quant: "FP16 CPU Fallback", ttft: "141.65 ms", itl: "86.94 ms", kv: "0.24 GB", status: "VERIFIED" },
   { model: "BAAI/bge-base-en-v1.5", topology: "Transformer Embedding 12 Layers", quant: "INT8 ONNX", ttft: "7.06 ms", itl: "4.67 ms", kv: "0.78 GB", status: "VERIFIED" },
   { model: "Cortex Knowledge Graph", topology: "SQLite WAL + Vector Index", quant: "Axum Native Rust", ttft: "6.83 ms", itl: "0.21 ms", kv: "0.02 GB", status: "VERIFIED" },
-  { model: "Continuous Batching Scheduler", topology: "Pure Rust + Mojo C-ABI", quant: "Compiled Native", ttft: "0.008 ms", itl: "0.011 ms", kv: "4.27 GB", status: "VERIFIED" },
 ];
 
 const crossSurfaceData = [
   {
     surface: "NVIDIA DGX Spark (GB10)",
-    processor: "Grace Blackwell (GB10, aarch64, 121 GB)",
-    pipeline: "Hardware NVFP4 Tensor Cores + Unified Memory",
-    status: "Active Production",
-    summary: "Sub-millisecond continuous batch scheduling with zero-copy prefix sharing on hardware-accelerated unified memory.",
+    processor: "Grace Blackwell (GB10, aarch64, 128 GB Unified)",
+    pipeline: "Hardware sm_121 Kernels + ATS Coherent Memory",
+    status: "Primary Reference",
+    summary: "Full runtime verification, paged BF16 block pooling, and 2.06 µs sequence branching on physical silicon.",
   },
   {
     surface: "Apple Silicon (macOS)",
     processor: "Apple M-Series (aarch64, Unified Memory)",
-    pipeline: "Paged POSIX mmap KV Pools + SIMD CPU Kernels",
-    status: "Verified Cross-Platform",
+    pipeline: "POSIX mmap KV Pools + SIMD CPU Acceleration",
+    status: "Validated Target",
     summary: "Executes directly on host CPU unified memory free of external GPU requirements, CUDA dependencies, or background daemons.",
   },
   {
-    surface: "Generic Linux CPU",
+    surface: "Generic Linux x86_64",
     processor: "POSIX Linux x86_64 / aarch64",
     pipeline: "Deterministic CPU Engine + Tokio Async Serving",
-    status: "Verified Cross-Platform",
+    status: "Validated Target",
     summary: "Executes pure compiled native binaries free of external daemons, Python interpreters, or auxiliary runtimes.",
   },
 ];
@@ -90,12 +89,12 @@ const architectureTenets = [
     body: "Core gateways, task dispatchers, memory daemons, and supervisor harnesses run pure compiled Rust and Mojo. Zero interpreter overhead touches the primary hot path.",
   },
   {
-    title: "Hardware Agnostic Silicon",
-    body: "The architecture executes across NVIDIA Grace Blackwell, Apple Silicon MacBooks, standard x86_64 Linux servers, and AMD ROCm accelerators.",
+    title: "Multi-Platform Verification",
+    body: "The architecture adheres to explicit verification tiers across NVIDIA Grace Blackwell, Apple Silicon MacBooks, and standard Linux servers, documenting real hardware test passes.",
   },
   {
     title: "Open Collaboration Commons",
-    body: "All ecosystem repositories provide open-source code under the Apache-2.0 license. Developers, startups, and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency with zero revenue caps. Under our Open Cooperation Covenant, participating organizations share research and resulting model weights openly with humanity.",
+    body: "Core software crates are licensed under Apache-2.0. Developers, startups, and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency with zero revenue caps.",
   },
 ];
 
@@ -132,7 +131,7 @@ export function AienPage() {
       </PageIntro>
 
       <div className="aegis-scope-strip" aria-label="AIEN project scope">
-        <span>Universal Hardware</span>
+        <span>Multi-Platform Matrix</span>
         <span>Hardware TPM Vault</span>
         <span>Compiled Native Rust</span>
         <span>Sovereign Commons</span>
@@ -199,6 +198,11 @@ export function AienPage() {
           <span>Log Redaction</span>
           <span>Linear History</span>
         </div>
+        <p style={{ marginTop: "16px", fontSize: "0.9rem" }}>
+          <Link to="/evidence#claim-zero-disk-secrets" style={{ color: "var(--red)", textDecoration: "underline" }}>
+            Inspect TPM vault verification evidence
+          </Link>
+        </p>
       </section>
 
       <section className="aegis-evaluation" aria-labelledby="aien-benchmarks-heading">
@@ -217,7 +221,7 @@ export function AienPage() {
           Replacing interpreter daemons with native Rust binaries dropped memory footprint from
           3.7 gigabytes down to under 5 megabytes, keeping system memory free for local LLM weights.
           Axum endpoints deliver 3.5 millisecond response times under concurrent load, ten times faster
-          than traditional Python frameworks.
+          than a single asynchronous Uvicorn route.
         </p>
 
         <div className="aegis-eval-grid" aria-label="AIEN performance benchmarks">
@@ -252,17 +256,20 @@ export function AienPage() {
       <section className="aegis-evaluation" aria-labelledby="aien-showdown-heading" style={{ marginTop: "48px" }}>
         <div className="aegis-evaluation-intro">
           <div>
-            <p className="portrait-index">Empirical Showdown / September 2026</p>
-            <h2 id="aien-showdown-heading">AIEN Sovereign Stack vs Python and PyTorch Baselines.</h2>
+            <p className="portrait-index">Physical Silicon Telemetry / Gate 5</p>
+            <h2 id="aien-showdown-heading">Branch-Native Architecture vs Unshared Replication Baselines.</h2>
           </div>
           <div className="aegis-total">
-            <strong>4,285x</strong>
-            <span>Branching Acceleration</span>
+            <strong>500.0x</strong>
+            <span>Memory Reduction</span>
           </div>
         </div>
 
         <p className="aegis-evaluation-copy">
-          We executed an empirical ablation on the NVIDIA DGX Spark (Grace Blackwell GB10, 121 GB unified LPDDR5X memory) evaluating AIEN compiled native components against standard CPython, Uvicorn, and PyTorch runtimes across identical hardware constraints. The AIEN sovereign execution path (AIEN continuous scheduler to physical unified KV manager to Rust orchestration to Mojo/MAX GPU synchronization) eliminates Python interpreter loop delays and memory bloat.
+          Physical silicon evaluation on NVIDIA DGX Spark (Grace Blackwell GB10, 128 GB unified LPDDR5X memory)
+          measuring AIEN compiled native components against unshared memory duplication baselines.
+          Spawning 500 concurrent reasoning branches from a 32,768-token prefix completes in 1.20 ms total,
+          recording 2.06 µs median fork latency and requiring only 704 MB of paged KV memory compared to 343.75 GB for naive copying.
         </p>
 
         <div style={{ overflowX: "auto", margin: "24px 0" }}>
@@ -271,8 +278,8 @@ export function AienPage() {
               <tr style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.2)", textAlign: "left" }}>
                 <th style={{ padding: "12px" }}>Workload / Metric</th>
                 <th style={{ padding: "12px" }}>AIEN Sovereign Stack</th>
-                <th style={{ padding: "12px" }}>Python / PyTorch Baseline</th>
-                <th style={{ padding: "12px" }}>Observed Advantage</th>
+                <th style={{ padding: "12px" }}>Unshared / Python Baseline</th>
+                <th style={{ padding: "12px" }}>Measured Physical Advantage</th>
               </tr>
             </thead>
             <tbody>
@@ -280,31 +287,37 @@ export function AienPage() {
                 <td style={{ padding: "12px", fontWeight: "600" }}>Control-Plane Scheduler Step Latency</td>
                 <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>8.00 µs (C=1 to 16)</td>
                 <td style={{ padding: "12px" }}>12,000.00 µs (AsyncIO)</td>
-                <td style={{ padding: "12px", color: "#22c55e" }}>Sub-microsecond native scheduling</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>Deterministic 8.00 µs native scheduling</td>
               </tr>
               <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
-                <td style={{ padding: "12px", fontWeight: "600" }}>Subagent Sequence Fork Latency</td>
-                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>0.42 µs</td>
-                <td style={{ padding: "12px" }}>1,800.00 µs</td>
-                <td style={{ padding: "12px", color: "#22c55e" }}>4,285x faster (Zero-Copy)</td>
+                <td style={{ padding: "12px", fontWeight: "600" }}>500-Branch Sequence Fork Latency</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>2.06 µs / branch (1.20 ms total)</td>
+                <td style={{ padding: "12px" }}>960,000.00 µs (estimated copy)</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>500.0x memory reduction (704 MB vs 343.75 GB)</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Cold Fork to First Token</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>13.04 µs (0.013 ms)</td>
+                <td style={{ padding: "12px" }}>32.00 ms (full recompute)</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>Zero prefill recomputation</td>
               </tr>
               <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
                 <td style={{ padding: "12px", fontWeight: "600" }}>Control-Plane Memory Footprint (RSS)</td>
                 <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>4.56 MB to 10.11 MB</td>
-                <td style={{ padding: "12px" }}>44.76 MB (FastAPI) to 3,737 MB (Torch)</td>
+                <td style={{ padding: "12px" }}>45.3 MB (Uvicorn) to 3,737 MB (Torch)</td>
                 <td style={{ padding: "12px", color: "#22c55e" }}>-89.8% to -99.6% RAM reduction</td>
               </tr>
               <tr style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
                 <td style={{ padding: "12px", fontWeight: "600" }}>Transformer Embedding Latency</td>
-                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>4.67 ms (214 texts/s)</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>4.09 ms (ONNX INT8)</td>
                 <td style={{ padding: "12px" }}>38.40 ms (Python route)</td>
-                <td style={{ padding: "12px", color: "#22c55e" }}>8.2x faster (-33.73 ms)</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>9.4x faster (-34.31 ms)</td>
               </tr>
               <tr>
-                <td style={{ padding: "12px", fontWeight: "600" }}>Physical KV Tensor Pool Allocation</td>
-                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>4.27 GB unified mmap</td>
-                <td style={{ padding: "12px" }}>PyTorch CUDA memory pool</td>
-                <td style={{ padding: "12px", color: "#22c55e" }}>Hardware page-locked LPDDR5X</td>
+                <td style={{ padding: "12px", fontWeight: "600" }}>Continuous Batching Step (TinyLlama)</td>
+                <td style={{ padding: "12px", color: "#a855f7", fontWeight: "700" }}>23.56 ms p50 @ C=16</td>
+                <td style={{ padding: "12px" }}>Python IPC / multi-process loop</td>
+                <td style={{ padding: "12px", color: "#22c55e" }}>553.14 tokens/sec, 0 fallback</td>
               </tr>
             </tbody>
           </table>
@@ -314,7 +327,7 @@ export function AienPage() {
           <div>
             <p className="aegis-eval-label">Verified Upstream Attribution</p>
             <p style={{ fontSize: "0.9rem", opacity: 0.9 }}>
-              AIEN explicitly discloses upstream technology. LLaMA pure Mojo execution kernels are authored by Audrey (<code>a730/MojoLlama</code>), and graph execution relies on Modular MAX. AIEN contributes original architectures for continuous scheduling, physical unified KV memory management, radix prefix deduplication, subagent branching, and hardware-bound TPM secret vaults. Detailed audits reside in <a href="https://github.com/aien-dev/aien-sovereign-core/blob/main/docs/PROVENANCE.md" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>docs/PROVENANCE.md</a> and <a href="https://github.com/aien-dev/aien-sovereign-core/blob/main/docs/STATE_OF_AIEN.md" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>docs/STATE_OF_AIEN.md</a>.
+              AIEN explicitly discloses upstream technology. LLaMA pure Mojo execution kernels are authored by Audrey (<code>a730/MojoLlama</code>), and graph execution relies on Modular MAX. AIEN contributes original architectures for continuous scheduling, physical unified KV memory management, radix prefix deduplication, subagent branching, and hardware-bound TPM secret vaults. Detailed audits reside in <a href="https://github.com/aien-dev/aien-sovereign-core/blob/main/docs/PROVENANCE.md" target="_blank" rel="noopener noreferrer" style={{ color: "var(--red)", textDecoration: "underline" }}>docs/PROVENANCE.md</a>.
             </p>
           </div>
           <div>
@@ -329,17 +342,19 @@ export function AienPage() {
       <section className="aegis-evaluation" aria-labelledby="aien-pressure-heading" style={{ marginTop: "48px" }}>
         <div className="aegis-evaluation-intro">
           <div>
-            <p className="portrait-index">Concurrency Pressure & Silicon Scaling</p>
-            <h2 id="aien-pressure-heading">Control-Plane Scheduler Throughput across C=1 to C=256 streams.</h2>
+            <p className="portrait-index">Physical Grace Blackwell Telemetry / TinyLlama-1.1B BF16</p>
+            <h2 id="aien-pressure-heading">Continuous batching sweep on NVIDIA DGX Spark GB10.</h2>
           </div>
           <div className="aegis-total">
-            <strong>3.12M</strong>
-            <span>seq steps / sec @ C=256</span>
+            <strong>553.14</strong>
+            <span>tokens / sec @ C=16</span>
           </div>
         </div>
 
         <p className="aegis-evaluation-copy">
-          We evaluated the pure Rust continuous batching scheduler and paged unified memory KV manager under concurrent load sweeps up to 256 simultaneous sequence streams on Grace Blackwell hardware. The control plane sustains over 3.1 million scheduling steps and KV slot dispatches per second with sub-microsecond latency, ensuring that scheduling overhead remains decoupled from physical GPU matrix multiplication.
+          Physical hardware sweep of continuous batching execution on NVIDIA DGX Spark Grace Blackwell GB10 (sm_121).
+          All steps execute through pure Blackwell GPU tensor kernels with zero fallback. Peak throughput occurs at C=16
+          with 23.56 ms p50 step latency and 27.89 W GPU power draw.
         </p>
 
         <div style={{ overflowX: "auto", margin: "24px 0" }}>
@@ -350,24 +365,34 @@ export function AienPage() {
                 <th style={{ padding: "10px" }}>TTFT p50</th>
                 <th style={{ padding: "10px" }}>ITL p50</th>
                 <th style={{ padding: "10px" }}>Throughput</th>
+                <th style={{ padding: "10px" }}>Step Latency</th>
                 <th style={{ padding: "10px" }}>Power Draw</th>
-                <th style={{ padding: "10px" }}>Energy / Token</th>
+                <th style={{ padding: "10px" }}>GPU Util</th>
+                <th style={{ padding: "10px" }}>KV Blocks</th>
               </tr>
             </thead>
             <tbody>
-              {concurrencyPressureData.map((row) => (
+              {continuousBatchingSweepData.map((row) => (
                 <tr key={row.concurrency} style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}>
                   <td style={{ padding: "10px", fontWeight: "700", color: "#a855f7" }}>{row.concurrency}</td>
                   <td style={{ padding: "10px" }}>{row.ttft}</td>
                   <td style={{ padding: "10px" }}>{row.itl}</td>
-                  <td style={{ padding: "10px", fontWeight: "600", color: "#22c55e" }}>{row.tps}</td>
+                  <td style={{ padding: "10px", fontWeight: "600", color: "#22c55e" }}>{row.throughput}</td>
+                  <td style={{ padding: "10px" }}>{row.stepP50}</td>
                   <td style={{ padding: "10px" }}>{row.power}</td>
-                  <td style={{ padding: "10px", opacity: 0.85 }}>{row.efficiency}</td>
+                  <td style={{ padding: "10px" }}>{row.gpuUtil}</td>
+                  <td style={{ padding: "10px", opacity: 0.85 }}>{row.kvBlocks}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
+        <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+          <Link to="/evidence#claim-continuous-batching-gb10" style={{ color: "var(--red)", textDecoration: "underline" }}>
+            View canonical receipt (Run ID: gb10_canonical_1789907893_4d762) in the Evidence Hub
+          </Link>
+        </p>
 
         <div style={{ marginTop: "40px" }}>
           <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "8px" }}>Multi-Model Architecture Breadth</h3>
@@ -405,9 +430,9 @@ export function AienPage() {
         </div>
 
         <div style={{ marginTop: "40px" }}>
-          <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "8px" }}>Universal Cross-Surface Compatibility</h3>
+          <h3 style={{ fontSize: "1.25rem", fontWeight: "700", marginBottom: "8px" }}>Multi-Platform Compatibility Matrix</h3>
           <p style={{ opacity: 0.85, fontSize: "0.95rem", marginBottom: "16px" }}>
-            AIEN executes across diverse execution surfaces. When GPU accelerators are absent, execution routes directly through native CPU fallback kernels and POSIX virtual memory pools:
+            AIEN follows an evidence-based verification standard across architectures, distinguishing physical silicon certification from architected code paths:
           </p>
           <div className="aegis-eval-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
             {crossSurfaceData.map((item) => (
@@ -427,6 +452,11 @@ export function AienPage() {
               </article>
             ))}
           </div>
+          <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+            <Link to="/evidence#claim-hardware-matrix" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              Inspect complete Platform Matrix in the Evidence Hub
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -451,13 +481,14 @@ export function AienPage() {
         </div>
       </section>
 
-      <section className="aegis-current" aria-labelledby="aien-code-heading">
-        <p className="portrait-index">Open Source Commons</p>
-        <h2 id="aien-code-heading">Inspect the code on GitHub.</h2>
-        <p>
-          Explore the repositories, crates, specifications, and architecture manifests on GitHub:
-        </p>
-        <div className="portrait-actions" style={{ marginTop: "24px" }}>
+      <section className="aegis-action-bar">
+        <div>
+          <h3>Inspect the verified codebase</h3>
+          <p>
+            Review automated CI pipelines, formal verification test cases, and reproducible benchmarks:
+          </p>
+        </div>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
           <a
             className="portrait-link"
             href="https://github.com/aien-dev"
@@ -476,15 +507,12 @@ export function AienPage() {
           >
             View aien-dev/benchmarks
           </a>
-          <a
+          <Link
             className="portrait-link quiet"
-            href="https://github.com/aien-dev/drakestapleton.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackRepoOutbound("drakestapleton.com", "https://github.com/aien-dev/drakestapleton.com")}
+            to="/evidence"
           >
-            View aien-dev/drakestapleton.com
-          </a>
+            Explore Evidence Hub
+          </Link>
         </div>
       </section>
 
@@ -495,9 +523,7 @@ export function AienPage() {
         </blockquote>
         <div className="portrait-actions">
           <Link className="portrait-link" to="/research">Read Inference Research Paper</Link>
-          <Link className="portrait-link" to="/aegis">
-            Explore AEGIS
-          </Link>
+          <Link className="portrait-link" to="/evidence">Inspect Evidence Hub</Link>
           <Link className="portrait-link quiet" to="/atlas">
             Return to Atlas
           </Link>

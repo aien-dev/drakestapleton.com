@@ -1,21 +1,21 @@
-import { trackRepoOutbound } from "../lib/tracking";
 import { Link } from "react-router-dom";
 import { PageIntro, SectionLead } from "../components/PagePrimitives";
+import { trackRepoOutbound } from "../lib/tracking";
 import { usePageMeta } from "../lib/usePageMeta";
 
 const kvBenchmarkData = [
   { metric: "Allocation Throughput", value: "134,338,182 blocks/sec", unit: "119.10 ns/seq (7.44 ns/block)", status: "Deterministic O(1)" },
   { metric: "Deallocation Throughput", value: "238,709,061 blocks/sec", unit: "67.03 ns/seq (4.19 ns/block)", status: "Pre-mapped pool" },
-  { metric: "Copy-on-Write Append", value: "8.96 ns/mutation", unit: "Sub-nanosecond page tap", status: "Zero-stall divergence" },
-  { metric: "Continuous Batching Step", value: "8,937,640 tokens/sec", unit: "Simulated dispatch loop", status: "Sub-microsecond batch" },
+  { metric: "Copy-on-Write Append", value: "8.96 ns/mutation", unit: "Single-digit nanosecond CoW page mutation", status: "Zero-stall divergence" },
+  { metric: "Continuous Batching Step (TinyLlama)", value: "553.14 tokens/sec", unit: "23.56 ms p50 step @ C=16", status: "0 GPU kernel fallback" },
 ];
 
 const subagentForkData = [
-  { forked: "1", zeroCopy: "1.58 µs", naiveCopy: "1.92 ms", speedup: "1,212.1x", memorySaved: "0.38 GB" },
-  { forked: "10", zeroCopy: "0.46 µs", naiveCopy: "19.20 ms", speedup: "4,152.2x", memorySaved: "3.75 GB" },
-  { forked: "50", zeroCopy: "0.47 µs", naiveCopy: "96.00 ms", speedup: "4,067.8x", memorySaved: "18.75 GB" },
-  { forked: "100", zeroCopy: "0.39 µs", naiveCopy: "192.00 ms", speedup: "4,977.2x", memorySaved: "37.50 GB" },
-  { forked: "500", zeroCopy: "0.45 µs", naiveCopy: "960.00 ms", speedup: "4,236.1x", memorySaved: "187.50 GB" },
+  { forked: "1", zeroCopy: "1.58 µs", naiveCopy: "1.92 ms", speedup: "1,215.2x", memorySaved: "0.70 GB" },
+  { forked: "10", zeroCopy: "1.82 µs", naiveCopy: "19.20 ms", speedup: "1,054.9x", memorySaved: "6.88 GB" },
+  { forked: "50", zeroCopy: "1.95 µs", naiveCopy: "96.00 ms", speedup: "984.6x", memorySaved: "34.38 GB" },
+  { forked: "100", zeroCopy: "2.01 µs", naiveCopy: "192.00 ms", speedup: "955.2x", memorySaved: "68.75 GB" },
+  { forked: "500", zeroCopy: "2.06 µs", naiveCopy: "960.00 ms", speedup: "466.0x", memorySaved: "343.05 GB" },
 ];
 
 const schedulerOverheadData = [
@@ -61,14 +61,14 @@ export function ResearchPage() {
         <p>
           A formal architectural study and empirical evaluation of native compiled systems.
           Author: Drake Stapleton (AIEN Sovereign Systems).
-          Execution Platform: NVIDIA Grace Blackwell GB10 (121 GB Unified LPDDR5X Memory).
+          Execution Platform: NVIDIA Grace Blackwell GB10 (128 GB Unified LPDDR5X Memory).
         </p>
       </PageIntro>
 
       <div className="aegis-scope-strip" aria-label="Research highlights">
         <span>134M Blocks/Sec KV Allocation</span>
-        <span>0.39 µs Zero-Copy Subagent Fork</span>
-        <span>&lt; 0.18% Scheduler Overhead</span>
+        <span>2.06 µs Zero-Copy Sequence Branching</span>
+        <span>500.0x Physical Memory Savings</span>
         <span>Pure Compiled Rust &amp; Mojo</span>
       </div>
 
@@ -86,19 +86,19 @@ export function ResearchPage() {
         <div>
           <h2 id="research-abstract-heading">Abstract.</h2>
           <p>
-            Mainstream Large Language Model (LLM) serving runtimes (e.g., vLLM, Hugging Face TGI, Ollama)
-            wrap high-performance tensor execution kernels inside multi-layered interpreted Python scaffolding.
-            While CUDA and Triton kernels compute matrix products at hardware limits, the surrounding runtime
-            suffers from substantial friction: global interpreter lock (GIL) contention, dynamic memory fragmentation,
-            inter-process serialization, and high-latency request scheduling.
+            Mainstream multi-agent orchestration stacks frequently execute critical coordination loops inside
+            interpreted Python scaffolding. While CUDA and Triton kernels compute matrix products at hardware limits,
+            the surrounding agent runtimes suffer from orchestration friction: inter-process serialization,
+            unshared buffer replication, and high-latency request scheduling.
           </p>
           <p>
             In this research, we introduce the AIEN Sovereign Inference Stack: a compiled native architecture
-            comprising an asynchronous unified Inference ABI, a sub-microsecond Paged Key-Value (KV) Cache Manager,
-            and a deterministic continuous batching scheduler. By replacing the entire control plane with native
-            Rust and Mojo, we eliminate runtime scheduling bottlenecks, reduce subagent sequence forking latency
-            from 192 milliseconds to 0.39 microseconds (a 4,977x acceleration), and demonstrate sustained KV block
-            allocation throughput exceeding 134 million blocks per second on NVIDIA Grace Blackwell silicon.
+            comprising an asynchronous unified Inference ABI, a paged Key-Value (KV) Cache Manager,
+            and a deterministic continuous batching scheduler. By replacing agent control planes with native
+            Rust and Mojo, we eliminate runtime scheduling bottlenecks, fork 500 concurrent reasoning branches in 1.20 ms
+            (2.06 µs median fork latency, achieving a 500.0x physical memory reduction over unshared copying),
+            and demonstrate sustained KV block allocation throughput exceeding 134 million blocks per second on
+            NVIDIA Grace Blackwell silicon.
           </p>
         </div>
       </section>
@@ -118,20 +118,21 @@ export function ResearchPage() {
         <div className="evidence-class-grid">
           <article className="evidence-class">
             <p className="evidence-status">Bottleneck 01</p>
-            <h3>Python Control Plane Contention</h3>
+            <h3>Interpreted Agent Orchestration Contention</h3>
             <p>
-              In conventional systems, request admission, token decoding, and stop condition checks execute inside
-              the Python interpreter loop. Under multi-stream client concurrency, thread synchronization and GIL
-              contention introduce latency bubbles that leave tensor cores idling between decode steps.
+              In conventional Python agent frameworks, request routing, tool call parsing, and context assembly
+              execute in interpreted layers. Under multi-agent concurrency, thread synchronization and serialization
+              introduce latency bubbles that leave accelerators idling between decode steps.
             </p>
           </article>
           <article className="evidence-class">
             <p className="evidence-status">Bottleneck 02</p>
-            <h3>Multi-Agent Memory Replication</h3>
+            <h3>Unshared Multi-Agent Memory Replication</h3>
             <p>
               Autonomous multi-agent architectures require subagents to branch dynamically from a common reasoning
-              trajectory. Traditional engines duplicate the entire KV-cache tensor buffer across processes, consuming
-              hundreds of megabytes to gigabytes of physical RAM and requiring costly memory transfers.
+              trajectory. When serving engines maintain independent per-sequence block allocations or when subagents run in isolated
+              process containers, runtimes duplicate KV tensor buffers across memory spaces, consuming hundreds of megabytes
+              to gigabytes of physical RAM and requiring costly memory transfers.
             </p>
           </article>
           <article className="evidence-class">
@@ -158,61 +159,63 @@ export function ResearchPage() {
           </p>
         </SectionLead>
 
-        <ol className="aegis-flow" aria-label="AIEN Inference Stack Tiers">
-          <li>
-            <span>01</span>
-            <p>Inference ABI</p>
-            <h3>aien-inference-abi</h3>
-            <div>
-              An asynchronous, strongly typed Rust trait defining model configurations, sequence admissions,
-              scheduled continuous batches, and execution step results. Decouples request scheduling from tensor
-              backends, enabling transparent swaps between Modular MAX, ONNX Runtime, and custom Mojo kernels.
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <p>Paged KV-Cache</p>
-            <h3>aien-kv-cache</h3>
-            <div>
-              A native physical block allocator managing pre-mapped pools in unified memory. Implements reference-counted
-              block tables for instant zero-copy subagent sequence branching, paired with 8.96-nanosecond Copy-on-Write (CoW)
-              token mutations during sequence divergence.
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <p>Scheduler Engine</p>
-            <h3>aien-scheduler</h3>
-            <div>
-              A native continuous batching scheduler featuring chunked prefill budgets and dynamic KV block allocation.
-              Batch construction overhead is restricted to 1.01 to 17.68 microseconds, occupying less than 0.18% of a
-              standard 10-millisecond GPU execution step.
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <p>Hardware Substrate</p>
-            <h3>Grace Blackwell Unified Silicon</h3>
-            <div>
-              Direct deployment on the NVIDIA DGX Spark workstation (GB10). 121 GB unified LPDDR5X memory connects CPU cores
-              and GPU streaming multiprocessors through high-speed NVLink-C2C, eliminating PCIe bus bottlenecks entirely.
-            </div>
-          </li>
-        </ol>
+        <div className="evidence-class-grid">
+          <article className="evidence-class">
+            <p className="evidence-status">Layer 01</p>
+            <h3>Async Unified Inference ABI (aien-inference-abi)</h3>
+            <p>
+              A unified trait boundary defining sequence lifecycle, tensor buffers, and token generation streams.
+              Exposes zero-copy FFI contracts between Rust orchestration and Mojo accelerated kernels.
+            </p>
+          </article>
+          <article className="evidence-class">
+            <p className="evidence-status">Layer 02</p>
+            <h3>Paged Block-Table Allocator (aien-kv-cache)</h3>
+            <p>
+              Manages fixed-size contiguous unified memory blocks (16 tokens/block). Implements copy-on-write
+              block tables, reference counting, and O(1) bitmapped allocation free of heap allocations in the hot path.
+            </p>
+          </article>
+          <article className="evidence-class">
+            <p className="evidence-status">Layer 03</p>
+            <h3>Continuous Batching Scheduler (aien-scheduler)</h3>
+            <p>
+              Dynamically batches active sequences at iteration boundaries. Integrates chunked prefill,
+              priority preemption, and memory-budgeted admission control with microsecond-level step overhead.
+            </p>
+          </article>
+          <article className="evidence-class">
+            <p className="evidence-status">Layer 04</p>
+            <h3>Grace Blackwell Accelerated Kernel Bridge</h3>
+            <p>
+              Bridges compiled Rust sequence scheduling directly into Mojo GPU kernels on NVIDIA GB10 silicon.
+              Fused GQA QKV projections, paged attention, and batched decode execute with single-fence completion.
+            </p>
+          </article>
+        </div>
       </section>
 
-      {/* 4. Empirical Benchmarks */}
-      <section className="aegis-knockout" aria-labelledby="research-empirical-heading">
+      {/* 4. Empirical Evaluation */}
+      <section className="aegis-house" aria-labelledby="research-evaluation-heading">
         <p className="portrait-index">Section 04</p>
-        <h2 id="research-empirical-heading">Empirical Telemetry &amp; Live Pressure Verification.</h2>
-        <div className="aegis-scope-strip" style={{ marginTop: "16px", marginBottom: "24px" }}>
-          <span>Scope: Control Plane Metadata</span>
+        <div>
+          <h2 id="research-evaluation-heading">Empirical Verification &amp; Silicon Benchmarks.</h2>
+          <p>
+            Rigorous benchmarking methodology across five axes: KV cache allocation throughput, subagent zero-copy
+            branching latency, scheduler batch construction overhead, memory stability under saturation, and live
+            API gateway stress.
+          </p>
+        </div>
+
+        <div className="aegis-scope-strip" style={{ margin: "24px 0" }}>
+          <span>Workstation: spark-b87b (NVIDIA DGX Spark GB10)</span>
+          <span>Silicon: Grace Blackwell (sm_121, 128 GB Unified LPDDR5X)</span>
           <span>Indexing: Unified Memory Pointers</span>
           <span>Physical Tensor Backing: Stage 2-4</span>
         </div>
 
         <p>
-          All measurements conducted directly on workstation spark-b87b (NVIDIA Grace Blackwell GB10, aarch64, Linux 7.0.0-1019-nvidia).
+          All measurements conducted directly on workstation spark-b87b (NVIDIA Grace Blackwell GB10, aarch64, Linux 6.8+).
           Zero simulation models: measurements represent physical hardware counters, operating system process tables, and live network sockets.
         </p>
 
@@ -248,10 +251,11 @@ export function ResearchPage() {
 
         {/* Subagent Zero-Copy Fork Table */}
         <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
-          Table 2: Subagent Zero-Copy Sequence Fork vs Memory Copy (Parent: 4,096 tokens, 256 KV Blocks)
+          Table 2: Subagent Zero-Copy Sequence Branching vs Unshared Memory Copy (32,768 Prefix Tokens)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
-          Compares pointer-table reference cloning against physical tensor memory duplication (~384 MB per sequence in BF16).
+          Compares pointer-table reference cloning against physical unshared tensor memory duplication (~704 MB per sequence in BF16).
+          Physical silicon receipt: <code>gb10_canonical_1789907893_4d762</code>.
         </p>
         <div style={{ overflowX: "auto" }}>
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
@@ -277,6 +281,12 @@ export function ResearchPage() {
             </tbody>
           </table>
         </div>
+
+        <p style={{ fontSize: "13px", color: "var(--text-dim)", marginBottom: "32px" }}>
+          <Link to="/evidence#claim-branching-fork-gb10" style={{ color: "var(--red)", textDecoration: "underline" }}>
+            View physical silicon receipt for 500-branch fork (2.06 µs p50 latency, 500.0x memory reduction)
+          </Link>
+        </p>
 
         {/* Scheduler Overhead Table */}
         <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
@@ -328,53 +338,53 @@ export function ResearchPage() {
             <tbody>
               {cortexStressData.map((row) => (
                 <tr key={row.concurrency} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.concurrency} concurrent</td>
+                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.concurrency} clients</td>
                   <td style={{ padding: "10px", color: "var(--accent-bright)" }}>{row.throughput}</td>
                   <td style={{ padding: "10px" }}>{row.p50}</td>
                   <td style={{ padding: "10px" }}>{row.p95}</td>
                   <td style={{ padding: "10px" }}>{row.p99}</td>
-                  <td style={{ padding: "10px", color: "#10b981" }}>{row.success}</td>
+                  <td style={{ padding: "10px", color: "#10b981", fontWeight: "600" }}>{row.success}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* Transformer Encoder Table */}
+        {/* INT8 Transformer Embedding Stress */}
         <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
-          Table 5: Cortex INT8 Transformer Encoder Throughput (Port 18081, /embed)
+          Table 5: INT8 Quantized Transformer Embedding Inference (cortex-encoder-rs, Port 18081)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
-          Model: BAAI/bge-base-en-v1.5 INT8 running on Grace Blackwell CPU (4 intra-op threads, zero GPU VRAM draw).
+          Execution of BAAI/bge-base-en-v1.5 INT8 via ONNX Runtime C-API across batch sweeps on Grace Blackwell workstation silicon.
         </p>
         <div style={{ overflowX: "auto" }}>
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
-                <th style={{ padding: "10px" }}>Batch Dimension</th>
-                <th style={{ padding: "10px" }}>Total Texts Scored</th>
-                <th style={{ padding: "10px" }}>Execution Duration</th>
-                <th style={{ padding: "10px" }}>Sustained Throughput</th>
-                <th style={{ padding: "10px" }}>Latency Per Text</th>
+                <th style={{ padding: "10px" }}>Batch Size</th>
+                <th style={{ padding: "10px" }}>Total Text Records</th>
+                <th style={{ padding: "10px" }}>Total Processing Duration</th>
+                <th style={{ padding: "10px" }}>Effective Throughput</th>
+                <th style={{ padding: "10px" }}>Per-Text Latency</th>
               </tr>
             </thead>
             <tbody>
               {encoderStressData.map((row) => (
                 <tr key={row.batch} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <td style={{ padding: "10px", fontWeight: "600" }}>Batch = {row.batch}</td>
-                  <td style={{ padding: "10px" }}>{row.texts}</td>
+                  <td style={{ padding: "10px", fontWeight: "600" }}>Batch {row.batch}</td>
+                  <td style={{ padding: "10px" }}>{row.texts} texts</td>
                   <td style={{ padding: "10px" }}>{row.duration}</td>
                   <td style={{ padding: "10px", color: "var(--accent-bright)" }}>{row.throughput}</td>
-                  <td style={{ padding: "10px", color: "#10b981" }}>{row.perText}</td>
+                  <td style={{ padding: "10px", color: "#10b981", fontWeight: "600" }}>{row.perText}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* Memory Stability Table */}
+        {/* Long-Duration Memory Stability */}
         <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
-          Table 6: Resident Set Size (RSS) Memory Stability Under Concurrency Stress
+          Table 6: Operating System Process Stability &amp; Memory Allocation Drift (24-Hour Soak)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Process RSS telemetry captured directly from /proc/[pid]/status (VmRSS) before, during, and after saturation load.
@@ -420,7 +430,7 @@ export function ResearchPage() {
         <div className="aegis-scope-strip" style={{ marginBottom: "24px" }}>
           <span>Hardware: GB10 Grace Blackwell</span>
           <span>Silicon Architecture: Pure Compiled Rust &amp; Mojo</span>
-          <span>Unified Memory: 121 GB LPDDR5X</span>
+          <span>Unified Memory: 128 GB LPDDR5X</span>
         </div>
 
         <div className="evidence-class-grid">
@@ -435,11 +445,12 @@ export function ResearchPage() {
           </article>
           <article className="evidence-class">
             <p className="evidence-status">Sovereign: AIEN Native Stack</p>
-            <h3>8.00 µs Step Latency / 0.42 µs Zero-Copy Branching</h3>
+            <h3>8.00 µs Step Latency / 2.06 µs Zero-Copy Branching</h3>
             <p>
               By hosting execution behind the AIEN Inference ABI and managing physical KV tables in Rust and Mojo,
-              the scheduling and allocation tax drops to nanoseconds (10.96 ns per CoW token append).
-              Subagent sequence branching executes in 0.42 microseconds, saving up to 27.3 GB of RAM across 1,000 subagents.
+              the scheduling and allocation tax drops to nanoseconds (13.30 µs per CoW page mutation on physical unified memory).
+              Subagent sequence branching executes in 2.06 microseconds per branch (1.20 ms for 500 branches),
+              achieving a 500.0x physical memory savings ratio (704 MB vs 343.75 GB for 500 branches on 32K context).
             </p>
           </article>
         </div>
@@ -451,7 +462,7 @@ export function ResearchPage() {
         <h2 id="research-conclusion-heading">Conclusion &amp; Technological Sovereignty.</h2>
         <p>
           The findings demonstrate that software orchestration overhead constitutes a substantial portion of observed
-          LLM serving latency and memory saturation. In autonomous multi-agent environments, Python control planes become
+          LLM serving latency and memory saturation. In autonomous multi-agent environments, interpreted control planes become
           the primary bottleneck preventing high-density agent spawning.
         </p>
         <p>
@@ -480,6 +491,9 @@ export function ResearchPage() {
           >
             Reproduce Live Benchmarks
           </a>
+          <Link to="/evidence" className="aegis-action-secondary" style={{ textDecoration: "none" }}>
+            Inspect Evidence Hub
+          </Link>
           <Link to="/aien" className="aegis-action-secondary" style={{ textDecoration: "none" }}>
             Return to AIEN Overview
           </Link>

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { trackRepoOutbound } from "../lib/tracking";
+
 export function BenchmarkSection() {
   return (
     <section className="benchmarks-section page-boundary" id="benchmarks" aria-labelledby="benchmarks-heading">
@@ -19,10 +21,15 @@ export function BenchmarkSection() {
             <span className="benchmark-tag">Memory Footprint</span>
             <h3>Resident Set Size (RSS)</h3>
             <p>
-              Native compiled Rust daemons significantly reduce memory footprint compared to standard Python runtimes.
+              Native compiled Rust daemons reduce resident memory compared to interpreted runtimes.
               While full-stack Python agent frameworks load PyTorch and LangChain dependencies into 3.7+ gigabytes of RSS,
               standalone native Rust daemons (openclaw-rs, cortex-rs) operate in under 10 megabytes.
-              Even against a minimal Uvicorn baseline (45 megabytes), native compilation frees substantial RAM on Grace Blackwell GB10 for unified neural weights and paged KV pools.
+              Even against a minimal Uvicorn baseline (45 megabytes), native compilation preserves RAM on Grace Blackwell GB10 for unified neural weights and paged KV pools.
+            </p>
+            <p style={{ marginTop: "8px", fontSize: "12px" }}>
+              <Link to="/evidence#claim-memory-rss-openclaw" style={{ color: "var(--red)", textDecoration: "underline" }}>
+                Inspect verified RSS claims in the Evidence Hub
+              </Link>
             </p>
           </div>
 
@@ -73,9 +80,14 @@ export function BenchmarkSection() {
             <span className="benchmark-tag">Response Speed</span>
             <h3>Latency (p50 TTFB) & Throughput</h3>
             <p>
-              Axum microservices deliver sub-four-millisecond response times under concurrent load,
-              ten times faster than standard Python servers. Agents search memory, dispatch tools,
-              and complete actions with instant response.
+              Native Axum microservices deliver sub-4 ms response times under concurrent load,
+              measuring 3.56 ms p50 at 2,056 requests/sec on cortex-rs versus 38.4 ms at 214 requests/sec on a standard
+              asynchronous Python FastAPI baseline. Agents query memory and dispatch tools with direct compiled execution.
+            </p>
+            <p style={{ marginTop: "8px", fontSize: "12px" }}>
+              <Link to="/evidence#claim-axum-latency" style={{ color: "var(--red)", textDecoration: "underline" }}>
+                Inspect verified gateway claims in the Evidence Hub
+              </Link>
             </p>
           </div>
 
@@ -113,41 +125,68 @@ export function BenchmarkSection() {
 
       <div className="silicon-highlights-grid">
         <article className="silicon-highlight-card">
-          <strong>4.09 ms</strong>
-          <h4>Query Vectorization</h4>
-          <p>Short query INT8 quantized embedding via native ONNX Runtime C-API on Grace Blackwell.</p>
+          <strong>2.06 µs</strong>
+          <h4>Zero-Copy Branching</h4>
+          <p>
+            500 reasoning branches forked in 1.20 ms with 500.0x memory reduction (704 MB vs 343.75 GB) on Grace Blackwell GB10.
+          </p>
+          <p style={{ marginTop: "6px", fontSize: "11px" }}>
+            <Link to="/evidence#claim-branching-fork-gb10" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              Receipt: gb10_canonical
+            </Link>
+          </p>
         </article>
 
         <article className="silicon-highlight-card">
-          <strong>5.78 ms</strong>
-          <h4>Context Vectorization</h4>
-          <p>Medium context 32-token embedding latency executed locally on workstation silicon.</p>
+          <strong>553 tok/s</strong>
+          <h4>Continuous Batching</h4>
+          <p>
+            Peak throughput at C=16 on TinyLlama-1.1B BF16 with 23.56 ms p50 step latency and zero CPU fallback.
+          </p>
+          <p style={{ marginTop: "6px", fontSize: "11px" }}>
+            <Link to="/evidence#claim-continuous-batching-gb10" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              Receipt: gb10_canonical
+            </Link>
+          </p>
+        </article>
+
+        <article className="silicon-highlight-card">
+          <strong>4.09 ms</strong>
+          <h4>Query Vectorization</h4>
+          <p>Short query INT8 quantized embedding via native ONNX Runtime C-API on Grace Blackwell silicon.</p>
+          <p style={{ marginTop: "6px", fontSize: "11px" }}>
+            <Link to="/evidence#claim-query-vectorization" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              Receipt: ONNX INT8
+            </Link>
+          </p>
         </article>
 
         <article className="silicon-highlight-card">
           <strong>Multi-Platform</strong>
-          <h4>Universal Hardware Support</h4>
-          <p>Runs across Apple Silicon MacBooks, standard x86_64 Linux servers, AMD ROCm, and NVIDIA hardware.</p>
-        </article>
-
-        <article className="silicon-highlight-card">
-          <strong>100%</strong>
-          <h4>Verified Pass Rate</h4>
-          <p>All ecosystem repositories pass unit, integration, and invariant checks with zero warnings.</p>
+          <h4>Platform Matrix</h4>
+          <p>Verified on NVIDIA Grace Blackwell GB10 and Apple Silicon macOS, with generic Linux x86_64 validated.</p>
+          <p style={{ marginTop: "6px", fontSize: "11px" }}>
+            <Link to="/evidence#claim-hardware-matrix" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              View Platform Matrix
+            </Link>
+          </p>
         </article>
       </div>
 
       <div className="benchmarks-action-strip">
         <div>
-          <h3>Reproduce the benchmark suite</h3>
+          <h3>Inspect the verified records</h3>
           <p>
-            Review the automated harness, raw telemetry data files, and website sources on GitHub:
+            Review automated reproduction harnesses, raw telemetry data files, and cryptographic receipts:
           </p>
         </div>
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+          <Link to="/evidence" className="portrait-link">
+            Explore Evidence Hub
+          </Link>
           <a
             href="https://github.com/aien-dev/benchmarks"
-            className="portrait-link"
+            className="portrait-link quiet"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackRepoOutbound("benchmarks", "https://github.com/aien-dev/benchmarks")}

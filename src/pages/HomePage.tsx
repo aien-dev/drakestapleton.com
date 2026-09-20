@@ -793,13 +793,12 @@ export function HomePage() {
             <p>
               I am now extending Atlas into AEGIS, an on-prem defender for
               authorized networks. Its first adapter passed 59 of 62 checks in a
-              frozen project suite on August 20, 2026.
+              frozen project suite on August 20, 2026 (<Link to="/evidence#claim-aegis-adapter-eval" style={{ color: "var(--red)", textDecoration: "underline" }}>see receipt</Link>).
             </p>
             <p>
               AIEN expands this foundation into a full sovereign cognitive
               architecture on dedicated Grace Blackwell silicon, with zero disk
-              secrets, native compiled Rust performance, and open-source
-              repositories on GitHub.
+              secrets, native compiled Rust performance, and verified 2.06 µs sequence branching (<Link to="/evidence#claim-branching-fork-gb10" style={{ color: "var(--red)", textDecoration: "underline" }}>500.0x memory reduction</Link>).
             </p>
             <div
               style={{
