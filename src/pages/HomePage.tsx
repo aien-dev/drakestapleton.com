@@ -209,6 +209,18 @@ export function HomePage() {
               belong before I understood that belonging should include the whole
               of me.
             </p>
+            <figure className="photo-card">
+              <img
+                src="/images/family-group-photo.jpg"
+                alt="Family group photo: Victoria, Granny holding Ruby the dachshund, Summer, Drake Stapleton, Devin, and their mother, with his brother Mac kneeling front and center"
+                loading="lazy"
+              />
+              <figcaption>
+                That is us. Left to right: Victoria, Granny holding Ruby,
+                Summer, me, Devin, and Mom, with my brother Mac kneeling front
+                and center. Dad and Papa are with us in spirit.
+              </figcaption>
+            </figure>
           </article>
           <article className="grade-card">
             <p className="chapter-tag">The drive behind the grades</p>
@@ -380,7 +392,7 @@ export function HomePage() {
                 </p>
               </div>
               <div className="mom-story-gallery">
-                <figure className="mom-photo-card primary">
+                <figure className="photo-card primary">
                   <img
                     src="/images/drake-and-mom-graduation.jpg"
                     alt="Drake Stapleton and his mother celebrating graduation together in May 2016"
@@ -392,7 +404,7 @@ export function HomePage() {
                     mine at Western Kentucky University.
                   </figcaption>
                 </figure>
-                <figure className="mom-photo-card secondary">
+                <figure className="photo-card secondary">
                   <img
                     src="/images/mom-graduation-ceremony.jpg"
                     alt="Mom in her graduation cap and gown at Volunteer State Community College"
