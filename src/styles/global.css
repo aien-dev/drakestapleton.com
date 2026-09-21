@@ -2021,7 +2021,10 @@ h4 {
 
 .claims-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, 1fr) so a card's min-content (e.g. a long reproduce command)
+     can never force the track wider than the viewport on phones; the
+     reproduce box scrolls internally instead. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 }
 .claim-card {
@@ -2104,6 +2107,9 @@ h4 {
 .claim-footer-meta a {
   color: var(--red);
   text-decoration: underline;
+  /* Long repo slugs/URLs must wrap on phones instead of forcing the card
+     wider than the viewport. */
+  overflow-wrap: anywhere;
 }
 .claim-reproduce-box {
   margin-top: 12px;
@@ -3083,6 +3089,12 @@ th {
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+/* Scroll wrapper for wide tables on small screens. This must be a class:
+   the site CSP (style-src 'self') blocks inline styles, so an inline
+   overflowX style would be inert and wide tables would clip. */
+.table-scroll {
+  overflow-x: auto;
 }
 .diagram-frame {
   width: 100%;

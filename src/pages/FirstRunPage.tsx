@@ -53,7 +53,7 @@ export function FirstRunPage() {
       </div>
 
       <h2 className="sec">Roster</h2>
-      <div className="card roster-table-card" style={{ overflowX: "auto" }}>
+      <div className="card roster-table-card table-scroll">
         <table>
           <thead>
             <tr>
