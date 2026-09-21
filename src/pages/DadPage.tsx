@@ -25,6 +25,7 @@ const chapters = [
     body: [
       "Face the hard day head-on. Keep going when quitting looks easy. Love yourself, and love your neighbor more than yourself. Always. Always.",
       "He was a gifted carpenter and a junior preacher who loved the Bible and Jesus. He taught me to love every single person I encounter, and that our highest duty on this earth is to give back to humanity.",
+      "He taught me how to love kids. He gave me a model of the steady life I could build, at a time when I doubted myself and blamed myself for how my biological father treated me. His steady love taught me otherwise.",
     ],
   },
   {
