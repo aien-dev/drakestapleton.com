@@ -78,6 +78,11 @@ export function SoftwarePage() {
               So everything in this section was built by talking. I ask the questions, set the
               direction, test what comes back, and decide what deserves to keep going.
             </p>
+            <p>
+              And to be fully honest about how these words got here: I did not type them. I
+              spoke them out loud, and AI put them on this page for me. That is how all of
+              this works.
+            </p>
           </SectionLead>
           <div className="practice-story-list">
             {AI_STORY.map((chapter, index) => (
