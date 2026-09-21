@@ -15,7 +15,7 @@ const perseverance = [
   {
     marker: "10 weeks",
     title: "I built people up and watched them lead.",
-    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves. Heart gets a member in the door. Proof earns the respect.",
+    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves. Heart gets a person in the door. Proof earns their respect.",
   },
   {
     marker: "45 times",
