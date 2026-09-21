@@ -169,8 +169,20 @@ export function HomePage() {
             <p>
               I grew up gay in Tennessee, in the Bible Belt. Mom fought for me.
               Granny and Papa rooted me. Dad chose me and gave me his name. My
-              little sister gave me someone to protect. I was surrounded by love
+              little sister gave me someone to protect, and my little brother
+              gave me my opposite in every way. I was surrounded by love
               while believing that being fully known could cost me everything.
+            </p>
+            <p>
+              My little brother is two years younger, and we were exact
+              opposites. We fought over everything and shared very little:
+              Pokémon, Yu-Gi-Oh, video games. Granny learned to buy two of
+              every copy, one for each of us. He was always the sweet one. I
+              picked on him, and he answered with love anyway. I would have
+              fought a pack of wolves for that kid, and growing older I have
+              wished I loved him a little more out loud. We have the whole
+              future ahead of us. We are still close, and he is still the
+              sweet one.
             </p>
             <p>
               That farm is where I want you to stand for a minute, because it's
