@@ -20,7 +20,7 @@ export function SoftwarePage() {
     <main className="portrait-page practice-page">
       <PageIntro
         eyebrow="Software and AI / the practice behind the work"
-        title="I followed the questions into code."
+        title={<HisWords>I followed the questions into code.</HisWords>}
         className="practice-hero page-boundary"
       >
         <p>
@@ -43,7 +43,7 @@ export function SoftwarePage() {
       </section>
 
       <section className="token-ledger page-boundary" aria-labelledby="token-ledger-title">
-        <SectionLead eyebrow="What I wrote and directed" title="I turned conversation into operating work." titleId="token-ledger-title">
+        <SectionLead eyebrow="What I wrote and directed" title={<HisWords>I turned conversation into operating work.</HisWords>} titleId="token-ledger-title">
           <p>
             I wrote prompts and briefs, supplied the context, directed coding sessions, orchestrated
             product calls, and reviewed the output. These totals separate the words I exchanged, the
@@ -177,7 +177,7 @@ export function SoftwarePage() {
 
       <section className="practice-closing page-boundary">
         <p className="portrait-index">The person inside the practice</p>
-        <h2>I still care most about what the work makes possible.</h2>
+        <h2><HisWords>I still care most about what the work makes possible.</HisWords></h2>
         <p>
           Code gives an idea structure. AI lets me explore more directions. Evidence keeps the story honest.
           The purpose remains human: make something useful, preserve what matters, and help another person

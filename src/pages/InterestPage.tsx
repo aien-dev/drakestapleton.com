@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { InterestForm } from "../components/InterestForm";
 import { PageIntro } from "../components/PagePrimitives";
+import { HisWords } from "../components/VoiceMark";
 import { usePageMeta } from "../lib/usePageMeta";
 
 export function InterestPage() {
@@ -18,8 +19,11 @@ export function InterestPage() {
             question, an idea, or a story of your own, leave me a note.
           </p>
           <p>
-            I am open to good conversation with people who want to walk part of this journey with me, and
-            to research partnerships that advance what our generation can build with AI.
+            <HisWords>
+              I am open to good conversation with people who want to walk part of this journey with
+              me
+            </HisWords>
+            , and to research partnerships that advance what our generation can build with AI.
           </p>
         </PageIntro>
 
