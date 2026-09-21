@@ -15,7 +15,7 @@ const perseverance = [
   {
     marker: "10 weeks",
     title: "I built people up and watched them lead.",
-    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves.",
+    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves. Heart gets a member in the door. Proof earns the rank.",
   },
   {
     marker: "45 times",
@@ -59,7 +59,7 @@ const inheritances = [
   ],
   [
     "The people who found me",
-    "taught me that gratitude moves forward. You turn around and reach for someone else.",
+    "taught me that gratitude moves forward. You turn around and reach for someone else. The people are the only thing in any of this that was ever real.",
   ],
 ];
 
@@ -70,7 +70,7 @@ const values = [
   ],
   [
     "Service",
-    "Leadership makes another person stronger and gives the title less importance.",
+    "Leadership makes another person stronger and gives the title less importance. I guide people until they can carry the work themselves.",
   ],
   ["Belonging", "I build places where people can stay fully visible."],
   [
