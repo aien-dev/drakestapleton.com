@@ -58,5 +58,9 @@
   "/research": {
     "title": "LLM Inference Research & Architecture | Drake Stapleton",
     "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Paged Unified Memory KV Cache, and Grace Blackwell Telemetry."
+  },
+  "/dad": {
+    "title": "My Dad Was My Rock | Drake Stapleton",
+    "description": "A memorial for Russell Ballentine: the man who chose two boys, taught them how to work, survive, and love, and became their rock."
   }
 }
