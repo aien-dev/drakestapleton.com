@@ -64,9 +64,19 @@ export function SoftwarePage() {
         <div className="page-boundary">
           <SectionLead eyebrow="My AI story" title="What I asked, wrote, and orchestrated." titleId="ai-story-title">
             <p>
-              I began with consciousness, wrote across cosmology and continuous improvement, brought AI
-              into manufacturing, and learned to direct software and model systems. Each chapter changed
-              what I knew how to make.
+              One thing to get straight first: I am not a programmer. I never took classes, I
+              cannot read code, and I could not tell you what a variable is. I was told I could
+              not do any of this.
+            </p>
+            <p>
+              I fell in love with AI for a simpler reason. I have trouble speaking and getting
+              my thoughts out clearly. When I talk to AI, it understands me no matter how I
+              fumble my words, stutter, or type too fast and misspell half of it. I do not have
+              to go back and fix everything. It fills in the gaps my scattered brain leaves behind.
+            </p>
+            <p>
+              So everything in this section was built by talking. I ask the questions, set the
+              direction, test what comes back, and decide what deserves to keep going.
             </p>
           </SectionLead>
           <div className="practice-story-list">
