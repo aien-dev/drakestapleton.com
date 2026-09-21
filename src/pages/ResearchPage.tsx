@@ -6,7 +6,7 @@ import { usePageMeta } from "../lib/usePageMeta";
 const kvBenchmarkData = [
   { metric: "Allocation Throughput", value: "134,338,182 blocks/sec", unit: "119.10 ns/seq (7.44 ns/block)", status: "Deterministic O(1)" },
   { metric: "Deallocation Throughput", value: "238,709,061 blocks/sec", unit: "67.03 ns/seq (4.19 ns/block)", status: "Pre-mapped pool" },
-  { metric: "Copy-on-Write Append", value: "8.96 ns/mutation", unit: "Single-digit nanosecond CoW page mutation", status: "Zero-stall divergence" },
+  { metric: "Copy-on-Write Append", value: "13,297 ns/mutation", unit: "13.30 µs CoW page fault: allocate + copy 352 KB physical block", status: "Zero-stall divergence" },
   { metric: "Continuous Batching Step (TinyLlama)", value: "553.14 tokens/sec", unit: "23.56 ms p50 step @ C=16", status: "0 GPU kernel fallback" },
 ];
 
@@ -448,7 +448,7 @@ export function ResearchPage() {
             <h3>8.00 µs Step Latency / 2.06 µs Zero-Copy Branching</h3>
             <p>
               By hosting execution behind the AIEN Inference ABI and managing physical KV tables in Rust and Mojo,
-              the scheduling and allocation tax drops to nanoseconds (13.30 µs per CoW page mutation on physical unified memory).
+              the scheduling and allocation tax drops to microseconds (13.30 µs per CoW page mutation on physical unified memory).
               Subagent sequence branching executes in 2.06 microseconds per branch (1.20 ms for 500 branches),
               achieving a 500.0x physical memory savings ratio (704 MB vs 343.75 GB for 500 branches on 32K context).
             </p>
