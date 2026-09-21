@@ -47,7 +47,7 @@ const lifeRecord = [
 const inheritances = [
   [
     "Mom",
-    "is my absolute warrior, my hero, and my idol. She fought for us, pushed through every trial, returned to school in her forties, and crossed her graduation stage eight days before I crossed mine.",
+    "is my absolute warrior, my hero, and my idol. She fought for us, pushed through every trial, went back to high school in her forties, and earned her GED.",
   ],
   [
     "Granny and Papa",
@@ -246,9 +246,10 @@ export function HomePage() {
             title="I keep returning because people are worth the effort."
           >
             <p>
-              Mom returned to school in her forties and finished what life had
-              interrupted. I watched her cross the stage on May 5, 2016. Eight
-              days later, she stood beside me at Western Kentucky.
+              Mom went back to high school in her forties and finished what
+              life had interrupted, earning her GED. I watched her cross that
+              stage, and she stood beside me when I crossed mine at Western
+              Kentucky.
             </p>
           </SectionLead>
           <div className="perseverance-ledger">
@@ -341,10 +342,9 @@ export function HomePage() {
                 <p>
                   I idolize her and want to be just like her. She was strong
                   through every trial, and she remains so very strong today. I
-                  strive every single day to match her strength. She returned to
-                  school in her forties, finished what life interrupted, and
-                  crossed her college graduation stage eight days before I
-                  crossed mine.
+                  strive every single day to match her strength. She went back to
+                  high school in her forties, finished what life interrupted,
+                  and earned her GED.
                 </p>
                 <p>
                   Mom endures. She pushes through every barrier in her way. That
@@ -375,20 +375,19 @@ export function HomePage() {
                     loading="lazy"
                   />
                   <figcaption>
-                    May 2016: Celebrating graduation week together. Mom crossed
-                    her stage at Volunteer State eight days before I crossed
-                    mine at Western Kentucky University.
+                    May 2016: Celebrating my Western Kentucky University
+                    graduation with Mom beside me.
                   </figcaption>
                 </figure>
                 <figure className="mom-photo-card secondary">
                   <img
                     src="/images/mom-graduation-ceremony.jpg"
-                    alt="Mom in her graduation cap and gown at Volunteer State Community College"
+                    alt="Mom in her graduation gown at her GED ceremony"
                     loading="lazy"
                   />
                   <figcaption>
-                    Mom earning her college degree at Volunteer State Community
-                    College, finishing what life interrupted.
+                    Mom at her GED graduation, finishing what life
+                    interrupted.
                   </figcaption>
                 </figure>
               </div>
