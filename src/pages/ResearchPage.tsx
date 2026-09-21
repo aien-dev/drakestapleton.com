@@ -15,7 +15,7 @@ const subagentForkData = [
   { forked: "10", zeroCopy: "1.82 µs", naiveCopy: "19.20 ms", speedup: "1,054.9x", memorySaved: "6.88 GB" },
   { forked: "50", zeroCopy: "1.95 µs", naiveCopy: "96.00 ms", speedup: "984.6x", memorySaved: "34.38 GB" },
   { forked: "100", zeroCopy: "2.01 µs", naiveCopy: "192.00 ms", speedup: "955.2x", memorySaved: "68.75 GB" },
-  { forked: "500", zeroCopy: "2.06 µs", naiveCopy: "960.00 ms", speedup: "466.0x", memorySaved: "343.05 GB" },
+  { forked: "500", zeroCopy: "2.06 µs", naiveCopy: "960.00 ms", speedup: "932.0x", memorySaved: "343.75 GB" },
 ];
 
 const schedulerOverheadData = [
@@ -67,7 +67,7 @@ export function ResearchPage() {
 
       <div className="aegis-scope-strip" aria-label="Research highlights">
         <span>134M Blocks/Sec KV Allocation</span>
-        <span>2.06 µs Zero-Copy Sequence Branching</span>
+        <span>2.06 <span className="unit">µs</span> Zero-Copy Sequence Branching</span>
         <span>500.0x Physical Memory Savings</span>
         <span>Pure Compiled Rust &amp; Mojo</span>
       </div>
@@ -220,7 +220,7 @@ export function ResearchPage() {
         </p>
 
         {/* KV Cache Table */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 1: Paged KV Cache Block-Table Allocator Throughput (Control Plane Metadata)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
@@ -250,7 +250,7 @@ export function ResearchPage() {
         </div>
 
         {/* Subagent Zero-Copy Fork Table */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 2: Subagent Zero-Copy Sequence Branching vs Unshared Memory Copy (32,768 Prefix Tokens)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
@@ -271,7 +271,7 @@ export function ResearchPage() {
             <tbody>
               {subagentForkData.map((row) => (
                 <tr key={row.forked} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.forked} subagents</td>
+                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.forked} subagent{row.forked === "1" ? "" : "s"}</td>
                   <td style={{ padding: "10px", color: "var(--accent-bright)" }}>{row.zeroCopy}</td>
                   <td style={{ padding: "10px" }}>{row.naiveCopy}</td>
                   <td style={{ padding: "10px", fontWeight: "600", color: "#10b981" }}>{row.speedup}</td>
@@ -289,7 +289,7 @@ export function ResearchPage() {
         </p>
 
         {/* Scheduler Overhead Table */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 3: Native Continuous Batching Scheduler Step Overhead (aien-scheduler)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
@@ -307,7 +307,7 @@ export function ResearchPage() {
             <tbody>
               {schedulerOverheadData.map((row) => (
                 <tr key={row.active} style={{ borderBottom: "1px solid var(--border-subtle)" }}>
-                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.active} active streams</td>
+                  <td style={{ padding: "10px", fontWeight: "600" }}>{row.active} active stream{row.active === "1" ? "" : "s"}</td>
                   <td style={{ padding: "10px", color: "var(--accent-bright)" }}>{row.buildTime}</td>
                   <td style={{ padding: "10px", color: "#10b981" }}>{row.overhead}</td>
                 </tr>
@@ -317,7 +317,7 @@ export function ResearchPage() {
         </div>
 
         {/* Cortex Vector Stress Table */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 4: Live Cortex Vector Memory Call Stress (Port 18080, /api/cortex/search)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
@@ -351,7 +351,7 @@ export function ResearchPage() {
         </div>
 
         {/* INT8 Transformer Embedding Stress */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 5: INT8 Quantized Transformer Embedding Inference (cortex-encoder-rs, Port 18081)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
@@ -383,7 +383,7 @@ export function ResearchPage() {
         </div>
 
         {/* Long-Duration Memory Stability */}
-        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)" }}>
+        <h3 style={{ marginTop: "32px", marginBottom: "16px", color: "var(--text-bright)", clear: "both" }}>
           Table 6: Operating System Process Stability &amp; Memory Allocation Drift (24-Hour Soak)
         </h3>
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
