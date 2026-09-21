@@ -34,6 +34,7 @@ const chapters = [
     body: [
       "A rock holds steady through every storm. That was my dad. He has been gone since 2019, and I still feel him with me, steady as ever, through every new door.",
       "I carry his lessons into everything I build. I miss him, I am grateful for every lesson he put into me, and I still want to make him proud.",
+      "Every time I love someone, my dad flows through me: what he taught me, what he instilled in me, what he showed me.",
     ],
   },
 ];
