@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageIntro, SectionLead } from "../components/PagePrimitives";
 import { PracticeTimeline } from "../components/PracticeTimeline";
+import { HisWords } from "../components/VoiceMark";
 import {
   AI_STORY,
   AI_WORKSPACES,
@@ -63,6 +64,7 @@ export function SoftwarePage() {
       <section className="practice-story" aria-labelledby="ai-story-title">
         <div className="page-boundary">
           <SectionLead eyebrow="My AI story" title="What I asked, wrote, and orchestrated." titleId="ai-story-title">
+            <HisWords block>
             <p>
               One thing to get straight first: I am not a programmer. I never took classes, I
               cannot read code, and I could not tell you what a variable is. I was told I could
@@ -83,6 +85,7 @@ export function SoftwarePage() {
               spoke them out loud, and AI put them on this page for me. That is how all of
               this works.
             </p>
+            </HisWords>
           </SectionLead>
           <div className="practice-story-list">
             {AI_STORY.map((chapter, index) => (
