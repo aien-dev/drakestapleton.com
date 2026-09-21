@@ -831,9 +831,6 @@ export function HomePage() {
               <Link to="/atlas">Explore the Atlas project</Link>
               <Link to="/aegis">See AEGIS and its evaluation</Link>
               <Link to="/aien">Discover the AIEN sovereign architecture</Link>
-              <a href="https://aienos.com" target="_blank" rel="noopener noreferrer">
-                System Documentation & Specs (aienos.com)
-              </a>
               <Link to="/evidence">Audited Claims & Evidence Hub</Link>
             </div>
           </div>

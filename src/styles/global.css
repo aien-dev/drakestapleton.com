@@ -308,10 +308,8 @@ dd {
       .kind
     )
   ) {
-  hyphens: auto;
-  text-align: justify;
-  text-align-last: left;
-  text-justify: inter-word;
+  hyphens: none;
+  text-align: left;
 }
 .practice-story-marker p,
 .workspace-grid article > p,
@@ -2527,6 +2525,9 @@ h4 {
 }
 .aegis-scope-strip span:last-child {
   border-right: 0;
+}
+.aegis-scope-strip .unit {
+  text-transform: none;
 }
 .aegis-tagline {
   max-width: 930px;
