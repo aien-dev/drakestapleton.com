@@ -11,151 +11,88 @@ type Chapter = {
 
 const CHAPTERS: Chapter[] = [
   {
-    n: "I",
+    n: "1",
     title: "Algebraic Construction of the Ω-Number Algebra",
-    part: "Part I · Foundations",
+    part: "Part I · Core Theory",
     summary:
-      "Extends the complex numbers with Ω-numbers so that division by zero, the mathematical signature of a singularity, becomes a well-defined algebraic operation. Builds the graded algebra C_Ω with closure and associativity intact.",
+      "Builds a new number system where dividing by zero gives a finite value: a fixed universal size Ω tied to the Planck length, times a phase factor that depends on the observer. Extends the complex numbers into a graded algebra so every operation physicists need still works.",
   },
   {
-    n: "II",
+    n: "2",
     title: "Observer-Dependent Limits and Physical Mechanism",
-    part: "Part I · Foundations",
+    part: "Part I · Core Theory",
     summary:
-      "Defines x/0 = Ω·e^(iτ): a universal magnitude Ω with an observer-dependent phase τ. The phase emerges as the holonomy of an observer connection along the observer's worldline, with explicit Lorentz-covariant transformation rules between observers.",
+      "Explains where the observer-dependent phase comes from: the accumulated twist (holonomy) of an observer connection traced along the observer's path, combining gravitational geometric phase, dynamical phase, and measurement context. Derives transformation rules proving different observers still get the same physics.",
   },
   {
-    n: "III",
+    n: "3",
     title: "Variational Principle and Field Equations",
-    part: "Part I · Foundations",
+    part: "Part I · Core Theory",
     summary:
-      "Derives Ω-modified Einstein equations from an action principle generalizing the Einstein-Hilbert action. The equations recover standard general relativity away from singularities while predicting finite, observer-independent curvature at would-be singular points.",
+      "Derives the framework's equations of motion from a generalization of the action principle behind Einstein's equations. In ordinary conditions everything matches standard general relativity; at would-be singularities it predicts finite, observer-independent curvature instead of infinities.",
   },
   {
-    n: "IV",
+    n: "4",
     title: "Conservation Laws and Algebraic Consistency",
-    part: "Part I · Foundations",
+    part: "Part I · Core Theory",
     summary:
-      "Shows the Ω-modified action is diffeomorphism invariant, so conservation laws follow from Noether's theorem, and verifies the Bianchi identity and algebraic consistency of the framework.",
+      "Verifies the new equations respect spacetime symmetries and standard conservation laws (energy-momentum via Noether's theorem), and that the algebra does not contradict itself.",
   },
   {
-    n: "V",
+    n: "5",
     title: "Physical Predictions and Invariant Quantities",
-    part: "Part I · Foundations",
+    part: "Part I · Core Theory",
     summary:
-      "First quantitative payoff: the Kretschmann scalar at a Schwarzschild singularity is finite, K(0) = 48G²M²Ω/(c⁴r_s⁶), and identical for every observer despite the observer-dependent mathematics.",
+      "The headline testable claim: the curvature at a black hole's center is a finite number set by the black hole's mass, identical for every observer, rather than an infinity.",
   },
   {
-    n: "VI",
+    n: "6",
     title: "Gravitational Wave Signature Predictions",
-    part: "Part II · Predictions",
+    part: "Part II · Observational Predictions",
     summary:
-      "Replaces the r = 0 singularity with an Ω-scale core near the Planck length, generating post-merger echoes, quasinormal-mode shifts, and inspiral phase corrections in gravitational waveforms. Predicts detectable phase shifts for LIGO-band binaries when the Ω strength parameter ξ exceeds 10⁻³.",
+      "Predicts how a finite Ω-scale core at a black hole's center would change gravitational waves from mergers: post-merger echoes, altered ringdown tones, inspiral phase shifts, and changed radiation reaction.",
   },
   {
-    n: "VII",
+    n: "7",
     title: "Observer-Dependent Physical Manifestations",
-    part: "Part II · Predictions",
+    part: "Part II · Observational Predictions",
     summary:
-      "Works out measurable consequences of the observer phase τ: gravitational geometric phase effects, measurement-entanglement signatures, relativistic transformation effects, and cosmic variability predictions.",
+      "Catalogs other observable consequences of the observer-dependent machinery: gravitational geometric-phase effects, measurement-entanglement signatures, relativistic transformation effects, and cosmic variability.",
   },
   {
-    n: "VIII",
+    n: "8",
     title: "Quantum Gravity Interface and Divergence Regularization",
-    part: "Part II · Predictions",
+    part: "Part II · Observational Predictions",
     summary:
-      "Uses Ω-number algebra to systematically regularize ultraviolet divergences in quantum gravity: effective field theory corrections, renormalization group flow modifications, vacuum fluctuation effects, and black hole evaporation modifications.",
+      "Shows how the framework slots into quantum field theory practice: corrections to effective field theories, modified renormalization-group flow, vacuum-fluctuation effects, and changes to black-hole evaporation.",
   },
   {
-    n: "IX",
+    n: "9",
     title: "Specific Numerical Predictions for Current Detectors",
-    part: "Part II · Predictions",
+    part: "Part II · Observational Predictions",
     summary:
-      "Concrete numbers for LIGO-Virgo-KAGRA, LISA, the Event Horizon Telescope, and pulsar timing arrays. Includes predicted ~10⁻⁴-level deviations from general relativity for LISA and fractional black-hole shadow deviations of order 10⁻³ to 10⁻² for the EHT.",
+      "Concrete numbers for LIGO-Virgo-KAGRA, LISA, the Event Horizon Telescope, pulsar timing arrays, and cosmological redshift effects. Includes predicted ~10⁻⁴-level deviations from general relativity for LISA.",
   },
   {
-    n: "X",
+    n: "10",
     title: "Error Analysis and Confidence Intervals",
-    part: "Part III · Validation",
+    part: "Part II · Observational Predictions",
     summary:
-      "Catalogs systematic uncertainties: numerical relativity waveform errors near 10⁻⁴, observer-phase determination limits, and astrophysical foregrounds, so every prediction carries an honest error budget.",
+      "Quantifies the uncertainty budget behind every prediction, from numerical-relativity simulation errors to detector calibration and astrophysical noise.",
   },
   {
-    n: "XI",
+    n: "11",
     title: "Comparison with Existing Observational Data",
-    part: "Part III · Validation",
+    part: "Part II · Observational Predictions",
     summary:
-      "Checks the framework against GW150914's ringdown, the EHT's M87* shadow, and other current data. Everything measured so far is consistent with classical general relativity within uncertainties, which the framework must reproduce in the weak-field regime.",
+      "The scorecard: every existing measurement (GW150914 ringdown, the M87* shadow, pulsar timing) matches classical general relativity within errors, and the framework's predicted deviations sit below today's detection thresholds.",
   },
   {
-    n: "XII",
+    n: "12",
     title: "Experimental Validation Pathways",
-    part: "Part III · Validation",
+    part: "Part II · Observational Predictions",
     summary:
-      "A testing roadmap: near-term LIGO A+ and pulsar timing arrays, medium-term LISA in the 2030s, and long-term Cosmic Explorer and Einstein Telescope with 10 to 100 times current sensitivity.",
-  },
-  {
-    n: "XIII",
-    title: "Current Observational Constraints and Quantitative Comparison",
-    part: "Part III · Validation",
-    summary:
-      "Detailed side-by-side of Ω-framework predictions against LIGO/Virgo catalog data, EHT imaging, and cosmological measurements, pinning down where the framework is allowed to differ from general relativity and by how much.",
-  },
-  {
-    n: "XIV",
-    title: "Statistical Significance and Confidence Levels",
-    part: "Part III · Validation",
-    summary:
-      "States the result plainly: the framework currently yields null statistical significance, with a Bayesian evidence ratio near 1.2, meaning no current experimental evidence for or against it. Deviations live in regimes today's detectors cannot yet resolve.",
-  },
-  {
-    n: "XV",
-    title: "Systematic Errors and Experimental Limitations",
-    part: "Part III · Validation",
-    summary:
-      "Why the signal is hard to see: LIGO's ~1% frequency resolution against predicted shifts far below it, EHT's inability to resolve the innermost stable circular orbit, and CMB foregrounds that can mask pre-Big-Bang signatures.",
-  },
-  {
-    n: "XVI",
-    title: "Future Experimental Tests and Success Criteria",
-    part: "Part III · Validation",
-    summary:
-      "Falsifiable success criteria for specific experiments: LVK precision ringdown analysis, next-generation EHT shadow measurements below 1% precision, and CMB-S4/LiteBIRD spectral index tests, each with implementation plans and timelines.",
-  },
-  {
-    n: "XVII",
-    title: "Discussion",
-    part: "Part IV · Assessment",
-    summary:
-      "Steps back to assess what the framework achieves: geodesic completeness across classical singular regions, finite curvature at r = 0, and a preserved principle of relativity, alongside the candid admission that it is not yet a mature theory of everything.",
-  },
-  {
-    n: "XVIII",
-    title: "Comparison with Alternative Approaches",
-    part: "Part IV · Assessment",
-    summary:
-      "Positions the Ω-framework against regular black holes, loop quantum gravity, string theory, and modified gravity. Unlike approaches that alter the Einstein equations, this framework modifies the number system itself.",
-  },
-  {
-    n: "XIX",
-    title: "Limitations and Potential Objections",
-    part: "Part IV · Assessment",
-    summary:
-      "Answers the hard objections head-on: the tension between observer-dependence and relativity, the measurement problem across observers, experimental accessibility below current thresholds, and dimensional inconsistencies still to be resolved.",
-  },
-  {
-    n: "XX",
-    title: "Future Research Directions",
-    part: "Part IV · Assessment",
-    summary:
-      "Three research programs: completing the algebraic foundations with rigorous verification, deriving the observer connection from first principles, and rendering all key predictions dimensionally consistent and numerically precise.",
-  },
-  {
-    n: "XXI",
-    title: "Conclusions",
-    part: "Part IV · Assessment",
-    summary:
-      "The closing case: a singularity-free theory preserving the equivalence principle, unitarity, and causal structure, honest about its unfinished business with quantum field theory integration and experimental confirmation.",
+      "A testing roadmap: LIGO A+ (2025–2030), LISA (2030–2040), next-generation detectors (2040+), with explicit pass/fail criteria the theory must meet.",
   },
 ];
 
@@ -295,7 +232,7 @@ export function OmegaPage() {
       </PageIntro>
 
       <div className="aegis-scope-strip" aria-label="Manuscript highlights">
-        <span>21 Chapters · 4 Parts</span>
+        <span>12 Chapters · 2 Parts</span>
         <span>x/0 = Ω·e^(iτ)</span>
         <span>Finite curvature at r = 0</span>
         <span>Status: unpublished manuscript</span>
@@ -341,6 +278,23 @@ export function OmegaPage() {
       </section>
 
       <AstroChat />
+
+      {/* Honest status */}
+      <section className="aegis-knockout" aria-labelledby="omega-status-heading">
+        <p className="portrait-index">Status</p>
+        <h2 id="omega-status-heading">Where this stands, honestly.</h2>
+        <p>
+          This is an unpublished manuscript, not a peer-reviewed paper. It has not been submitted
+          to a journal or posted to a preprint server. The manuscript's own analysis reports null
+          statistical significance against current data and flags open problems: dimensional
+          inconsistencies in some predictions, tension with cosmic microwave background bounds,
+          and an observer connection not yet derived from first principles.
+        </p>
+        <p>
+          It is published here so others can study it, check the math, and argue with it.
+          That is the point.
+        </p>
+      </section>
     </main>
   );
 }
