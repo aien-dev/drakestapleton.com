@@ -554,6 +554,9 @@ export function HomePage() {
               me, and I still want to make him proud. I think he would want me
               to feel proud of myself too.
             </p>
+            <p>
+              My dad was my rock. <Link to="/dad">This is his memorial.</Link>
+            </p>
           </article>
         </div>
         <blockquote className="people-quote">
