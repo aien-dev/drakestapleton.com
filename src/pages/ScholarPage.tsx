@@ -36,6 +36,12 @@ const hubs = [
     title: "Orchestration Research",
     body: "The AIEN Sovereign Inference Stack: eliminating the software orchestration tax in LLM inference with a native Rust ABI, paged KV cache, and Grace Blackwell telemetry.",
   },
+  {
+    to: "/atlas",
+    kicker: "R&D Program",
+    title: "Atlas",
+    body: "The accountable-AI research program: a persistent, self-directed digital counterpart with separate memory, identity, and evidence ledgers.",
+  },
 ];
 
 export function ScholarPage() {
@@ -114,7 +120,7 @@ export function ScholarPage() {
         <p className="portrait-index">Unpublished &amp; Miscellaneous</p>
         <h2 id="scholar-misc-heading">Working notes and open threads.</h2>
         <p>
-          Triple, Atlas, Ages, and AIEN research conversations live here as they are organized.
+          Ages and AIEN research conversations live here as they are organized.
           Check back: this shelf fills in as manuscripts and notes are prepared for publication.
         </p>
       </section>
