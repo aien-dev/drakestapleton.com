@@ -183,8 +183,20 @@ export function HomePage() {
             <p>
               I grew up gay in Tennessee, in the Bible Belt. Mom fought for me.
               Granny and Papa rooted me. Dad chose me and gave me his name. My
-              little sister gave me someone to protect. I was surrounded by love
+              little sister gave me someone to protect, and my little brother
+              gave me my opposite in every way. I was surrounded by love
               while believing that being fully known could cost me everything.
+            </p>
+            <p>
+              My little brother is two years younger, and we were exact
+              opposites. We fought over everything and shared very little:
+              Pokémon, Yu-Gi-Oh, video games. Granny learned to buy two of
+              every copy, one for each of us. He was always the sweet one. I
+              picked on him, and he answered with love anyway. I would have
+              fought a pack of wolves for that kid, and growing older I have
+              wished I loved him a little more out loud. We have the whole
+              future ahead of us. We are still close, and he is still the
+              sweet one.
             </p>
             <p>
               That farm is where I want you to stand for a minute, because it's
@@ -211,6 +223,18 @@ export function HomePage() {
               belong before I understood that belonging should include the whole
               of me.
             </p>
+            <figure className="photo-card">
+              <img
+                src="/images/family-group-photo.jpg"
+                alt="Family group photo: Victoria, Granny holding Ruby the dachshund, Summer, Drake Stapleton, Devin, and their mother, with his brother kneeling front and center"
+                loading="lazy"
+              />
+              <figcaption>
+                That is us. Left to right: Victoria, Granny holding Ruby,
+                Summer, me, Devin, and Mom, with my brother kneeling front
+                and center. Dad and Papa are with us in spirit.
+              </figcaption>
+            </figure>
           </article>
           <article className="grade-card">
             <p className="chapter-tag">The drive behind the grades</p>
@@ -384,7 +408,7 @@ export function HomePage() {
                 </p>
               </div>
               <div className="mom-story-gallery">
-                <figure className="mom-photo-card primary">
+                <figure className="photo-card primary">
                   <img
                     src="/images/drake-and-mom-graduation.jpg"
                     alt="Drake Stapleton and his mother celebrating graduation together in May 2016"
@@ -395,7 +419,7 @@ export function HomePage() {
                     graduation with Mom beside me.
                   </figcaption>
                 </figure>
-                <figure className="mom-photo-card secondary">
+                <figure className="photo-card secondary">
                   <img
                     src="/images/mom-graduation-ceremony.jpg"
                     alt="Mom in her graduation gown at her GED ceremony"
