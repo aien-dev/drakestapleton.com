@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PRACTICE_SNAPSHOT, PRACTICE_TIMELINE } from "../data/practice";
+import { HisWords } from "./VoiceMark";
 
 type TimelineMetric = "linesAdded" | "commits" | "conversationTokens";
 
@@ -101,7 +102,7 @@ export function PracticeTimeline() {
       <header className="practice-timeline-header">
         <div>
           <p className="portrait-index">What I made over time</p>
-          <h2 id="practice-timeline-title">I can see the work accumulate.</h2>
+          <h2 id="practice-timeline-title"><HisWords>I can see the work accumulate.</HisWords></h2>
         </div>
         <div className="practice-timeline-total" aria-live="polite">
           <strong>{compactNumber.format(total)}</strong>
