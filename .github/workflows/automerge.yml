@@ -38,11 +38,13 @@ jobs:
           BRANCH="${{ github.ref_name }}"
           PR_NUMBER="$(gh pr list --head "$BRANCH" --base main --json number --jq '.[0].number // empty')"
           if [ -z "$PR_NUMBER" ]; then
-            PR_NUMBER="$(gh pr create --base main --head "$BRANCH" \
+            # NOTE: `gh pr create` prints the new PR's URL on success and has
+            # no --json flag, so the number is taken from the URL's tail.
+            PR_URL="$(gh pr create --base main --head "$BRANCH" \
               --title "Auto-merge: $BRANCH" \
-              --body "Opened automatically by the automerge pipeline after a successful build of \`$BRANCH\`." \
-              --json number --jq '.number')"
-            echo "Opened PR #$PR_NUMBER"
+              --body "Opened automatically by the automerge pipeline after a successful build of \`$BRANCH\`.")"
+            PR_NUMBER="${PR_URL##*/}"
+            echo "Opened PR #$PR_NUMBER ($PR_URL)"
           else
             echo "Found existing PR #$PR_NUMBER"
           fi
