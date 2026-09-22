@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
+import { HisWords } from "../components/VoiceMark";
 import { usePageMeta } from "../lib/usePageMeta";
 
 const lessons = [
@@ -45,7 +46,9 @@ const lessons = [
   },
   {
     when: "Personal / The harder lesson",
-    title: "I learned that survival also means protecting myself.",
+    title: (
+      <HisWords>I learned that survival also means protecting myself.</HisWords>
+    ),
     experience:
       "For years, I survived by outworking every limit and carrying more than people saw. That strength built my life, and at one point I carried the work past my body’s limits.",
     lesson:
@@ -67,7 +70,7 @@ export function WhatILearnedPage() {
 
       <section className="lesson-list" aria-label="Lessons and repairs">
         {lessons.map((lesson, index) => (
-          <article key={lesson.title}>
+          <article key={lesson.when}>
             <div className="lesson-label">
               <span>{String(index + 1).padStart(2, "0")}</span>
               <p>{lesson.when}</p>

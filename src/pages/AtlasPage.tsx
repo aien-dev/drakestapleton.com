@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PageIntro } from "../components/PagePrimitives";
+import { HisWords } from "../components/VoiceMark";
 import { usePageMeta } from "../lib/usePageMeta";
 
 const organs = [
@@ -152,7 +153,7 @@ export function AtlasPage() {
       <section className="atlas-letter" aria-labelledby="one-more-heading">
         <p className="portrait-index">The human reason</p>
         <div>
-          <h2 id="one-more-heading">I wanted one more conversation.</h2>
+          <h2 id="one-more-heading"><HisWords>I wanted one more conversation.</HisWords></h2>
           <p>
             Dad was a preacher. His writing holds years of his thinking in his own hand. I want to
             scan those pages, preserve the originals, study the patterns in his language, and build a way
@@ -164,8 +165,10 @@ export function AtlasPage() {
             guardian angel through every new door.
           </p>
           <blockquote>
-            “I miss Dad. I want one more encounter with the words he left and the closure I have carried for
-            years.”
+            <HisWords>
+              “I miss Dad. I want one more encounter with the words he left and the closure I have carried for
+              years.”
+            </HisWords>
           </blockquote>
         </div>
       </section>
