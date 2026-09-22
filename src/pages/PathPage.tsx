@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import type { ReactNode } from "react";
 import { PageIntro } from "../components/PagePrimitives";
+import { HisWords } from "../components/VoiceMark";
 import { usePageMeta } from "../lib/usePageMeta";
 
 type PathLink = {
@@ -10,7 +12,7 @@ type PathLink = {
 type PathChapter = {
   years: string;
   title: string;
-  body: string;
+  body: ReactNode;
   bridge: string;
   quote?: string;
   quoteNote?: string;
@@ -39,7 +41,16 @@ const chapters: PathChapter[] = [
   {
     years: "College years",
     title: "Taco Bell in Bowling Green to a Valspar laboratory",
-    body: "I carried the same work ethic to Bowling Green and stayed with Taco Bell until I moved into a Valspar internship. A chemist mentored me while I learned production paints, color matching, sample preparation, and disciplined lab work. I was the eager little lab rat, making samples and trying to get every detail right.",
+    body: (
+      <>
+        I carried the same work ethic to Bowling Green and stayed with Taco Bell until I moved into a
+        Valspar internship. A chemist mentored me while I learned production paints, color matching,
+        sample preparation, and disciplined lab work.{" "}
+        <HisWords>
+          I was the eager little lab rat, making samples and trying to get every detail right.
+        </HisWords>
+      </>
+    ),
     bridge:
       "Valspar connected my work ethic to chemistry. I learned that the laboratory and production were one chain: a good sample had to become something people could make correctly and repeatedly.",
   },
@@ -392,8 +403,11 @@ export function PathPage() {
         <div className="path-failure-grid">
           <div className="path-failure-copy">
             <p>
-              I have spent my life competing, doing my best, and watching the
-              result land short of what I wanted. The first lesson was painful
+              <HisWords>
+                I have spent my life competing, doing my best, and watching the
+                result land short of what I wanted.
+              </HisWords>{" "}
+              The first lesson was painful
               and simple: effort gives me a chance rather than a promise. I
               could prepare, care deeply, and still miss the job, the
               recognition, or the test.
@@ -424,7 +438,7 @@ export function PathPage() {
             <strong>4</strong>
             <h3>The fourth attempt passed.</h3>
             <p>
-              I failed the Six Sigma exam three times. Each result showed me
+              <HisWords>I failed the Six Sigma exam three times.</HisWords> Each result showed me
               that wanting the credential and earning it were different things.
               I studied again, returned for the fourth attempt, and passed.
             </p>

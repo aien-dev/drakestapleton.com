@@ -226,7 +226,7 @@ export function ResearchPage() {
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Workload: 10,000 sequence allocations (160,000 physical blocks, block size = 16 tokens).
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
@@ -257,7 +257,7 @@ export function ResearchPage() {
           Compares pointer-table reference cloning against physical unshared tensor memory duplication (~704 MB per sequence in BF16).
           Physical silicon receipt: <code>gb10_canonical_1789907893_4d762</code>.
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
@@ -295,7 +295,7 @@ export function ResearchPage() {
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Batch build duration across concurrency sweeps. Calculated as percentage of a standard 10-millisecond GPU execution step.
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
@@ -323,7 +323,7 @@ export function ResearchPage() {
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           200 live API requests executed across concurrency sweeps against SQLite WAL + vector similarity tables.
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
@@ -357,7 +357,7 @@ export function ResearchPage() {
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Execution of BAAI/bge-base-en-v1.5 INT8 via ONNX Runtime C-API across batch sweeps on Grace Blackwell workstation silicon.
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>
@@ -389,7 +389,7 @@ export function ResearchPage() {
         <p style={{ fontSize: "14px", color: "var(--text-dim)", marginBottom: "16px" }}>
           Process RSS telemetry captured directly from /proc/[pid]/status (VmRSS) before, during, and after saturation load.
         </p>
-        <div style={{ overflowX: "auto" }}>
+        <div className="table-scroll">
           <table className="evidence-table" style={{ width: "100%", borderCollapse: "collapse", marginBottom: "32px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-line)", textAlign: "left" }}>

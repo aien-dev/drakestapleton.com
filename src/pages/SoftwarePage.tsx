@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PageIntro, SectionLead } from "../components/PagePrimitives";
 import { PracticeTimeline } from "../components/PracticeTimeline";
+import { HisWords } from "../components/VoiceMark";
 import {
   AI_STORY,
   AI_WORKSPACES,
@@ -19,7 +20,7 @@ export function SoftwarePage() {
     <main className="portrait-page practice-page">
       <PageIntro
         eyebrow="Software and AI / the practice behind the work"
-        title="I followed the questions into code."
+        title={<HisWords>I followed the questions into code.</HisWords>}
         className="practice-hero page-boundary"
       >
         <p>
@@ -42,7 +43,7 @@ export function SoftwarePage() {
       </section>
 
       <section className="token-ledger page-boundary" aria-labelledby="token-ledger-title">
-        <SectionLead eyebrow="What I wrote and directed" title="I turned conversation into operating work." titleId="token-ledger-title">
+        <SectionLead eyebrow="What I wrote and directed" title={<HisWords>I turned conversation into operating work.</HisWords>} titleId="token-ledger-title">
           <p>
             I wrote prompts and briefs, supplied the context, directed coding sessions, orchestrated
             product calls, and reviewed the output. These totals separate the words I exchanged, the
@@ -63,11 +64,28 @@ export function SoftwarePage() {
       <section className="practice-story" aria-labelledby="ai-story-title">
         <div className="page-boundary">
           <SectionLead eyebrow="My AI story" title="What I asked, wrote, and orchestrated." titleId="ai-story-title">
+            <HisWords block>
             <p>
-              I began with consciousness, wrote across cosmology and continuous improvement, brought AI
-              into manufacturing, and learned to direct software and model systems. Each chapter changed
-              what I knew how to make.
+              One thing to get straight first: I am not a programmer. I never took classes, I
+              cannot read code, and I could not tell you what a variable is. I was told I could
+              not do any of this.
             </p>
+            <p>
+              I fell in love with AI for a simpler reason. I have trouble speaking and getting
+              my thoughts out clearly. When I talk to AI, it understands me no matter how I
+              fumble my words, stutter, or type too fast and misspell half of it. I do not have
+              to go back and fix everything. It fills in the gaps my scattered brain leaves behind.
+            </p>
+            <p>
+              So everything in this section was built by talking. I ask the questions, set the
+              direction, test what comes back, and decide what deserves to keep going.
+            </p>
+            <p>
+              And to be fully honest about how these words got here: I did not type them. I
+              spoke them out loud, and AI put them on this page for me. That is how all of
+              this works.
+            </p>
+            </HisWords>
           </SectionLead>
           <div className="practice-story-list">
             {AI_STORY.map((chapter, index) => (
@@ -159,7 +177,7 @@ export function SoftwarePage() {
 
       <section className="practice-closing page-boundary">
         <p className="portrait-index">The person inside the practice</p>
-        <h2>I still care most about what the work makes possible.</h2>
+        <h2><HisWords>I still care most about what the work makes possible.</HisWords></h2>
         <p>
           Code gives an idea structure. AI lets me explore more directions. Evidence keeps the story honest.
           The purpose remains human: make something useful, preserve what matters, and help another person
