@@ -5,7 +5,7 @@ export const CHIPS = [
   "Policy, safety, source records",
   "Eval & incident recovery",
   "Python · TypeScript",
-  "GitHub @dhgmonkey",
+  "GitHub @aien-dev",
 ];
 
 export const METRICS = [

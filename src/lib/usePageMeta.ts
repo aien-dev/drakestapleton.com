@@ -17,7 +17,7 @@ function structuredData(path: string, title: string, description: string) {
     description: "Freedom Fighter, AI Architect & Operator documenting projects, research, and the life behind the work.",
     url: `${siteUrl}/`,
     image: `${siteUrl}/og.png?v=20260820`,
-    sameAs: ["https://github.com/dhgmonkey"],
+    sameAs: ["https://github.com/aien-dev"],
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "Western Kentucky University",

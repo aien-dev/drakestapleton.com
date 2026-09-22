@@ -9,6 +9,7 @@ const LINKS = [
   { to: "/aegis", label: "AEGIS", end: true },
   { to: "/aien", label: "AIEN", end: true },
   { to: "/research", label: "Research", end: true },
+  { to: "/scholar", label: "Scholar", end: false },
   { to: "/interest", label: "Conversation", end: true },
 ];
 
