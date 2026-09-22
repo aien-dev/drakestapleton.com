@@ -3933,7 +3933,8 @@ th {
   .case,
   .roster-row,
   blockquote.invoke,
-  .diagram-frame {
+  .diagram-frame,
+  .claim-card {
     background: var(--dark-surface);
   }
 
