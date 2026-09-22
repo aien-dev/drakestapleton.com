@@ -18,7 +18,7 @@ export function SiteNav() {
       <div className="site-nav-inner">
         <NavLink to="/" className="brand" end>
           <span className="brand-name">Drake Stapleton</span>
-          <span className="brand-line">Freedom Fighter · AI Architect & Operator</span>
+          <span className="brand-line">Freedom Fighter · AI Architect & Operator · AIENOS.com</span>
         </NavLink>
         <nav className="links" aria-label="Primary">
           {LINKS.map((l) => (
