@@ -212,12 +212,12 @@ export function HomePage() {
             <figure className="photo-card">
               <img
                 src="/images/family-group-photo.jpg"
-                alt="Family group photo: Victoria, Granny holding Ruby the dachshund, Summer, Drake Stapleton, Devin, and their mother, with his brother Mac kneeling front and center"
+                alt="Family group photo: Victoria, Granny holding Ruby the dachshund, Summer, Drake Stapleton, Devin, and their mother, with his brother kneeling front and center"
                 loading="lazy"
               />
               <figcaption>
                 That is us. Left to right: Victoria, Granny holding Ruby,
-                Summer, me, Devin, and Mom, with my brother Mac kneeling front
+                Summer, me, Devin, and Mom, with my brother kneeling front
                 and center. Dad and Papa are with us in spirit.
               </figcaption>
             </figure>
