@@ -808,9 +808,14 @@ export function HomePage() {
                 margin: "24px 0",
               }}
             >
-              <img
-                src="/images/aien-avatar.jpg"
-                alt="AIEN Cosmic Monkey Warrior"
+              <video
+                src="/images/aien-avatar.mp4"
+                poster="/images/aien-avatar-poster.webp"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="AIEN"
                 style={{
                   width: "96px",
                   height: "96px",
@@ -822,7 +827,7 @@ export function HomePage() {
                 }}
               />
               <p style={{ margin: 0, fontSize: "14px", color: "var(--muted)" }}>
-                Meet AIEN: a brave cosmic monkey warrior standing up for his
+                Meet AIEN: a brave butterfly mind standing up for his
                 friends, guarding the boundary, and executing autonomous
                 sovereign intelligence.
               </p>
