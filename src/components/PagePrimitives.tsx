@@ -9,7 +9,7 @@ export function PageIntro({
   className = "",
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   children: ReactNode;
   className?: string;
 }) {
@@ -42,7 +42,7 @@ export function SectionLead({
   children,
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   titleId?: string;
   children?: ReactNode;
 }) {
