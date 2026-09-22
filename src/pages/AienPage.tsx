@@ -104,9 +104,14 @@ export function AienPage() {
   return (
     <main className="wrap portrait-wrap aegis-page aien-page">
       <div style={{ display: "flex", justifyContent: "center", paddingTop: "24px", marginBottom: "16px" }}>
-        <img
-          src="/images/aien-avatar.jpg"
-          alt="AIEN Cosmic Monkey Warrior"
+        <video
+          src="/images/aien-avatar.mp4"
+          poster="/images/aien-avatar-poster.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label="AIEN"
           style={{
             width: "180px",
             height: "180px",
