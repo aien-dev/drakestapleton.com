@@ -17,7 +17,7 @@ const perseverance = [
   {
     marker: "10 weeks",
     title: <HisWords>I built people up and watched them lead.</HisWords>,
-    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves.",
+    body: "I helped grow a 46-member squad to 85 percent activity. I trained members after difficult rounds, built the dashboards and schedules, and developed officers who could carry the work themselves. Heart gets a person in the door. Proof earns their respect.",
   },
   {
     marker: "45 times",
@@ -65,7 +65,7 @@ const inheritances = [
   ],
   [
     "The people who found me",
-    "taught me that gratitude moves forward. You turn around and reach for someone else.",
+    "taught me that gratitude moves forward. You turn around and reach for someone else. The people are the only thing in any of this that was ever real.",
   ],
 ];
 
@@ -79,7 +79,7 @@ const values: Array<[string, ReactNode]> = [
   ],
   [
     "Service",
-    "Leadership makes another person stronger and gives the title less importance.",
+    "Leadership makes another person stronger and gives the title less importance. I guide people until they can carry the work themselves.",
   ],
   ["Belonging", "I build places where people can stay fully visible."],
   [
@@ -553,6 +553,9 @@ export function HomePage() {
               new door. I miss him, I am grateful for every lesson he put into
               me, and I still want to make him proud. I think he would want me
               to feel proud of myself too.
+            </p>
+            <p>
+              My dad was my rock. <Link to="/dad">This is his memorial.</Link>
             </p>
           </article>
         </div>

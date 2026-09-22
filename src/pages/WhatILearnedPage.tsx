@@ -13,6 +13,14 @@ const lessons = [
       "I built training, schedules, dashboards, and leadership paths that helped members see their ability, support each other, and carry the community forward.",
   },
   {
+    when: "Leadership / The shepherd",
+    title: "The rank is made up. The people are real.",
+    experience:
+      "Leading a squad taught me that titles, tags, and structures can vanish overnight. When squads closed, the grief was real, and the only work that mattered was gathering the people and keeping them safe.",
+    lesson:
+      "I lead by going first, giving the credit away, and building people who can run the work on their own. The chain I build outlasts any title I hold.",
+  },
+  {
     when: "MobHub / Production",
     title: "Production taught me to make every path explicit.",
     experience:
