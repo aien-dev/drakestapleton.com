@@ -277,7 +277,7 @@ export function AienPage() {
           recording 2.06 µs median fork latency and requiring only 704 MB of paged KV memory compared to 343.75 GB for naive copying.
         </p>
 
-        <div style={{ overflowX: "auto", margin: "24px 0" }}>
+        <div className="table-scroll">
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.95rem" }}>
             <thead>
               <tr style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.2)", textAlign: "left" }}>
@@ -362,7 +362,7 @@ export function AienPage() {
           with 23.56 ms p50 step latency and 27.89 W GPU power draw.
         </p>
 
-        <div style={{ overflowX: "auto", margin: "24px 0" }}>
+        <div className="table-scroll">
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.92rem" }}>
             <thead>
               <tr style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.2)", textAlign: "left" }}>
@@ -404,7 +404,7 @@ export function AienPage() {
           <p style={{ opacity: 0.85, fontSize: "0.95rem", marginBottom: "16px" }}>
             Empirical measurements confirm consistent execution across dense transformers, recurrent hybrids, and Mixture of Experts topologies:
           </p>
-          <div style={{ overflowX: "auto", margin: "16px 0" }}>
+          <div className="table-scroll">
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.92rem" }}>
               <thead>
                 <tr style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.2)", textAlign: "left" }}>

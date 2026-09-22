@@ -12,7 +12,7 @@ export function MapPage() {
         This timeline covers six concurrent Atlas workstreams from June through August 2026. The first-run
         page documents the process&apos;s starting point.
       </p>
-      <div className="card" style={{ overflowX: "auto" }}>
+      <div className="card table-scroll">
         <Birdseye />
       </div>
     </main>
