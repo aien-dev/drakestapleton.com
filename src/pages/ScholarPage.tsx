@@ -42,6 +42,18 @@ const hubs = [
     title: "Atlas",
     body: "The accountable-AI research program: a persistent, self-directed digital counterpart with separate memory, identity, and evidence ledgers.",
   },
+  {
+    to: "/aegis",
+    kicker: "Defense",
+    title: "AEGIS",
+    body: "The defensive extension: hardware-enforced containment and evidence preservation for the Atlas organism.",
+  },
+  {
+    to: "/aien",
+    kicker: "Cognitive Architecture",
+    title: "AIEN",
+    body: "The sovereign cognitive architecture: compiled Rust and Mojo, hardware TPM vault, local inference on dedicated silicon.",
+  },
 ];
 
 export function ScholarPage() {
