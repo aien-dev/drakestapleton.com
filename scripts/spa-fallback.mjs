@@ -15,6 +15,8 @@ const routes = [
   { rel: "aegis/index.html", path: "/aegis", ...pageMetadata["/aegis"] },
   { rel: "aien/index.html", path: "/aien", ...pageMetadata["/aien"] },
   { rel: "research/index.html", path: "/research", ...pageMetadata["/research"] },
+  { rel: "scholar/index.html", path: "/scholar", ...pageMetadata["/scholar"] },
+  { rel: "scholar/omega/index.html", path: "/scholar/omega", ...pageMetadata["/scholar/omega"] },
   { rel: "what-i-learned/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"] },
   { rel: "what-broke/index.html", path: "/what-i-learned", ...pageMetadata["/what-i-learned"], redirect: true },
   { rel: "path/index.html", path: "/path", ...pageMetadata["/path"] },

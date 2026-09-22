@@ -59,6 +59,14 @@
     "title": "LLM Inference Research & Architecture | Drake Stapleton",
     "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Paged Unified Memory KV Cache, and Grace Blackwell Telemetry."
   },
+  "/scholar": {
+    "title": "Scholar: Theories, Thoughts & Academic Work | Drake Stapleton",
+    "description": "Published thesis and peer-reviewed semiconductor nanorod paper from Western Kentucky University, plus the unpublished Omega framework manuscript and orchestration research hubs."
+  },
+  "/scholar/omega": {
+    "title": "The Omega Framework | Drake Stapleton",
+    "description": "An observer-dependent resolution of singularities in general relativity and quantum gravity: searchable chapters and a chat model trained on the manuscript."
+  },
   "/dad": {
     "title": "My Dad Was My Rock | Drake Stapleton",
     "description": "A memorial for Russell Ballentine: the man who chose two boys, taught them how to work, survive, and love, and became their rock."

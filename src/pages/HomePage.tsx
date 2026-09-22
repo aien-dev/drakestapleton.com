@@ -928,10 +928,10 @@ export function HomePage() {
         <div className="home-closing-actions">
           <Link to="/interest">Start a conversation</Link>
           <a
-            href="https://github.com/dhgmonkey"
+            href="https://github.com/aien-dev"
             rel="me"
             onClick={() =>
-              trackRepoOutbound("dhgmonkey", "https://github.com/dhgmonkey")
+              trackRepoOutbound("aien-dev", "https://github.com/aien-dev")
             }
           >
             GitHub

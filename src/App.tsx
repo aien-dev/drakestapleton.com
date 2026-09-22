@@ -10,7 +10,9 @@ import { HomePage } from "./pages/HomePage";
 import { InterestPage } from "./pages/InterestPage";
 import { MapPage } from "./pages/MapPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { OmegaPage } from "./pages/OmegaPage";
 import { PathPage } from "./pages/PathPage";
+import { ScholarPage } from "./pages/ScholarPage";
 import { SoftwarePage } from "./pages/SoftwarePage";
 import { SymphonyPage } from "./pages/SymphonyPage";
 import { WhatILearnedPage } from "./pages/WhatILearnedPage";
@@ -28,6 +30,8 @@ function Portfolio() {
         <Route path="/aegis" element={<AegisPage />} />
         <Route path="/aien" element={<AienPage />} />
         <Route path="/research" element={<ResearchPage />} />
+        <Route path="/scholar" element={<ScholarPage />} />
+        <Route path="/scholar/omega" element={<OmegaPage />} />
         <Route path="/path" element={<PathPage />} />
         <Route path="/software" element={<SoftwarePage />} />
         <Route path="/evidence" element={<EvidencePage />} />
