@@ -29,6 +29,17 @@ const routes = [
   { rel: "symphony/workflow/index.html", path: "/symphony/workflow", ...pageMetadata["/symphony/workflow"] },
   { rel: "symphony/map/index.html", path: "/symphony/map", ...pageMetadata["/symphony/map"] },
   { rel: "atlas-symphony/index.html", path: "/symphony", ...pageMetadata["/symphony"], redirect: true },
+  { rel: "works/index.html", path: "/works", ...pageMetadata["/works"] },
+  { rel: "works/atlas-symphony/index.html", path: "/works/atlas-symphony", ...pageMetadata["/works/atlas-symphony"] },
+  { rel: "works/atlas-harness/index.html", path: "/works/atlas-harness", ...pageMetadata["/works/atlas-harness"] },
+  { rel: "works/mobdev-panel-arena/index.html", path: "/works/mobdev-panel-arena", ...pageMetadata["/works/mobdev-panel-arena"] },
+  { rel: "works/defiantmob/index.html", path: "/works/defiantmob", ...pageMetadata["/works/defiantmob"] },
+  { rel: "works/beltbrain/index.html", path: "/works/beltbrain", ...pageMetadata["/works/beltbrain"] },
+  { rel: "works/dhg-hive/index.html", path: "/works/dhg-hive", ...pageMetadata["/works/dhg-hive"] },
+  { rel: "works/foundations-2025/index.html", path: "/works/foundations-2025", ...pageMetadata["/works/foundations-2025"] },
+  { rel: "works/aien/index.html", path: "/works/aien", ...pageMetadata["/works/aien"] },
+  { rel: "works/aegis/index.html", path: "/works/aegis", ...pageMetadata["/works/aegis"] },
+  { rel: "works/research/index.html", path: "/works/research", ...pageMetadata["/works/research"] },
 ];
 
 function escapeAttribute(value) {
@@ -48,6 +59,7 @@ function noscriptSummary(page) {
     ["/", "Home"],
     ["/path", "Path"],
     ["/software", "Software"],
+    ["/works", "Works"],
     ["/evidence", "Evidence"],
     ["/atlas", "Atlas"],
     ["/interest", "Conversation"],

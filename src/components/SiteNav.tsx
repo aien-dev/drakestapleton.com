@@ -4,6 +4,7 @@ const LINKS = [
   { to: "/", label: "Identity", end: true },
   { to: "/path", label: "Career", end: true },
   { to: "/software", label: "Orchestration", end: true },
+  { to: "/works", label: "Works", end: false },
   { to: "/evidence", label: "Audit", end: true },
   { to: "/atlas", label: "Atlas", end: true },
   { to: "/aegis", label: "AEGIS", end: true },

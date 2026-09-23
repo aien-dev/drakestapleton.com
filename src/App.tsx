@@ -18,6 +18,8 @@ import { SymphonyPage } from "./pages/SymphonyPage";
 import { WhatILearnedPage } from "./pages/WhatILearnedPage";
 import { ResearchPage } from "./pages/ResearchPage";
 import { WorkflowPage } from "./pages/WorkflowPage";
+import { WorkReaderPage } from "./pages/WorkReaderPage";
+import { WorksIndexPage } from "./pages/WorksIndexPage";
 
 function Portfolio() {
   return (
@@ -41,6 +43,8 @@ function Portfolio() {
         <Route path="/symphony/first" element={<FirstRunPage />} />
         <Route path="/symphony/workflow" element={<WorkflowPage />} />
         <Route path="/symphony/map" element={<MapPage />} />
+        <Route path="/works" element={<WorksIndexPage />} />
+        <Route path="/works/:slug" element={<WorkReaderPage />} />
         <Route path="/atlas-symphony" element={<Navigate to="/symphony" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

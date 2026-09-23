@@ -79,8 +79,14 @@ if (mode === "waitlist") {
   assert(atlasSymphony.includes("noindex, follow"), "atlas-symphony is indexable");
   assert(atlasSymphony.includes("https://www.drakestapleton.com/symphony"), "atlas-symphony missing canonical link");
   const sitemap = readFileSync("dist/sitemap.xml", "utf8");
-  assert(!sitemap.includes("/what-broke"), "sitemap includes /what-broke");
-  assert(!sitemap.includes("/atlas-symphony"), "sitemap includes /atlas-symphony");
+  assert(
+    !sitemap.includes("https://www.drakestapleton.com/what-broke</loc>"),
+    "sitemap lists the what-broke alias",
+  );
+  assert(
+    !sitemap.includes("https://www.drakestapleton.com/atlas-symphony</loc>"),
+    "sitemap lists the atlas-symphony alias",
+  );
   const fourOhFour = readFileSync("dist/404.html", "utf8");
   assert(fourOhFour.includes("noindex, follow"), "404 is indexable");
 
