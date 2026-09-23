@@ -23,11 +23,11 @@ export function BenchmarkSection() {
             <p>
               Native compiled Rust daemons reduce resident memory compared to interpreted runtimes.
               While full-stack Python agent frameworks load PyTorch and LangChain dependencies into 3.7+ gigabytes of RSS,
-              standalone native Rust daemons (openclaw-rs, cortex-rs) operate in under 10 megabytes.
+              standalone native Rust daemons (aegis-runtime, cortex-rs) operate in under 10 megabytes.
               Even against a minimal Uvicorn baseline (45 megabytes), native compilation preserves RAM on Grace Blackwell GB10 for unified neural weights and paged KV pools.
             </p>
             <p style={{ marginTop: "8px", fontSize: "12px" }}>
-              <Link to="/evidence#claim-memory-rss-openclaw" style={{ color: "var(--red)", textDecoration: "underline" }}>
+              <Link to="/evidence#claim-memory-rss-aegis" style={{ color: "var(--red)", textDecoration: "underline" }}>
                 Inspect verified RSS claims in the Evidence Hub
               </Link>
             </p>
@@ -67,8 +67,8 @@ export function BenchmarkSection() {
               <rect x="180" y="216" width="7" height="18" rx="3" fill="#7fb8a6" />
               <text x="197" y="230" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">8.6 MB <tspan fill="#7fb8a6" fontSize="9">(-99.8%)</tspan></text>
 
-              {/* Row 6: OpenClaw Heartbeat */}
-              <text x="20" y="262" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">openclaw-rs</text>
+              {/* Row 6: AEGIS Heartbeat */}
+              <text x="20" y="262" fill="#ded3df" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">aegis-runtime</text>
               <rect x="180" y="254" width="5" height="18" rx="3" fill="#ef8b67" />
               <text x="195" y="268" fill="#fff8ee" fontSize="11" fontFamily="ui-monospace, monospace" fontWeight="700">4.8 MB <tspan fill="#ef8b67" fontSize="9">(-99.87%)</tspan></text>
             </svg>

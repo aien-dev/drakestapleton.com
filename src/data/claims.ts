@@ -161,9 +161,9 @@ export const CLAIMS: ClaimRecord[] = [
     currentStatus: "VERIFIED",
   },
   {
-    id: "claim-memory-rss-openclaw",
+    id: "claim-memory-rss-aegis",
     shortClaim: "4.8 MB Resident Set Size for Native Agent Daemons",
-    fullWording: "Standalone native compiled Rust daemons execute in under 10 megabytes of memory footprint: openclaw-rs operates at 4.8 MB RSS, spark-cockpit-rs at 8.6 MB RSS, and cortex-rs at 10.3 MB RSS, compared to 45.3 MB for a minimal Uvicorn route and 3,737 MB for an unquantized Python agent runtime loading PyTorch and LangChain.",
+    fullWording: "Standalone native compiled Rust daemons execute in under 10 megabytes of memory footprint: aegis-runtime (formerly openclaw-rs) operates at 4.8 MB RSS, spark-cockpit-rs at 8.6 MB RSS, and cortex-rs at 10.3 MB RSS, compared to 45.3 MB for a minimal Uvicorn route and 3,737 MB for an unquantized Python agent runtime loading PyTorch and LangChain.",
     category: "Autonomous Multi-Agent",
     dateOrPeriod: "2026-09-19",
     evidenceClass: "PUBLIC REPRODUCTION",

@@ -31,7 +31,7 @@ const triadPillars = [
 ];
 
 const performanceMetrics = [
-  { label: "Memory RSS", score: "4.78 MB", rate: "openclaw-rs heartbeat" },
+  { label: "Memory RSS", score: "4.78 MB", rate: "aegis-runtime heartbeat" },
   { label: "Entity TTFB", score: "3.56 ms", rate: "p50 @ 2,056 req/s" },
   { label: "INT8 Embedding", score: "4.09 ms", rate: "ONNX Runtime" },
   { label: "Hardware Test Suites", score: "100% Passing", rate: "DGX Spark GB10 Silicon" },
@@ -243,7 +243,7 @@ export function AienPage() {
           <div>
             <p className="aegis-eval-label">Verified Ecosystem Suite</p>
             <ul>
-              <li>OpenClaw gateway with fail-closed inference handling.</li>
+              <li>AEGIS gateway with fail-closed inference handling.</li>
               <li>Cortex bidirectional knowledge graph with SQLite WAL persistence.</li>
               <li>Spark Supervisor with process monitoring and crash backoff.</li>
             </ul>

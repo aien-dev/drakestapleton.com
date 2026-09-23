@@ -45,7 +45,7 @@ const memoryStabilityData = [
   { service: "cortex-rs", baseline: "15.97 MB", peak: "18.57 MB", delta: "+2.60 MB", status: "Zero memory leaks" },
   { service: "cortex-encoder-rs", baseline: "780.02 MB", peak: "780.39 MB", delta: "+0.36 MB", status: "Deterministic INT8 heap" },
   { service: "max inference engine", baseline: "9,011.61 MB", peak: "9,013.99 MB", delta: "+2.38 MB", status: "Stable model weights" },
-  { service: "openclaw-rs daemon", baseline: "4.80 MB", peak: "4.80 MB", delta: "+0.00 MB", status: "Zero allocation drift" },
+  { service: "aegis-runtime daemon", baseline: "4.80 MB", peak: "4.80 MB", delta: "+0.00 MB", status: "Zero allocation drift" },
 ];
 
 export function ResearchPage() {
