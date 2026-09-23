@@ -44,20 +44,20 @@ The evidence claim states the same control. Plaintext secrets, API keys, and pri
 
 Replacing interpreter daemons with native Rust binaries dropped memory footprint from 3.7 gigabytes down to under 5 megabytes, keeping system memory free for local LLM weights. Axum endpoints deliver 3.5 millisecond response times under concurrent load, ten times faster than a single asynchronous Uvicorn route.
 
-The page headline figures, labeled verified telemetry for September 2026:
+The page headline figures, as labeled in September 2026 (withdrawn on 23 September 2026 pending regeneration under the evidence standard):
 
 | Measure | Score | Rate |
 | --- | --- | --- |
-| Memory RSS | 4.78 MB | openclaw-rs heartbeat |
+| Memory RSS | 4.78 MB | aegis-runtime (then openclaw-rs) heartbeat |
 | Entity TTFB | 3.56 ms | p50 at 2,056 req/s |
 | INT8 Embedding | 4.09 ms | ONNX Runtime |
 | Hardware Test Suites | 100% Passing | DGX Spark GB10 Silicon |
 
 The page total beside those figures is 3.56 ms Cortex p50 latency.
 
-The verified ecosystem suite on the page names OpenClaw gateway with fail-closed inference handling, Cortex bidirectional knowledge graph with SQLite WAL persistence, and Spark Supervisor with process monitoring and crash backoff.
+The verified ecosystem suite on the page names the OpenClaw gateway (now aegis-runtime) with fail-closed inference handling, Cortex bidirectional knowledge graph with SQLite WAL persistence, and Spark Supervisor with process monitoring and crash backoff.
 
-The evidence catalog states the related measurements directly. Standalone native compiled Rust daemons execute under 10 megabytes: openclaw-rs at 4.8 MB RSS, spark-cockpit-rs at 8.6 MB RSS, and cortex-rs at 10.3 MB RSS, compared with 45.3 MB for a minimal Uvicorn route and 3,737 MB for an unquantized Python agent runtime loading PyTorch and LangChain. Native Axum microservices deliver 3.56 ms p50 at 2,056 requests per second on cortex-rs `/api/get`, and 4.30 ms p50 at 1,921 requests per second on spark-cockpit-rs, compared with 38.4 ms at 214 requests per second on a standard asynchronous Python FastAPI route. Short query vectorization executes in 4.09 ms using the native ONNX Runtime C-API with INT8 quantization, generating normalized 768-dimensional embeddings.
+The evidence catalog states the related measurements directly. Standalone native compiled Rust daemons execute under 10 megabytes: openclaw-rs (now aegis-runtime) at 4.8 MB RSS, spark-cockpit-rs at 8.6 MB RSS, and cortex-rs at 10.3 MB RSS, compared with 45.3 MB for a minimal Uvicorn route and 3,737 MB for an unquantized Python agent runtime loading PyTorch and LangChain. Native Axum microservices deliver 3.56 ms p50 at 2,056 requests per second on cortex-rs `/api/get`, and 4.30 ms p50 at 1,921 requests per second on spark-cockpit-rs, compared with 38.4 ms at 214 requests per second on a standard asynchronous Python FastAPI route. Short query vectorization executes in 4.09 ms using the native ONNX Runtime C-API with INT8 quantization, generating normalized 768-dimensional embeddings.
 
 Public benchmarks, raw telemetry, and verification scripts are at https://github.com/aien-dev/benchmarks.
 
@@ -126,7 +126,7 @@ Pure compiled systems: core gateways, task dispatchers, memory daemons, and supe
 
 Multi-platform verification: the architecture adheres to explicit verification tiers across NVIDIA Grace Blackwell, Apple Silicon MacBooks, and standard Linux servers, documenting real hardware test passes.
 
-Open collaboration commons: core software crates are licensed under Apache-2.0. Developers, startups, and compute providers possess complete freedom to deploy the tools to maximize GPU efficiency with zero revenue caps.
+Open collaboration commons: core software is licensed under Apache-2.0 with LLVM Exception. Developers, startups, and compute providers are free to deploy it with no revenue caps. A nonbinding covenant asks that foundational advances stay open; it grants and restricts no rights.
 
 The page points the codebase to https://github.com/aien-dev and the benchmarks to https://github.com/aien-dev/benchmarks.
 

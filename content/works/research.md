@@ -126,7 +126,7 @@ A 24-hour soak. Process RSS telemetry captured from `/proc/[pid]/status` (VmRSS)
 | cortex-rs | 15.97 MB | 18.57 MB | +2.60 MB | Zero memory leaks |
 | cortex-encoder-rs | 780.02 MB | 780.39 MB | +0.36 MB | Deterministic INT8 heap |
 | max inference engine | 9,011.61 MB | 9,013.99 MB | +2.38 MB | Stable model weights |
-| openclaw-rs daemon | 4.80 MB | 4.80 MB | +0.00 MB | Zero allocation drift |
+| aegis-runtime daemon (then openclaw-rs) | 4.80 MB | 4.80 MB | +0.00 MB | Zero allocation drift |
 
 ## Ablation
 

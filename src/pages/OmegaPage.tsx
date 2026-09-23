@@ -92,7 +92,7 @@ const CHAPTERS: Chapter[] = [
     title: "Experimental Validation Pathways",
     part: "Part II · Observational Predictions",
     summary:
-      "A testing roadmap: LIGO A+ (2025–2030), LISA (2030–2040), next-generation detectors (2040+), with explicit pass/fail criteria the theory must meet.",
+      "A testing roadmap: LIGO A+ (2025 to 2030), LISA (2030 to 2040), next-generation detectors (2040+), with explicit pass/fail criteria the theory must meet.",
   },
 ];
 

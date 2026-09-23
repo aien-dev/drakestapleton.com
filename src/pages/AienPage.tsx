@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PageIntro } from "../components/PagePrimitives";
+import { EvidenceNotice, PageIntro } from "../components/PagePrimitives";
 import { trackRepoOutbound } from "../lib/tracking";
 import { usePageMeta } from "../lib/usePageMeta";
 
@@ -48,11 +48,11 @@ const continuousBatchingSweepData = [
 ];
 
 const multiModelBreadthData = [
-  { model: "TinyLlama-1.1B-Chat-v1.0", topology: "Dense Transformer (16 Layers, 4 KV Heads)", quant: "BF16 Canonical", ttft: "35.34 ms", itl: "23.56 ms", kv: "704.00 MB", status: "VERIFIED" },
-  { model: "Nemotron-3.5-Lightning-30B", topology: "Hybrid Mamba+MoE (128 Experts)", quant: "BF16 GPU Seat", ttft: "426.91 ms", itl: "46.91 ms", kv: "4.60 GB", status: "VERIFIED" },
-  { model: "Llama-3.2-1B-Instruct", topology: "Edge Dense 16 Layers (8 Heads)", quant: "FP16 CPU Fallback", ttft: "141.65 ms", itl: "86.94 ms", kv: "0.24 GB", status: "VERIFIED" },
-  { model: "BAAI/bge-base-en-v1.5", topology: "Transformer Embedding 12 Layers", quant: "INT8 ONNX", ttft: "7.06 ms", itl: "4.67 ms", kv: "0.78 GB", status: "VERIFIED" },
-  { model: "Cortex Knowledge Graph", topology: "SQLite WAL + Vector Index", quant: "Axum Native Rust", ttft: "6.83 ms", itl: "0.21 ms", kv: "0.02 GB", status: "VERIFIED" },
+  { model: "TinyLlama-1.1B-Chat-v1.0", topology: "Dense Transformer (16 Layers, 4 KV Heads)", quant: "BF16 Canonical", ttft: "35.34 ms", itl: "23.56 ms", kv: "704.00 MB", status: "REGENERATING" },
+  { model: "Nemotron-3.5-Lightning-30B", topology: "Hybrid Mamba+MoE (128 Experts)", quant: "BF16 GPU Seat", ttft: "426.91 ms", itl: "46.91 ms", kv: "4.60 GB", status: "REGENERATING" },
+  { model: "Llama-3.2-1B-Instruct", topology: "Edge Dense 16 Layers (8 Heads)", quant: "FP16 CPU Fallback", ttft: "141.65 ms", itl: "86.94 ms", kv: "0.24 GB", status: "REGENERATING" },
+  { model: "BAAI/bge-base-en-v1.5", topology: "Transformer Embedding 12 Layers", quant: "INT8 ONNX", ttft: "7.06 ms", itl: "4.67 ms", kv: "0.78 GB", status: "REGENERATING" },
+  { model: "Cortex Knowledge Graph", topology: "SQLite WAL + Vector Index", quant: "Axum Native Rust", ttft: "6.83 ms", itl: "0.21 ms", kv: "0.02 GB", status: "REGENERATING" },
 ];
 
 const crossSurfaceData = [
@@ -94,7 +94,7 @@ const architectureTenets = [
   },
   {
     title: "Open Collaboration Commons",
-    body: "Core software crates are licensed under Apache-2.0. Developers, startups, and compute providers possess complete freedom to deploy our tools to maximize GPU efficiency with zero revenue caps.",
+    body: "Core software is licensed under Apache-2.0 with LLVM Exception. Developers, startups, and compute providers are free to deploy it with no revenue caps. A nonbinding covenant asks that foundational advances stay open; it grants and restricts no rights.",
   },
 ];
 
@@ -210,10 +210,12 @@ export function AienPage() {
         </p>
       </section>
 
+      <EvidenceNotice />
+
       <section className="aegis-evaluation" aria-labelledby="aien-benchmarks-heading">
         <div className="aegis-evaluation-intro">
           <div>
-            <p className="portrait-index">Verified Telemetry / September 2026</p>
+            <p className="portrait-index">Prior telemetry / September 2026 / under regeneration</p>
             <h2 id="aien-benchmarks-heading">Measured performance on Grace Blackwell hardware.</h2>
           </div>
           <div className="aegis-total">
@@ -426,7 +428,7 @@ export function AienPage() {
                     <td style={{ padding: "10px", color: "#a855f7" }}>{m.ttft}</td>
                     <td style={{ padding: "10px" }}>{m.itl}</td>
                     <td style={{ padding: "10px" }}>{m.kv}</td>
-                    <td style={{ padding: "10px", color: "#22c55e", fontWeight: "700" }}>{m.status}</td>
+                    <td style={{ padding: "10px", color: "#ca8a04", fontWeight: "700" }}>{m.status}</td>
                   </tr>
                 ))}
               </tbody>
