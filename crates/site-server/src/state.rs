@@ -50,6 +50,17 @@ impl AppState {
             ("/symphony/first", "symphony/first/index.html"),
             ("/symphony/workflow", "symphony/workflow/index.html"),
             ("/symphony/map", "symphony/map/index.html"),
+            ("/works", "works/index.html"),
+            ("/works/atlas-symphony", "works/atlas-symphony/index.html"),
+            ("/works/atlas-harness", "works/atlas-harness/index.html"),
+            ("/works/mobdev-panel-arena", "works/mobdev-panel-arena/index.html"),
+            ("/works/defiantmob", "works/defiantmob/index.html"),
+            ("/works/beltbrain", "works/beltbrain/index.html"),
+            ("/works/dhg-hive", "works/dhg-hive/index.html"),
+            ("/works/foundations-2025", "works/foundations-2025/index.html"),
+            ("/works/aien", "works/aien/index.html"),
+            ("/works/aegis", "works/aegis/index.html"),
+            ("/works/research", "works/research/index.html"),
             ("/404", "404.html"),
         ];
 
