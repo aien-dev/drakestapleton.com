@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { PageIntro } from "../components/PagePrimitives";
+import { EvidenceNotice, PageIntro } from "../components/PagePrimitives";
 import { CLAIMS, EVIDENCE_CLASS_DEFINITIONS } from "../data/claims";
 import { AUDIT_SCOPE, NEXT_SOURCES, VERIFIED_FINDINGS } from "../data/historyAudit";
 import { usePageMeta } from "../lib/usePageMeta";
@@ -89,7 +89,9 @@ export function EvidencePage() {
         <h2 id="claims-catalog-title">Verifiable systems claims index.</h2>
         <p style={{ color: "var(--copy)", marginBottom: "24px" }}>
           Filter claims by category or link directly to any claim ID anchor from documentation or research citations.
+          Claims marked REGENERATING are withdrawn until their artifact bundles meet the current evidence standard.
         </p>
+        <EvidenceNotice />
 
         <div className="claim-filters" role="group" aria-label="Filter claims by category">
           {categories.map((cat) => (
@@ -111,7 +113,7 @@ export function EvidencePage() {
                 <div className="claim-badges">
                   <span className="claim-badge-class">{claim.evidenceClass}</span>
                   <span className="claim-badge-category">{claim.category}</span>
-                  <span style={{ fontSize: "11px", fontWeight: "700", color: claim.currentStatus === "VERIFIED" ? "#16a34a" : "#ca8a04" }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", color: claim.currentStatus === "VERIFIED" || claim.currentStatus === "DOCUMENTED" ? "#16a34a" : "#ca8a04" }}>
                     {claim.currentStatus}
                   </span>
                 </div>

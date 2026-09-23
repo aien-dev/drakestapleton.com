@@ -4472,3 +4472,27 @@ th {
   text-transform: uppercase;
   font-family: var(--sans);
 }
+
+/* Evidence standard notice */
+.evidence-notice {
+  margin: 0 0 28px;
+  padding: 16px 20px;
+  border: 1px solid rgba(202, 138, 4, 0.45);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: rgba(202, 138, 4, 0.08);
+  color: var(--copy);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 900px;
+}
+
+.evidence-notice strong {
+  color: #ca8a04;
+}
+
+.evidence-notice a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

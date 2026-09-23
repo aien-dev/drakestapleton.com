@@ -8,7 +8,7 @@ export type EvidenceClass =
 
 export type PublicStatus = "PUBLIC" | "PRIVATE";
 
-export type ClaimStatus = "VERIFIED" | "ACTIVE" | "DOCUMENTED";
+export type ClaimStatus = "VERIFIED" | "ACTIVE" | "DOCUMENTED" | "REGENERATING";
 
 export interface ClaimRecord {
   id: string;
@@ -75,7 +75,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/artifacts/gb10_canonical_1789907893_4d762",
     verificationDate: "2026-09-20",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && cargo run --release --bin bench_canonical_suite",
     artifactHash: "sha256:6cf46288e554c41bc5003fd3e0c7d56e25dbc15466ce8ab67ca4db14f7af8155",
   },
@@ -89,7 +89,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/artifacts/gb10_canonical_1789907893_4d762",
     verificationDate: "2026-09-20",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && cargo run --release --bin bench_canonical_suite",
     artifactHash: "sha256:0362ac84d0eb0ddcdc1a877ef449a2030eb59c0d5ed0a621fcc75aac8f661858",
   },
@@ -103,7 +103,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/artifacts/gb10_canonical_1789907893_4d762",
     verificationDate: "2026-09-20",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && cargo run --release --bin bench_canonical_suite",
     artifactHash: "sha256:d09869d5a3ec4365bec4f97f1d8e7ba32ea0d799ea6160bb0aed82b9904fa567",
   },
@@ -117,7 +117,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/artifacts/gb10_canonical_1789907893_4d762",
     verificationDate: "2026-09-20",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && cargo run --release --bin bench_canonical_suite",
     artifactHash: "sha256:6cf46288e554c41bc5003fd3e0c7d56e25dbc15466ce8ab67ca4db14f7af8155",
   },
@@ -131,7 +131,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/aien-sovereign-core/tree/main/crates/aien-kv-cache",
     verificationDate: "2026-09-18",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd aien-sovereign-core && cargo test -p aien-kv-cache --release",
     artifactHash: "sha256:43f3dbf2...",
   },
@@ -170,7 +170,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/data",
     verificationDate: "2026-09-19",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && python3 -m unittest discover -s tests",
   },
   {
@@ -183,7 +183,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/data",
     verificationDate: "2026-09-19",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
     reproductionInstructions: "cd benchmarks && python3 -m unittest discover -s tests",
   },
   {
@@ -196,7 +196,7 @@ export const CLAIMS: ClaimRecord[] = [
     publicStatus: "PUBLIC",
     sourceUrlOrRepo: "https://github.com/aien-dev/benchmarks/tree/main/data",
     verificationDate: "2026-09-19",
-    currentStatus: "VERIFIED",
+    currentStatus: "REGENERATING",
   },
   {
     id: "claim-aegis-adapter-eval",

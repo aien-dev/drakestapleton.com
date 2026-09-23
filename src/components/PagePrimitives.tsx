@@ -35,6 +35,18 @@ export function ChapterNav({ links }: { links: ChapterLink[] }) {
   );
 }
 
+export function EvidenceNotice() {
+  return (
+    <aside className="evidence-notice" role="note">
+      <strong>Figures under regeneration.</strong> AIEN adopted a stricter publication rule on 23 September 2026: every
+      headline number must resolve to a reproducible command and an evidence artifact bundle. The performance figures
+      on this page predate that rule and are being regenerated. Current status lives in the{" "}
+      <a href="https://github.com/aien-dev/aien-sovereign-core#measured-results">aien-sovereign-core Measured Results</a>{" "}
+      section.
+    </aside>
+  );
+}
+
 export function SectionLead({
   eyebrow,
   title,
