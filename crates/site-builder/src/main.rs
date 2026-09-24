@@ -96,25 +96,10 @@ fn render_and_write_page(
 
 fn build_pure_rust_site(dist: &Path) {
     println!("  [BUILD] Compiling pure Rust Maud static site into: {}", dist.display());
+    // Create directories
     fs::create_dir_all(dist.join("assets")).expect("Failed to create assets dir");
     fs::create_dir_all(dist.join("js")).expect("Failed to create js dir");
     fs::create_dir_all(dist.join("images")).expect("Failed to create images dir");
-
-    // Copy CSS tokens and stylesheets
-    let css_copies = [
-        ("src/styles/global.css", "assets/style.css"),
-        ("src/styles/reader.css", "assets/reader.css"),
-        ("src/styles/engine.css", "assets/engine.css"),
-    ];
-    for (src, dest_rel) in &css_copies {
-        let src_path = Path::new(src);
-        if src_path.exists() {
-            fs::copy(src_path, dist.join(dest_rel)).unwrap_or_else(|e| {
-                panic!("Failed to copy {} to {}: {}", src, dest_rel, e);
-            });
-            println!("  [CSS] Copied {} -> {}", src, dest_rel);
-        }
-    }
 
     // Copy public static assets
     let public_dir = Path::new("public");
