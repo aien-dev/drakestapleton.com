@@ -1,4 +1,11 @@
+pub mod atlas;
+pub mod evidence;
 pub mod home;
+pub mod interest;
 pub mod not_found;
+pub mod path;
 pub mod reader;
+pub mod software;
+pub mod symphony;
+pub mod what_i_learned;
 pub mod works_index;
