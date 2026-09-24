@@ -130,7 +130,7 @@ fn build_pure_rust_site(dist: &Path) {
     // 3. Scan & Build Markdown Works (/content/works/*.md)
     let works_dir = Path::new("content/works");
     let mut collected_works: Vec<WorkFrontmatter> = Vec::new();
-    let mut public_routes: Vec<(String, &'static str)> = vec![
+    let public_routes: Vec<(String, &'static str)> = vec![
         ("/".to_string(), "1.0"),
         ("/works".to_string(), "0.9"),
         ("/research".to_string(), "0.9"),
@@ -183,9 +183,13 @@ fn build_pure_rust_site(dist: &Path) {
     // 4. Build Works Index (/works)
     let works_dir_out = dist.join("works");
     fs::create_dir_all(&works_dir_out).expect("Failed to create dist/works");
+    let works_meta = metadata.get("/works");
+    let works_title = works_meta.map(|m| m.title.as_str()).unwrap_or("Works | Drake Stapleton");
+    let works_desc = works_meta.map(|m| m.description.as_str()).unwrap_or("A public catalog of Drake Stapleton's shipped systems.");
+
     let works_doc_meta = PageMeta {
-        title: "Works & Evidence Records | Drake Stapleton",
-        description: "Original architectural papers, verified engineering benchmarks, and documented operational systems.",
+        title: works_title,
+        description: works_desc,
         canonical_url: "https://www.drakestapleton.com/works",
         current_route: "/works",
     };
