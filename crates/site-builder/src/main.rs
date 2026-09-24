@@ -203,10 +203,24 @@ fn build_pure_rust_site(dist: &Path) {
                     fs::write(slug_dir.join("index.html"), &markup_string)
                         .expect("Failed to write slug index.html");
 
-                    // Emit to /works/{slug}/index.html for /works/... nested route resolution
+                    // Emit to /works/{slug}/index.html with works metadata
+                    let works_route = format!("/works/{}", work_meta.slug);
+                    let works_site_meta = metadata.get(&works_route);
+                    let works_title = works_site_meta.map(|m| m.title.as_str()).unwrap_or(title);
+                    let works_desc = works_site_meta.map(|m| m.description.as_str()).unwrap_or(desc);
+                    let works_canonical = format!("https://www.drakestapleton.com/works/{}", work_meta.slug);
+
+                    let works_doc_meta = PageMeta {
+                        title: works_title,
+                        description: works_desc,
+                        canonical_url: &works_canonical,
+                        current_route: &works_route,
+                    };
+                    let works_page_html = render_reader_page(&work_meta, &html_body);
+                    let works_markup = render_base_layout(&works_doc_meta, works_page_html);
                     let works_slug_dir = dist.join("works").join(&work_meta.slug);
                     fs::create_dir_all(&works_slug_dir).expect("Failed to create works slug directory");
-                    fs::write(works_slug_dir.join("index.html"), &markup_string)
+                    fs::write(works_slug_dir.join("index.html"), works_markup.into_string())
                         .expect("Failed to write works slug index.html");
 
                     println!("  [WORK] Emitted {} -> /{}/index.html & /works/{}/index.html", 
