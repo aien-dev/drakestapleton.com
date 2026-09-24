@@ -1,4 +1,4 @@
-const INTAKE_ACTION = "https://formsubmit.co/dhgmonkey94@gmail.com";
+const INTAKE_ACTION = "https://formsubmit.co/drake@aienos.com";
 const THANKS_URL = "https://www.drakestapleton.com/interest?received=1";
 
 export function InterestForm({ compact = false }: { compact?: boolean }) {
