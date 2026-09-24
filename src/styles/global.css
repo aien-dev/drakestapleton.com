@@ -363,8 +363,8 @@ dd {
   text-align-last: auto;
 }
 .keep-together {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
+  white-space: normal;
 }
 h1 {
   margin: 0;
