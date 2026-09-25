@@ -353,6 +353,9 @@ pub fn render_path_page() -> Markup {
                 div style="margin: 32px 0;" {
                     p style="font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted);" { "01 · HIGH SCHOOL · 3.92" }
                     h3 style="font-family: var(--display); font-size: 1.4rem; margin: 8px 0 12px;" { "High School: 3.92" }
+                    p style="font-family: var(--display); font-size: 1.25rem; margin: 16px 0;" {
+                        "I was average. I wanted excellence."
+                    }
                     p {
                         "Intelligence and athleticism seemed natural in other people. In me, everything had to be earned. I am autistic and I have ADHD, and I went through high school unmedicated, so every classroom felt built for somebody else's brain."
                     }
@@ -366,7 +369,16 @@ pub fn render_path_page() -> Markup {
                         "So the world was scary. Not in one big way, in a thousand small ones. Every room was a test I was unprepared for. Every conversation was a chance to get it wrong. I learned to be quiet, to be good, to be excellent at the things with clear rules. A test grades the work. A football play rewards execution. A 3.92 rewards work."
                     }
                     p {
+                        "I believed I had to outwork everyone, so I did. I returned to the rep, the page, and the problem as many times as it took. Football practice meant running the same plays until my body knew them without thinking. Honors classes meant reading the chapter again, working the problems again, until the grade reflected the effort. There was no shortcut, and I was not looking for one. The work was the whole strategy."
+                    }
+                    p {
+                        "The 3.92 was not just a number. It was proof that the system worked. Put in the work, get the result. In a world where so much felt unpredictable, people, rooms, my own brain, the grade was honest. It did not care if I was awkward. It did not care if I was scared. It measured exactly what I put in, and I put in everything."
+                    }
+                    p {
                         "I wanted excellence anyway, and work had to carry me there. Football practice, honors classes, farm chores before and after school. I returned to the rep, the page, and the problem until the work added up."
+                    }
+                    p {
+                        "That habit never left. It earned the 3.92, carried me through two science degrees, and became the way I enter every new field. Chemistry, manufacturing, AI, I do not wait to feel ready. I start working, and I keep working until the work adds up. The fight made me a survivor, but more than that, it made me someone who knows how to become competent at anything."
                     }
                     p {
                         "That 3.92 was earned one repetition at a time. It was the one place I could prove I belonged on the strength of the work alone. It was refusal to quit."
