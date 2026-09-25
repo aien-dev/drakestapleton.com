@@ -53,10 +53,19 @@ pub fn render_path_page() -> Markup {
                         "Intelligence and athleticism seemed natural in other people. In me, everything had to be earned. I am autistic and I have ADHD, and I went through high school unmedicated, so every classroom felt built for somebody else's brain."
                     }
                     p {
+                        "Being autistic around people felt like everyone else got a manual and I was still looking for mine. I watched how people stood, how they laughed, when they looked away, and I copied it. I got good at copying, good enough that the effort stayed invisible. It drained me in ways beyond anything I could name."
+                    }
+                    p {
+                        "Under all of that sat something heavier, still unnamed. I was gay before I had words for it. My body was changing, hormones were everywhere, my brain was already loud, and what I was stayed a mystery to me. In the Bible Belt, in a preacher's house, staying unsure felt safer than being sure. Being sure would have meant saying it out loud, and saying it out loud felt like it could end my world."
+                    }
+                    p {
+                        "So the world was scary. Not in one big way, in a thousand small ones. Every room was a test I was unprepared for. Every conversation was a chance to get it wrong. I learned to be quiet, to be good, to be excellent at the things with clear rules. A test grades the work. A football play rewards execution. A 3.92 rewards work."
+                    }
+                    p {
                         "I wanted excellence anyway, and work had to carry me there. Football practice, honors classes, farm chores before and after school. I returned to the rep, the page, and the problem until the work added up."
                     }
                     p {
-                        "That 3.92 was earned one repetition at a time. It was refusal to quit."
+                        "That 3.92 was earned one repetition at a time. It was the one place I could prove I belonged on the strength of the work alone. It was refusal to quit."
                     }
                 }
 
