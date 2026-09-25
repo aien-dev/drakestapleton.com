@@ -88,6 +88,29 @@ pub fn render_path_page() -> Markup {
                     }
                 }
             }
+
+            div class="section-header" style="margin-top: var(--section);" {
+                p class="eyebrow" { "THE PRICE OF THE PATH" }
+                h2 { "I Followed the Path" }
+            }
+
+            div class="prose" {
+                p {
+                    "I did everything I was told to do. I went to school. I got the degrees. I followed the path step by step, the way good kids are supposed to."
+                }
+                p {
+                    "It cost me $100,000 in student loan debt."
+                }
+                p {
+                    "Now I sit here questioning my life choices, because what I do for a living never felt like mine. Chemistry led to engineering. Engineering led here. And the thing I actually care about, AI, gets treated like a fad the internet loves to piss on."
+                }
+                p {
+                    "So I followed the script. It left me in debt, doing work that never felt like mine, in a field people mock."
+                }
+                p {
+                    "The path taught me how to work. The debt taught me what things cost. The questioning taught me the most important lesson: the next thing I build will be mine."
+                }
+            }
         }
     }
 }
