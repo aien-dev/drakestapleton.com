@@ -1,4 +1,5 @@
 pub mod atlas;
+pub mod donate;
 pub mod evidence;
 pub mod home;
 pub mod interest;

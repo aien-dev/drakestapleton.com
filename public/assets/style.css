@@ -269,34 +269,6 @@ blockquote {
   white-space: nowrap;
   border: 0;
 }
-.his-words-mark {
-  display: inline-block;
-  font-size: 0.6em;
-  line-height: 1;
-  vertical-align: 0.35em;
-  margin-right: 0.45em;
-  color: var(--red);
-  opacity: 0.6;
-}
-.his-words-block {
-  position: relative;
-}
-.his-words-block > .his-words-mark {
-  position: absolute;
-  left: -1.4em;
-  top: 0.35em;
-}
-.site-footer .his-words-mark {
-  color: var(--accent-bright);
-  opacity: 0.8;
-  vertical-align: 0.3em;
-}
-@media (max-width: 760px) {
-  .his-words-block > .his-words-mark {
-    position: static;
-    vertical-align: 0.35em;
-  }
-}
 
 /* Shared typography and controls */
 .kicker,

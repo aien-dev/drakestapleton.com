@@ -7,6 +7,10 @@
     "title": "Start a Conversation | Drake Stapleton",
     "description": "Leave Drake Stapleton a note about a question, an idea, the documented journey, or research that advances what our generation can build with AI."
   },
+  "/donate": {
+    "title": "Donate | Drake Stapleton",
+    "description": "Back independent AIENOS development on Manifund and keep the work public and free for everyone."
+  },
   "/software": {
     "title": "AI Orchestration & Architecture | Drake Stapleton",
     "description": "Drake Stapleton's AI orchestration frameworks, architectural patterns, operational methods, and verifiable systems history."

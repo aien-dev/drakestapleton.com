@@ -9,6 +9,7 @@ use std::time::Instant;
 
 use layouts::base::{render_base_layout, PageMeta};
 use pages::atlas::render_atlas_page;
+use pages::donate::render_donate_page;
 use pages::evidence::render_evidence_page;
 use pages::home::render_home_page;
 use pages::interest::render_interest_page;
@@ -133,6 +134,7 @@ fn build_pure_rust_site(dist: &Path) {
     render_and_write_page(dist, "/path", "path/index.html", &metadata, render_path_page);
     render_and_write_page(dist, "/what-i-learned", "what-i-learned/index.html", &metadata, render_what_i_learned_page);
     render_and_write_page(dist, "/interest", "interest/index.html", &metadata, render_interest_page);
+    render_and_write_page(dist, "/donate", "donate/index.html", &metadata, render_donate_page);
     render_and_write_page(dist, "/symphony", "symphony/index.html", &metadata, || render_symphony_page(None));
     render_and_write_page(dist, "/symphony/first", "symphony/first/index.html", &metadata, || render_symphony_page(Some("first")));
     render_and_write_page(dist, "/symphony/workflow", "symphony/workflow/index.html", &metadata, || render_symphony_page(Some("workflow")));
@@ -154,6 +156,7 @@ fn build_pure_rust_site(dist: &Path) {
         ("/what-i-learned".to_string(), "0.7"),
         ("/symphony".to_string(), "0.7"),
         ("/interest".to_string(), "0.7"),
+        ("/donate".to_string(), "0.7"),
     ];
 
     if works_dir.exists() {
@@ -262,6 +265,7 @@ fn verify_site(dist: &Path) {
         ("evidence/index.html", "/evidence"),
         ("what-i-learned/index.html", "/what-i-learned"),
         ("interest/index.html", "/interest"),
+        ("donate/index.html", "/donate"),
         ("symphony/index.html", "/symphony"),
         ("symphony/first/index.html", "/symphony/first"),
         ("symphony/workflow/index.html", "/symphony/workflow"),

@@ -12,6 +12,7 @@ const LINKS: &[(&str, &str, bool)] = &[
     ("/research", "Research", true),
     ("/scholar", "Scholar", false),
     ("/interest", "Conversation", true),
+    ("/donate", "Donate", true),
 ];
 
 pub fn render_nav(current_route: &str) -> Markup {
