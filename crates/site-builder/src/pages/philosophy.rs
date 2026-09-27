@@ -69,6 +69,7 @@ pub fn render_philosophy_page() -> Markup {
                 }
 
                 (render_his_words("My philosophy of life is that I don't know what's coming tomorrow, the next day, or the day after that. I don't know what I will do in 3 years, 5 years, or 10 years, but I will know this: I will not be giving up, ever, no matter what I'm doing. So if you're standing in my way, you better watch out, because I'm coming and I'm not stopping.", true))
+                (render_his_words("I've got way too much momentum to stop.", true))
             }
         }
     }
