@@ -85,12 +85,27 @@
 
 /* Hero Section */
 .hero-section {
+  position: relative;
+  isolation: isolate;
   padding: clamp(64px, 8vw, 112px) var(--gutter);
   max-width: var(--page);
   margin: 0 auto;
 }
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 30rem at 88% -12%, rgba(239, 139, 103, 0.16), transparent 62%),
+    radial-gradient(42rem 26rem at 4% 112%, rgba(90, 70, 104, 0.10), transparent 60%);
+}
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--mono);
   font-size: var(--font-size-small);
   letter-spacing: var(--tracking-wide);
@@ -98,6 +113,14 @@
   text-transform: uppercase;
   font-weight: 600;
   margin: 0 0 16px;
+}
+.eyebrow::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 1px;
 }
 
 .hero-title {
@@ -354,4 +377,16 @@
   line-height: 1.75;
   color: var(--ink);
   margin: 0 0 24px;
+}
+
+/* Prose link affordance: links read as links even without hovering. */
+.prose a {
+  text-decoration: underline;
+  text-decoration-color: rgba(169, 70, 43, 0.55);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose a:hover {
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
 }
