@@ -3,6 +3,7 @@ use maud::{html, Markup};
 const LINKS: &[(&str, &str, bool)] = &[
     ("/", "Identity", true),
     ("/path", "Career", true),
+    ("/philosophy", "Philosophy", true),
     ("/software", "Orchestration", true),
     ("/works", "Works", false),
     ("/evidence", "Audit", true),

@@ -15,6 +15,7 @@ use pages::home::render_home_page;
 use pages::interest::render_interest_page;
 use pages::not_found::render_not_found_page;
 use pages::path::render_path_page;
+use pages::philosophy::render_philosophy_page;
 use pages::reader::{parse_work_markdown, render_reader_page, WorkFrontmatter};
 use pages::software::render_software_page;
 use pages::symphony::render_symphony_page;
@@ -133,6 +134,7 @@ fn build_pure_rust_site(dist: &Path) {
     render_and_write_page(dist, "/software", "software/index.html", &metadata, render_software_page);
     render_and_write_page(dist, "/path", "path/index.html", &metadata, render_path_page);
     render_and_write_page(dist, "/what-i-learned", "what-i-learned/index.html", &metadata, render_what_i_learned_page);
+    render_and_write_page(dist, "/philosophy", "philosophy/index.html", &metadata, render_philosophy_page);
     render_and_write_page(dist, "/interest", "interest/index.html", &metadata, render_interest_page);
     render_and_write_page(dist, "/donate", "donate/index.html", &metadata, render_donate_page);
     render_and_write_page(dist, "/symphony", "symphony/index.html", &metadata, || render_symphony_page(None));
@@ -154,6 +156,7 @@ fn build_pure_rust_site(dist: &Path) {
         ("/evidence".to_string(), "0.8"),
         ("/path".to_string(), "0.7"),
         ("/what-i-learned".to_string(), "0.7"),
+        ("/philosophy".to_string(), "0.7"),
         ("/symphony".to_string(), "0.7"),
         ("/interest".to_string(), "0.7"),
         ("/donate".to_string(), "0.7"),
@@ -264,6 +267,7 @@ fn verify_site(dist: &Path) {
         ("path/index.html", "/path"),
         ("evidence/index.html", "/evidence"),
         ("what-i-learned/index.html", "/what-i-learned"),
+        ("philosophy/index.html", "/philosophy"),
         ("interest/index.html", "/interest"),
         ("donate/index.html", "/donate"),
         ("symphony/index.html", "/symphony"),

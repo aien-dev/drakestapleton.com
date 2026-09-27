@@ -5,6 +5,7 @@ pub mod home;
 pub mod interest;
 pub mod not_found;
 pub mod path;
+pub mod philosophy;
 pub mod reader;
 pub mod software;
 pub mod symphony;

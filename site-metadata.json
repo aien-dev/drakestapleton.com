@@ -118,5 +118,9 @@
   "/works/research": {
     "title": "Inference Research | Works by Drake Stapleton",
     "description": "This research piece records work to lower software orchestration overhead in large language model inference through a native Rust ABI, a paged unified memory KV cache, and Grace Blackwell telemetry."
+  },
+  "/philosophy": {
+    "title": "Philosophy | Drake Stapleton",
+    "description": "How Drake Stapleton approaches projects, duties, difficult things, and setbacks. The working philosophy behind everything he builds: there is always a way, and giving up is not one of the options."
   }
 }
