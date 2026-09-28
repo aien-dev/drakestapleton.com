@@ -4,7 +4,7 @@
 
 *A proposal for the evaluation of machine intelligence*
 
-*September 2026 — seventh draft*
+*September 2026*
 
 ## 1. The Question
 
