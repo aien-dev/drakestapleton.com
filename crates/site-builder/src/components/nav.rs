@@ -24,7 +24,12 @@ pub fn render_nav(current_route: &str) -> Markup {
                     span class="brand-name" { "Drake Stapleton" }
                     span class="brand-line" { "Freedom Fighter · AI Architect & Operator · AIENOS.com" }
                 }
-                nav class="links" aria-label="Primary" {
+                button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" {
+                    span class="nav-toggle-bar" aria-hidden="true" {}
+                    span class="nav-toggle-bar" aria-hidden="true" {}
+                    span class="nav-toggle-bar" aria-hidden="true" {}
+                }
+                nav class="links" id="primary-nav" aria-label="Primary" {
                     @for (path, label, exact) in LINKS {
                         @let is_active = if *exact {
                             current_route == *path

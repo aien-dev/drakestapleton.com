@@ -45,6 +45,26 @@ pub fn render_base_layout(meta: &PageMeta, content: Markup) -> Markup {
                 (PreEscaped(r#"<script>
                     document.addEventListener('DOMContentLoaded', () => {
                         console.log('[AIEN Engine] Pure Rust Maud engine online. Zero hydration delay.');
+                        var navToggle = document.querySelector('.nav-toggle');
+                        var siteNav = document.querySelector('.site-nav');
+                        if (navToggle && siteNav) {
+                            var setOpen = function(open) {
+                                if (open) { siteNav.classList.add('nav-open'); }
+                                else { siteNav.classList.remove('nav-open'); }
+                                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                                navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                            };
+                            navToggle.addEventListener('click', function() {
+                                setOpen(!siteNav.classList.contains('nav-open'));
+                            });
+                            var links = siteNav.querySelectorAll('.links a');
+                            for (var i = 0; i < links.length; i++) {
+                                links[i].addEventListener('click', function() { setOpen(false); });
+                            }
+                            document.addEventListener('keydown', function(e) {
+                                if (e.key === 'Escape') { setOpen(false); }
+                            });
+                        }
                     });
                 </script>"#))
             }
