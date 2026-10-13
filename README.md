@@ -9,43 +9,37 @@ Conversation: [https://www.drakestapleton.com/interest](https://www.drakestaplet
 
 ## Local development and release
 
+The site is a static site rendered by the Rust program in `crates/site-builder` (Maud templates and a Markdown reader). There is no Node build, no `package.json` and no dev server. Run these from the repository root:
+
 ```bash
-npm run dev                 # complete portrait development mode
-npm run dev:portfolio       # explicit portrait development mode
-npm run build               # public portrait release
-npm run build:portfolio     # explicit public portrait release
-npm run preview             # preview the most recent build
+cargo test --manifest-path crates/site-builder/Cargo.toml
+cargo run --release --manifest-path crates/site-builder/Cargo.toml -- build dist
+cargo run --release --manifest-path crates/site-builder/Cargo.toml -- verify dist
 ```
 
-Both release commands render the complete story, software and AI practice, evidence record, Atlas history, AEGIS product record, and Symphony pages. The build emits route-specific static metadata, a sitemap, and an indexable robots file.
+`build dist` copies `public/` into `dist/`, renders the pages and writes `sitemap.xml` and `robots.txt` (which allows all crawlers), then verifies the result. `verify dist` re-checks an existing output directory. Page titles and descriptions come from `site-metadata.json`, and the works pages come from the Markdown files in `content/works/`.
+
+The build renders the home page, `/path`, `/what-i-learned`, `/philosophy`, `/software`, `/evidence`, `/atlas`, `/symphony` (with `/first`, `/workflow` and `/map`), `/donate`, `/interest`, the works index with one page per work, a 404 page, and the `/aien`, `/aegis` and `/research` pages.
 
 ## Checks
 
-```bash
-npm run typecheck
-npm run check:copy
-npm run test:waitlist
-npm run build
-npm run build:portfolio
-```
+`cargo test --manifest-path crates/site-builder/Cargo.toml` runs the unit tests. `verify dist` fails the build when a required route is missing or lacks its pre-rendered page, when a page title does not match `site-metadata.json`, when `sitemap.xml` or `robots.txt` is missing, or when any page contains an em dash or an en dash. `.github/workflows/pages.yml` runs the tests and the build on every pull request and push to `main`.
 
-The copy check enforces Drake's affirmative voice across page, component, data, and diagram copy. Build verification confirms the complete portrait and its route metadata are present.
+## Telemetry
 
-## Telemetry and Acquisition Tracking
-
-Google Ads and Google Tag telemetry track inbound campaigns and outbound repository engagement:
-
-- Outbound repository clicks (`repo_outbound_click`) capture developer interest on GitHub destinations.
-- Form submissions on `/interest` fire conversation lead conversion events (`conversion`, `generate_lead`).
-- Content Security Policy headers whitelist Google Tag Manager, Google Analytics, and Google Ads telemetry endpoints.
-- Build injection via `GOOGLE_ADS_ID` or `VITE_GOOGLE_ADS_ID` activates production script loading. When omitted, an in-memory queue prevents runtime client errors.
-- Comprehensive campaign structures, search ad groups, negative keywords, and UTM conventions reside in [ops/GOOGLE_ADS_ACQUISITION.md](ops/GOOGLE_ADS_ACQUISITION.md).
+The built site loads no Google Tag, Google Analytics or Google Ads script, and the build has no `GOOGLE_ADS_ID` setting. [ops/GOOGLE_ADS_ACQUISITION.md](ops/GOOGLE_ADS_ACQUISITION.md) is a campaign playbook written for an earlier Vite build. The conversion events and Content Security Policy it describes are not in the current code, so read it as a plan. The only live feed is the strip at the top of the home page, which connects to `/api/live/stream` on the same origin and updates only when the page is served by `crates/site-server`.
 
 ## Hosting
 
-GitHub Pages deploys the complete portrait from `main`.
+GitHub Pages deploys `dist/` from `main` (`.github/workflows/pages.yml`, custom domain in `CNAME`).
 
-The signup API stores normalized email, consent version, and signup time. Public requests use affirmative consent, origin checks, rate limiting, a honeypot, and TLS.
+The `/interest` form posts to formsubmit.co, which forwards the message by email. The site stores no signup data. The unit files in `ops/` (`ops/drake-waitlist-api.service` and `ops/renew-waitlist-cert.sh`) belong to an earlier waitlist API whose Python source is no longer in this repository.
+
+`crates/site-server` is a second, optional program: an Axum server that serves a built `dist/` from memory on port 18090 (`PORT` and `DIST_DIR` set the port and directory), with `/api/health`, `/api/chat` (forwards to a local model server at `127.0.0.1:18006`), a live telemetry stream at `/api/live/stream` and `/api/live/telemetry`. `ops/systemd/drakestapleton-site.service` runs it on the author's machine. GitHub Pages does not run it.
+
+## License
+
+GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later). See [LICENSE](LICENSE).
 
 ## Credit
 
