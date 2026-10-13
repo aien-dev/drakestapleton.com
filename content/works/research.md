@@ -7,6 +7,8 @@ summary: This study measures the software orchestration tax in large language mo
 
 Eliminating Software Orchestration Tax in Modern Large Language Model Inference.
 
+*Withdrawn on 23 September 2026: the measurements in this study predate the evidence standard and are kept as a record, not as current results. Current results with receipts are at https://github.com/aien-dev/benchmarks and on the [evidence page](/evidence).*
+
 This is a formal architectural study and empirical evaluation of native compiled systems. Author: Drake Stapleton (AIEN Sovereign Systems). Execution platform: NVIDIA Grace Blackwell GB10 (128 GB unified LPDDR5X memory).
 
 The scholar hub calls it orchestration research: the AIEN Sovereign Inference Stack, eliminating the software orchestration tax in LLM inference with a native Rust ABI, paged KV cache, and Grace Blackwell telemetry.

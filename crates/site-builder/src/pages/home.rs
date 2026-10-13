@@ -86,23 +86,32 @@ pub fn render_home_page() -> Markup {
                     div class="proof-box" {
                         div class="proof-header" {
                             span class="badge" { "EMPIRICAL RECEIPTS" }
-                            h2 id="proof-heading" { "Physical Silicon Proof Over Promises" }
+                            h2 id="proof-heading" { "Receipts Over Promises" }
                         }
                         div class="proof-stats grid stats-grid" {
                             div class="stat-card" {
-                                p class="stat-value tabular-nums" { "553.14" }
-                                p class="stat-unit" { "tokens / sec" }
-                                p class="stat-label" { "TinyLlama-1.1B continuous batching on GB10" }
+                                p class="stat-value tabular-nums" { "R1-R15" }
+                                p class="stat-unit" { "PASS on GB10" }
+                                p class="stat-label" {
+                                    "Omega qualification ladder on frozen candidate CAND-3; R15 is a conditional pass (Secure Boot off). "
+                                    a href="https://github.com/aien-dev/aien-architecture/blob/main/qualification/candidates/CAND-3.gates.md" { "Gate record" }
+                                }
                             }
                             div class="stat-card" {
-                                p class="stat-value tabular-nums" { "2.06 μs" }
-                                p class="stat-unit" { "p50 latency" }
-                                p class="stat-label" { "Zero-copy KV fork sequence admission" }
+                                p class="stat-value tabular-nums" { "24 / 24" }
+                                p class="stat-unit" { "QEMU gates PASS" }
+                                p class="stat-label" {
+                                    "AIENOS C kernel in the emulator. Not yet booted on the real machine. "
+                                    a href="https://github.com/aien-dev/aienos/blob/main/evidence/ck_gates_29ed03c97454354a18676f768273dd7f7a8e15462c4be1939d9994d277d0d639.json" { "Receipt" }
+                                }
                             }
                             div class="stat-card" {
-                                p class="stat-value tabular-nums" { "500.0x" }
-                                p class="stat-unit" { "memory reduction" }
-                                p class="stat-label" { "Pre-forked prefix cache sharing vs full prefill" }
+                                p class="stat-value tabular-nums" { "20.3x" }
+                                p class="stat-unit" { "frozen baseline" }
+                                p class="stat-label" {
+                                    "Prime Drag Race native GPU sieve on GB10; ties the CUDA mirror. "
+                                    a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
+                                }
                             }
                             div class="stat-card" {
                                 p class="stat-value tabular-nums" { "100%" }

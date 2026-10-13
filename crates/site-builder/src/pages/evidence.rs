@@ -13,19 +13,28 @@ pub fn render_evidence_page() -> Markup {
 
             div class="grid stats-grid" style="margin-top: 36px;" {
                 div class="stat-card" {
-                    p class="stat-value tabular-nums" { "553.14" }
-                    p class="stat-unit" { "tokens / second" }
-                    p class="stat-label" { "TinyLlama-1.1B continuous batching at concurrency 16 on GB10" }
+                    p class="stat-value tabular-nums" { "R1-R15" }
+                    p class="stat-unit" { "PASS on GB10" }
+                    p class="stat-label" {
+                        "Omega runtime qualification ladder on frozen candidate CAND-3; R15 is a conditional pass under a declared exception (Secure Boot was off). "
+                        a href="https://github.com/aien-dev/aien-architecture/blob/main/qualification/candidates/CAND-3.gates.md" { "Gate record" }
+                    }
                 }
                 div class="stat-card" {
-                    p class="stat-value tabular-nums" { "2.06 μs" }
-                    p class="stat-unit" { "p50 latency" }
-                    p class="stat-label" { "Zero-copy 500-branch fork sequence admission in aien-scheduler" }
+                    p class="stat-value tabular-nums" { "24 / 24" }
+                    p class="stat-unit" { "QEMU gates PASS" }
+                    p class="stat-label" {
+                        "AIENOS C kernel gates in the emulator, 0 NOT_RUN. Emulator evidence only; the kernel has not booted on the real machine yet. "
+                        a href="https://github.com/aien-dev/aienos/blob/main/evidence/ck_gates_29ed03c97454354a18676f768273dd7f7a8e15462c4be1939d9994d277d0d639.json" { "Receipt" }
+                    }
                 }
                 div class="stat-card" {
-                    p class="stat-value tabular-nums" { "500.0x" }
-                    p class="stat-unit" { "memory reduction" }
-                    p class="stat-label" { "Pre-forked prefix cache sharing versus redundant prefill" }
+                    p class="stat-value tabular-nums" { "20.3x" }
+                    p class="stat-unit" { "frozen baseline" }
+                    p class="stat-label" {
+                        "Prime Drag Race native GPU sieve on GB10 against the frozen baseline; it ties the CUDA mirror at 19,701 vs 19,629 passes per second. "
+                        a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
+                    }
                 }
                 div class="stat-card" {
                     p class="stat-value tabular-nums" { "100%" }
