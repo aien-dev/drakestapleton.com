@@ -40,7 +40,9 @@ The architectural principle: plaintext secrets remain prohibited on disk. All ke
 
 The evidence claim states the same control. Plaintext secrets, API keys, and private credentials resolve dynamically into volatile process memory from the physical TPM 2.0 security chip (`/dev/tpmrm0`) on Linux and Secure Enclave / Keychain on Apple Silicon, keeping persistent storage free of plaintext keys. That claim is dated 19 September 2026.
 
-## Measured performance on Grace Blackwell
+## Measured performance on Grace Blackwell (withdrawn: pre-standard figures)
+
+*Withdrawn on 23 September 2026: these figures predate the evidence standard and are kept as a record, not as current results. Current results with receipts are at https://github.com/aien-dev/benchmarks and on the [evidence page](/evidence).*
 
 Replacing interpreter daemons with native Rust binaries dropped memory footprint from 3.7 gigabytes down to under 5 megabytes, keeping system memory free for local LLM weights. Axum endpoints deliver 3.5 millisecond response times under concurrent load, ten times faster than a single asynchronous Uvicorn route.
 
@@ -61,7 +63,9 @@ The evidence catalog states the related measurements directly. Standalone native
 
 Public benchmarks, raw telemetry, and verification scripts are at https://github.com/aien-dev/benchmarks.
 
-## Branch-native architecture
+## Branch-native architecture (withdrawn: pre-standard figures)
+
+*Withdrawn on 23 September 2026: these figures predate the evidence standard and are kept as a record, not as current results. Current results with receipts are at https://github.com/aien-dev/benchmarks and on the [evidence page](/evidence).*
 
 Physical silicon evaluation on NVIDIA DGX Spark (Grace Blackwell GB10, 128 GB unified LPDDR5X memory) measures AIEN compiled native components against unshared memory duplication baselines. Spawning 500 concurrent reasoning branches from a 32,768-token prefix completes in 1.20 ms total, recording 2.06 µs median fork latency and requiring only 704 MB of paged KV memory compared with 343.75 GB for naive copying. The page labels that comparison a 500.0x memory reduction.
 
@@ -76,7 +80,9 @@ Physical silicon evaluation on NVIDIA DGX Spark (Grace Blackwell GB10, 128 GB un
 
 AIEN discloses upstream technology on the page. LLaMA pure Mojo execution kernels are authored by Audrey (`a730/MojoLlama`), and graph execution relies on Modular MAX. AIEN contributes original architectures for continuous scheduling, physical unified KV memory management, radix prefix deduplication, subagent branching, and hardware-bound TPM secret vaults. The page points audits to `docs/PROVENANCE.md` in https://github.com/aien-dev/aien-sovereign-core.
 
-## Continuous batching sweep
+## Continuous batching sweep (withdrawn: pre-standard figures)
+
+*Withdrawn on 23 September 2026: these figures predate the evidence standard and are kept as a record, not as current results. Current results with receipts are at https://github.com/aien-dev/benchmarks and on the [evidence page](/evidence).*
 
 The page records a physical hardware sweep of continuous batching on NVIDIA DGX Spark Grace Blackwell GB10 (sm_121), TinyLlama-1.1B BF16. All steps execute through pure Blackwell GPU tensor kernels with zero fallback. Peak throughput occurs at C=16 with 23.56 ms p50 step latency and 27.89 W GPU power draw. The page total is 553.14 tokens per second at C=16.
 
@@ -92,7 +98,9 @@ The page records a physical hardware sweep of continuous batching on NVIDIA DGX 
 
 The evidence page names the canonical receipt Run ID `gb10_canonical_1789907893_4d762`.
 
-## Multi-model breadth
+## Multi-model breadth (withdrawn: pre-standard figures)
+
+*Withdrawn on 23 September 2026: these figures predate the evidence standard and are kept as a record, not as current results. Current results with receipts are at https://github.com/aien-dev/benchmarks and on the [evidence page](/evidence).*
 
 Empirical measurements on the page confirm execution across dense transformers, recurrent hybrids, and Mixture of Experts topologies. Each row is marked VERIFIED.
 
@@ -108,7 +116,7 @@ Empirical measurements on the page confirm execution across dense transformers, 
 
 AIEN follows an evidence-based verification standard across architectures, distinguishing physical silicon certification from architected code paths.
 
-NVIDIA DGX Spark (GB10) is the primary reference. Processor: Grace Blackwell (GB10, aarch64, 128 GB unified). Pipeline: hardware sm_121 kernels and ATS coherent memory. Full runtime verification, paged BF16 block pooling, and 2.06 µs sequence branching on physical silicon.
+NVIDIA DGX Spark (GB10) is the primary reference. Processor: Grace Blackwell (GB10, aarch64, 128 GB unified). Pipeline: hardware sm_121 kernels and ATS coherent memory. The page claimed full runtime verification, paged BF16 block pooling, and 2.06 µs sequence branching on physical silicon; that figure is withdrawn with the rest of the pre-standard set.
 
 Apple Silicon (macOS) is a validated target. Processor: Apple M-series (aarch64, unified memory). Pipeline: POSIX mmap KV pools and SIMD CPU acceleration. It executes directly on host CPU unified memory free of external GPU requirements, CUDA dependencies, or background daemons.
 
@@ -126,7 +134,7 @@ Pure compiled systems: core gateways, task dispatchers, memory daemons, and supe
 
 Multi-platform verification: the architecture adheres to explicit verification tiers across NVIDIA Grace Blackwell, Apple Silicon MacBooks, and standard Linux servers, documenting real hardware test passes.
 
-Open collaboration commons: core software is licensed under Apache-2.0 with LLVM Exception. Developers, startups, and compute providers are free to deploy it with no revenue caps. A nonbinding covenant asks that foundational advances stay open; it grants and restricts no rights.
+Open collaboration commons: core software is licensed under AGPL-3.0-or-later; each repository's LICENSE governs. Developers, startups, and compute providers are free to deploy it with no revenue caps. A nonbinding covenant asks that foundational advances stay open; it grants and restricts no rights.
 
 The page points the codebase to https://github.com/aien-dev and the benchmarks to https://github.com/aien-dev/benchmarks.
 
