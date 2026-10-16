@@ -21,7 +21,7 @@
   --accent-bright: #ef8b67;
   --display: Georgia, "Times New Roman", serif;
   --sans:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --page: 1200px;
@@ -4659,4 +4659,20 @@ th {
   .nav-toggle {
     color: var(--ink);
   }
+}
+
+/* Live record from aienos.com (components/facts.rs) */
+.stat-value.verdict-success { color: var(--ok, #1e6f3d); }
+.stat-value.verdict-failure { color: var(--bad, #a32b22); }
+.stat-value.verdict-pending { color: var(--wait, #7a5a00); }
+.live-record { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line, #e2ded6); }
+.live-record .stats-grid { margin: 20px 0; }
+.live-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 20px 0; }
+.live-table th, .live-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line, #e2ded6); vertical-align: top; }
+.live-table th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.75; }
+.live-generated { font-size: 0.9rem; opacity: 0.8; }
+@media (max-width: 640px) {
+  .live-table thead { display: none; }
+  .live-table tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--line, #e2ded6); }
+  .live-table td { display: block; border: 0; padding: 2px 0; }
 }

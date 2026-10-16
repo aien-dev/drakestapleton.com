@@ -1,6 +1,9 @@
 name: pages
 on:
   workflow_dispatch:
+  schedule:
+    # Hourly: the AIEN pages carry the live record from aienos.com/facts.json.
+    - cron: '23 * * * *'
   push:
     branches: [main]
   pull_request:
