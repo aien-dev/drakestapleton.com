@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 # Serialize merges into main so concurrent branch pushes can't race.
 concurrency:
@@ -47,3 +48,6 @@ jobs:
           fi
           gh pr merge "$PR_NUMBER" --squash --delete-branch
           echo "Merged PR #$PR_NUMBER into main"
+          # A push made with GITHUB_TOKEN starts no other workflow, so start the deploy by hand.
+          gh workflow run pages.yml --ref main
+          echo "Started the pages deploy on main"
