@@ -4,23 +4,23 @@ pub fn render_software_page() -> Markup {
     html! {
         div class="container" style="max-width: var(--page); margin: 0 auto; padding: clamp(48px, 6vw, 96px) var(--gutter);" {
             header class="section-header" {
-                p class="eyebrow" { "COMPILED NATIVE RUNTIME & DISTRIBUTED FRAMEWORKS" }
+                p class="eyebrow" { "SOVEREIGN STACK, BUILT IN THE OPEN" }
                 h1 { "AI Orchestration & Architecture" }
                 p class="section-desc" {
-                    "Eliminating the Python interpreter tax: pure compiled Rust sequence semantics, Mojo accelerated GPU mathematics, and zero-copy hypermedia."
+                    "Software written to run as close to the hardware as the hardware allows, on a machine I own, with every claim tied to a receipt."
                 }
             }
 
             div class="grid cards-grid" style="margin-top: 36px;" {
                 article class="pillar-card" {
-                    div class="pillar-marker" { "INFERENCE ENGINE" }
+                    div class="pillar-marker" { "SOVEREIGN STACK" }
                     h2 style="font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px;" {
-                        "AIEN Sovereign Core"
+                        "AIEN"
                     }
                     p {
-                        "Branch-native inference engine with zero-copy prefix KV forks, sub-3 microsecond branch latency, and hardware TPM vault security."
+                        "An operating system (AIENOS), a language with its own GPU engine (Omega), a host runtime (sovereign core) and the verification pipeline that judges every change on the Spark. Being gathered into one core tree, Aienix."
                     }
-                    a href="/aien" class="card-link" { "Explore AIEN Core →" }
+                    a href="/aien" class="card-link" { "Explore AIEN →" }
                 }
 
                 article class="pillar-card" {

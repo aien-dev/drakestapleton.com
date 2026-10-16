@@ -28,8 +28,8 @@
     "description": "AEGIS extends Atlas into on-prem cyber defense for authorized networks, with containment, evidence preservation, and a verified 59 of 62 project evaluation."
   },
   "/aien": {
-    "title": "AIEN Sovereign Cognitive Architecture | Drake Stapleton",
-    "description": "AIEN is Drake Stapleton's compiled, zero-disk-secret sovereign cognitive architecture verified on Grace Blackwell silicon with multi-platform runtime targets."
+    "title": "AIEN: a sovereign computing stack on a machine I own | Drake Stapleton",
+    "description": "AIEN is Drake Stapleton's sovereign computing stack: its own operating system, a language with a GPU engine, a host runtime and a pipeline that judges every change on the Spark. Built in the open."
   },
   "/evidence": {
     "title": "Canonical Evidence Hub & Verified Claims | Drake Stapleton",
@@ -60,8 +60,8 @@
     "description": "Choose a page from Drake Stapleton's site."
   },
   "/research": {
-    "title": "LLM Inference Research & Architecture | Drake Stapleton",
-    "description": "Research publication: Eliminating Software Orchestration Tax in Modern Large Language Model Inference with Native Rust ABI, Paged Unified Memory KV Cache, and Grace Blackwell Telemetry."
+    "title": "Research | Drake Stapleton",
+    "description": "What the AIEN research program measures today: Turing yield, verified understanding and distance to the hardware ceiling. Why the 2026 orchestration study was withdrawn and where current results live."
   },
   "/scholar": {
     "title": "Scholar: Theories, Thoughts & Academic Work | Drake Stapleton",
@@ -109,7 +109,7 @@
   },
   "/works/aien": {
     "title": "AIEN | Works by Drake Stapleton",
-    "description": "AIEN is Drake Stapleton's compiled sovereign cognitive architecture, verified on Grace Blackwell silicon with multi-platform runtime targets."
+    "description": "AIEN is a sovereign computing stack built in the open on one machine: AIENOS, Omega, the sovereign core runtime and the Spark verification pipeline, gathered into the Aienix core tree."
   },
   "/works/aegis": {
     "title": "AEGIS | Works by Drake Stapleton",

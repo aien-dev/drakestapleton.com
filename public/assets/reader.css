@@ -100,10 +100,15 @@
 }
 
 .reader-body h2,
+.reader-content h2,
 .reader-body h3,
+.reader-content h3,
 .reader-body h4,
+.reader-content h4,
 .reader-body h5,
-.reader-body h6 {
+.reader-content h5,
+.reader-body h6,
+.reader-content h6 {
   margin: 1.75rem 0 0.5rem;
   color: var(--navy, var(--ink, #1c1915));
   font-family: var(--display, Georgia, "Times New Roman", serif);
@@ -111,36 +116,46 @@
   line-height: 1.25;
 }
 
-.reader-body h2 {
+.reader-body h2,
+.reader-content h2 {
   font-size: 1.45rem;
 }
 
-.reader-body h3 {
+.reader-body h3,
+.reader-content h3 {
   font-size: 1.25rem;
 }
 
 .reader-body p,
+.reader-content p,
 .reader-body ul,
-.reader-body ol {
+.reader-content ul,
+.reader-body ol,
+.reader-content ol {
   margin: 0 0 1rem;
 }
 
 .reader-body ul,
-.reader-body ol {
+.reader-content ul,
+.reader-body ol,
+.reader-content ol {
   padding-inline-start: 1.25rem;
 }
 
-.reader-body li + li {
+.reader-body li + li,
+.reader-content li + li {
   margin-top: 0.35rem;
 }
 
-.reader-body blockquote {
+.reader-body blockquote,
+.reader-content blockquote {
   margin: 0 0 1rem;
   padding-inline-start: 1rem;
   border-inline-start: 2px solid var(--navy, var(--ink, #1c1915));
 }
 
-.reader-body blockquote p {
+.reader-body blockquote p,
+.reader-content blockquote p {
   margin: 0;
 }
 

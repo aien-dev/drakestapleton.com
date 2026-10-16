@@ -1,8 +1,9 @@
 use maud::{html, Markup};
+use crate::components::facts::{render_verdict_card, Facts};
 use crate::components::telemetry::render_telemetry_bar;
 use crate::components::voicemark::render_his_words;
 
-pub fn render_home_page() -> Markup {
+pub fn render_home_page(facts: Option<&Facts>) -> Markup {
     html! {
         div class="home-page" {
             // Live Telemetry Bar
@@ -63,7 +64,7 @@ pub fn render_home_page() -> Markup {
                             div class="pillar-marker" { "03 · RUNTIME" }
                             h3 { a href="/aien" { "AIEN" } }
                             p {
-                                "The sovereign cognitive architecture running native compiled loops in Rust and Mojo, hardware TPM key vault, and local inference on dedicated silicon."
+                                "A sovereign computing stack on one machine I own: its own operating system, its own language with a GPU engine, a host runtime, and a pipeline that judges every change on the hardware itself."
                             }
                             a href="/aien" class="card-link" { "Review Architecture →" }
                         }
@@ -113,11 +114,7 @@ pub fn render_home_page() -> Markup {
                                     a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
                                 }
                             }
-                            div class="stat-card" {
-                                p class="stat-value tabular-nums" { "100%" }
-                                p class="stat-unit" { "TPM-bound" }
-                                p class="stat-label" { "Zero plaintext secrets or .env files on disk" }
-                            }
+                            (render_verdict_card(facts))
                         }
                         div class="proof-footer" {
                             a href="/evidence" class="btn btn-primary" { "Open Evidence Hub & Cryptographic Ledger" }

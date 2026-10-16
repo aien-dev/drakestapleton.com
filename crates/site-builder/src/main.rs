@@ -98,6 +98,8 @@ fn render_and_write_page(
 
 fn build_pure_rust_site(dist: &Path) {
     println!("  [BUILD] Compiling pure Rust Maud static site into: {}", dist.display());
+    // The live AIEN record from aienos.com; None renders the pages with a plain "could not be read" line.
+    let facts = components::facts::fetch_facts();
     // Create directories
     fs::create_dir_all(dist.join("assets")).expect("Failed to create assets dir");
     fs::create_dir_all(dist.join("js")).expect("Failed to create js dir");
@@ -127,10 +129,10 @@ fn build_pure_rust_site(dist: &Path) {
         .expect("Failed to parse site-metadata.json");
 
     // 1. Build Standard Static Portfolio Pages
-    render_and_write_page(dist, "/", "index.html", &metadata, render_home_page);
+    render_and_write_page(dist, "/", "index.html", &metadata, || render_home_page(facts.as_ref()));
     render_and_write_page(dist, "/404", "404.html", &metadata, render_not_found_page);
     render_and_write_page(dist, "/atlas", "atlas/index.html", &metadata, render_atlas_page);
-    render_and_write_page(dist, "/evidence", "evidence/index.html", &metadata, render_evidence_page);
+    render_and_write_page(dist, "/evidence", "evidence/index.html", &metadata, || render_evidence_page(facts.as_ref()));
     render_and_write_page(dist, "/software", "software/index.html", &metadata, render_software_page);
     render_and_write_page(dist, "/path", "path/index.html", &metadata, render_path_page);
     render_and_write_page(dist, "/what-i-learned", "what-i-learned/index.html", &metadata, render_what_i_learned_page);
@@ -171,6 +173,12 @@ fn build_pure_rust_site(dist: &Path) {
                     .unwrap_or_else(|_| panic!("Failed to read {}", path.display()));
                 let (opt_meta, html_body) = parse_work_markdown(&raw_content);
                 if let Some(work_meta) = opt_meta {
+                    // The AIEN page ends with the live record read from aienos.com.
+                    let html_body = if work_meta.slug == "aien" {
+                        format!("{html_body}{}", components::facts::render_live_block(facts.as_ref()).into_string())
+                    } else {
+                        html_body
+                    };
                     let route = format!("/{}", work_meta.slug);
                     let site_meta = metadata.get(&route);
                     let title = site_meta.map(|m| m.title.as_str()).unwrap_or(&work_meta.title);

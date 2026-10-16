@@ -1,6 +1,7 @@
 use maud::{html, Markup};
+use crate::components::facts::{render_verdict_card, Facts};
 
-pub fn render_evidence_page() -> Markup {
+pub fn render_evidence_page(facts: Option<&Facts>) -> Markup {
     html! {
         div class="container" style="max-width: var(--page); margin: 0 auto; padding: clamp(48px, 6vw, 96px) var(--gutter);" {
             header class="section-header" {
@@ -36,21 +37,17 @@ pub fn render_evidence_page() -> Markup {
                         a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
                     }
                 }
-                div class="stat-card" {
-                    p class="stat-value tabular-nums" { "100%" }
-                    p class="stat-unit" { "TPM-bound" }
-                    p class="stat-label" { "Hardware TPM 2.0 key vault: zero plaintext secrets on disk" }
-                }
+                (render_verdict_card(facts))
             }
 
             section style="margin-top: 48px;" {
                 h2 style="font-family: var(--display); margin-bottom: 24px;" { "The Cryptographic Improvement Ledger" }
                 div class="prose reading-width" {
                     p {
-                        "All autonomous benchmarks, regression evaluations, and recursive improvements are committed to the hardware TPM-signed ledger. Cortex ingests derived operational lessons and causal post-mortems directly from silicon receipts."
+                        "Every change to an AIEN repository is judged on the Spark itself by our own pipeline. The verdict is a signed evidence bundle tied to the exact commit, and a change merges only when that bundle says PASS. The card above shows the current verdict for the host runtime, read from the record aienos.com publishes."
                     }
                     p {
-                        "Parity suites are verified against immutable Hugging Face Transformers FP32 references before any candidate kernel or quantized branch is accepted."
+                        "Speed is reported against the machine's physical ceiling and against our own previous run, never against someone else's system. A figure appears on this site only when it resolves to a receipt."
                     }
                 }
             }

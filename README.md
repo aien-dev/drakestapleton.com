@@ -25,9 +25,13 @@ The build renders the home page, `/path`, `/what-i-learned`, `/philosophy`, `/so
 
 `cargo test --manifest-path crates/site-builder/Cargo.toml` runs the unit tests. `verify dist` fails the build when a required route is missing or lacks its pre-rendered page, when a page title does not match `site-metadata.json`, when `sitemap.xml` or `robots.txt` is missing, or when any page contains an em dash or an en dash. `.github/workflows/pages.yml` runs the tests and the build on every pull request and push to `main`.
 
+## Live AIEN record
+
+The home page, the evidence page and the AIEN page carry the Spark judge's verdict for the current sovereign-core commit and one row per core component. The builder reads them at build time from `https://www.aienos.com/facts.json`, the file aienos.com writes from GitHub every hour (`crates/site-builder/src/components/facts.rs`). When the file cannot be read the pages say so instead of showing stale figures. Set `AIEN_FACTS_FILE=<path>` to build from a local copy. `.github/workflows/pages.yml` rebuilds the site every hour so the record stays current.
+
 ## Telemetry
 
-The built site loads no Google Tag, Google Analytics or Google Ads script, and the build has no `GOOGLE_ADS_ID` setting. [ops/GOOGLE_ADS_ACQUISITION.md](ops/GOOGLE_ADS_ACQUISITION.md) is a campaign playbook written for an earlier Vite build. The conversion events and Content Security Policy it describes are not in the current code, so read it as a plan. The only live feed is the strip at the top of the home page, which connects to `/api/live/stream` on the same origin and updates only when the page is served by `crates/site-server`.
+The built site loads no outside font, script or tracker: every request a visitor's browser makes goes to this site. The build has no `GOOGLE_ADS_ID` setting. [ops/GOOGLE_ADS_ACQUISITION.md](ops/GOOGLE_ADS_ACQUISITION.md) is a campaign playbook written for an earlier Vite build. The conversion events and Content Security Policy it describes are not in the current code, so read it as a plan. The only live feed is the strip at the top of the home page, which connects to `/api/live/stream` on the same origin and updates only when the page is served by `crates/site-server`.
 
 ## Hosting
 
