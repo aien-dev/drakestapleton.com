@@ -103,19 +103,18 @@
   .interest-home-grid { grid-template-columns: 1fr; }
 }
 
-@media (prefers-color-scheme: dark) {
-  .interest-form {
-    background: var(--dark-surface);
-    border-color: var(--line);
-  }
-  .interest-form label {
-    color: var(--on-dark-copy);
-  }
-  .interest-form input[type="text"],
-  .interest-form input[type="email"],
-  .interest-form textarea {
-    background: var(--paper); /* Lighter than --dark-surface */
-    border-color: var(--line-strong);
-    color: var(--on-dark);
-  }
+/* Always dark (Turing look). */
+.interest-form {
+  background: var(--dark-surface);
+  border-color: var(--line);
+}
+.interest-form label {
+  color: var(--on-dark-copy);
+}
+.interest-form input[type="text"],
+.interest-form input[type="email"],
+.interest-form textarea {
+  background: var(--paper); /* Lighter than --dark-surface */
+  border-color: var(--line-strong);
+  color: var(--on-dark);
 }

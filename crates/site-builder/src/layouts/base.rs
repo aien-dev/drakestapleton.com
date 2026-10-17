@@ -14,6 +14,8 @@ pub fn render_base_layout(meta: &PageMeta, content: Markup) -> Markup {
             head {
                 meta charset="utf-8";
                 meta name="viewport" content="width=device-width, initial-scale=1";
+                meta name="color-scheme" content="dark";
+                meta name="theme-color" content="#08090c";
                 title { (meta.title) }
                 meta name="description" content=(meta.description);
                 link rel="canonical" href=(meta.canonical_url);
@@ -35,10 +37,12 @@ pub fn render_base_layout(meta: &PageMeta, content: Markup) -> Markup {
                 link rel="stylesheet" href="/assets/reader.css";
                 link rel="stylesheet" href="/assets/engine.css";
                 link rel="stylesheet" href="/assets/universe.css";
+                link rel="stylesheet" href="/assets/turing.css";
 
                 // HTMX for zero-build hypermedia interactivity
                 script defer src="/js/htmx.min.js" {}
                 script defer src="/js/universe.js" {}
+                script defer src="/js/progress.js" {}
                 (PreEscaped(r#"<script>
                     document.addEventListener('DOMContentLoaded', () => {
                         console.log('[AIEN Engine] Pure Rust Maud engine online. Zero hydration delay.');
@@ -68,6 +72,7 @@ pub fn render_base_layout(meta: &PageMeta, content: Markup) -> Markup {
             body {
                 div id="root" {
                     div class="site-shell" {
+                        div class="read-progress" aria-hidden="true" {}
                         (crate::components::nav::render_nav(meta.current_route))
                         main id="main-content" {
                             (content)

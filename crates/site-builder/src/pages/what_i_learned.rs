@@ -19,7 +19,7 @@ pub fn render_what_i_learned_page() -> Markup {
 
                 (render_his_words("Somehow I just keep finding the strength, or rather the stubbornness, to keep going.", true))
 
-                h2 style="font-family: var(--display); margin-top: 36px;" { "The Core Heuristics" }
+                h2 style="font-family: var(--heading); margin-top: 36px;" { "The Core Heuristics" }
                 ul class="links-list" style="margin-top: 16px;" {
                     li {
                         strong { "Silicon Proof Over Documentation: " }

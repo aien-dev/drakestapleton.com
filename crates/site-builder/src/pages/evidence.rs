@@ -41,7 +41,7 @@ pub fn render_evidence_page(facts: Option<&Facts>) -> Markup {
             }
 
             section style="margin-top: 48px;" {
-                h2 style="font-family: var(--display); margin-bottom: 24px;" { "The Cryptographic Improvement Ledger" }
+                h2 style="font-family: var(--heading); margin-bottom: 24px;" { "The Cryptographic Improvement Ledger" }
                 div class="prose reading-width" {
                     p {
                         "Every change to an AIEN repository is judged on the Spark itself by our own pipeline. The verdict is a signed evidence bundle tied to the exact commit, and a change merges only when that bundle says PASS. The card above shows the current verdict for the host runtime, read from the record aienos.com publishes."

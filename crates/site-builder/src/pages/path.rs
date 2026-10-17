@@ -242,7 +242,7 @@ pub fn render_path_page() -> Markup {
 
             section style="margin: 48px 0;" {
                 p class="eyebrow" { "THE LADDER" }
-                h2 style="font-family: var(--display); font-size: 1.8rem; margin: 12px 0;" {
+                h2 style="font-family: var(--heading); font-size: 1.8rem; margin: 12px 0;" {
                     "The $1 million at 3M began long before I joined 3M."
                 }
                 div class="prose" {
@@ -253,11 +253,11 @@ pub fn render_path_page() -> Markup {
             }
 
             @for (index, chapter) in chapters().into_iter().enumerate() {
-                article style="margin: 40px 0; padding: 32px; border: 1px solid var(--line);" {
+                article style="margin: 40px 0; padding: 32px; border: 1px solid var(--line); border-radius: 18px; background: var(--dark-surface);" {
                     p style="font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted);" {
                         (format!("{:02} · {}", index + 1, chapter.years.to_uppercase()))
                     }
-                    h2 style="font-family: var(--display); font-size: 1.5rem; margin: 8px 0 12px;" {
+                    h2 style="font-family: var(--heading); font-size: 1.5rem; margin: 8px 0 12px;" {
                         (chapter.title)
                     }
                     div class="prose" {
@@ -296,7 +296,7 @@ pub fn render_path_page() -> Markup {
                         p class="eyebrow" { "GOLD EAGLE / FORMULATION IMPROVEMENT" }
                         p style="font-family: var(--display); font-size: 2.2rem; margin: 8px 0;" { "$1.2M" }
                         p style="color: var(--muted);" { "documented sourcing savings" }
-                        h3 style="font-family: var(--display); font-size: 1.2rem; margin: 12px 0;" { "I approached improvement through formulation." }
+                        h3 style="font-family: var(--heading); font-size: 1.2rem; margin: 12px 0;" { "I approached improvement through formulation." }
                         p {
                             "I used formulation chemistry, testing, commercialization, alternate raw-material sourcing, and technical communication to improve products and carry them from the laboratory through production and into the market."
                         }
@@ -305,7 +305,7 @@ pub fn render_path_page() -> Markup {
                         p class="eyebrow" { "3M / PPU PROCESS IMPROVEMENT" }
                         p style="font-family: var(--display); font-size: 2.2rem; margin: 8px 0;" { "$1M" }
                         p style="color: var(--muted);" { "PPU improvement savings" }
-                        h3 style="font-family: var(--display); font-size: 1.2rem; margin: 12px 0;" { "I approached improvement through process." }
+                        h3 style="font-family: var(--heading); font-size: 1.2rem; margin: 12px 0;" { "I approached improvement through process." }
                         p {
                             "I used workflow mapping, line balancing, standard work, change control, and the knowledge of operators who trusted me enough to show me what the process really needed."
                         }
@@ -333,7 +333,7 @@ pub fn render_path_page() -> Markup {
                             p style="font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--muted);" {
                                 (format!("{} / {}", video.kind.to_uppercase(), video.date.to_uppercase()))
                             }
-                            h3 style="font-family: var(--display); font-size: 1.15rem; margin: 8px 0;" { (video.title) }
+                            h3 style="font-family: var(--heading); font-size: 1.15rem; margin: 8px 0;" { (video.title) }
                             p style="color: var(--muted);" { (video.body) }
                             p style="margin-top: 12px; font-weight: 600;" { "Watch on YouTube" }
                         }
@@ -352,7 +352,7 @@ pub fn render_path_page() -> Markup {
             div class="prose" {
                 div style="margin: 32px 0;" {
                     p style="font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted);" { "01 · HIGH SCHOOL · 3.92" }
-                    h3 style="font-family: var(--display); font-size: 1.4rem; margin: 8px 0 12px;" { "High School: 3.92" }
+                    h3 style="font-family: var(--heading); font-size: 1.4rem; margin: 8px 0 12px;" { "High School: 3.92" }
                     p style="font-family: var(--display); font-size: 1.25rem; margin: 16px 0;" {
                         "I was average. I wanted excellence."
                     }
@@ -387,7 +387,7 @@ pub fn render_path_page() -> Markup {
 
                 div style="margin: 32px 0;" {
                     p style="font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted);" { "02 · UNDERGRADUATE · 3.2 AND HONORS" }
-                    h3 style="font-family: var(--display); font-size: 1.4rem; margin: 8px 0 12px;" { "Undergraduate: 3.2 and Honors" }
+                    h3 style="font-family: var(--heading); font-size: 1.4rem; margin: 8px 0 12px;" { "Undergraduate: 3.2 and Honors" }
                     p {
                         "College was exploration. I tried futures on, learned which dreams belonged to me, and finished with a 3.2 GPA and graduated with honors. Through those eleven years from age thirteen until marrying Devin in 2018, I went by Michael Drake Ballentine. Ballentine was Dad's last name, given to me when he chose to adopt my brother and me after Mom brought us to safety. Stapleton became my married name when Devin and I chose our future together."
                     }
@@ -395,7 +395,7 @@ pub fn render_path_page() -> Markup {
 
                 div style="margin: 32px 0;" {
                     p style="font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted);" { "03 · GRADUATE SCHOOL · I BECAME DRAKE" }
-                    h3 style="font-family: var(--display); font-size: 1.4rem; margin: 8px 0 12px;" { "Graduate School: I Became Drake" }
+                    h3 style="font-family: var(--heading); font-size: 1.4rem; margin: 8px 0 12px;" { "Graduate School: I Became Drake" }
                     p {
                         "A diagnosis of ADHD and autism, medication, mental healthcare, quiet study and exam rooms, extra time to think, and room to stare out the window and let my brain run wild finally gave me an equal field. The grit stayed. With support, it compounded."
                     }
@@ -449,7 +449,7 @@ pub fn render_path_page() -> Markup {
                 }
                 div style="margin: 32px 0; padding: 28px; border: 1px solid var(--line-strong);" {
                     p style="font-family: var(--display); font-size: 2.2rem; margin: 0 0 8px;" { "4" }
-                    h3 style="font-family: var(--display); font-size: 1.2rem; margin: 0 0 12px;" { "The fourth attempt passed." }
+                    h3 style="font-family: var(--heading); font-size: 1.2rem; margin: 0 0 12px;" { "The fourth attempt passed." }
                     p {
                         (render_his_words("I failed the Six Sigma exam three times.", false))
                         " Each result showed me that wanting the credential and earning it were different things. I studied again, returned for the fourth attempt, and passed."
