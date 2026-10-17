@@ -4676,3 +4676,206 @@ th {
   .live-table tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--line, #e2ded6); }
   .live-table td { display: block; border: 0; padding: 2px 0; }
 }
+
+/* Philosophy page: wide desktop layout with inline drawings. Colors come
+   from theme variables so light and dark both work. */
+.ph-page {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 96px) var(--gutter);
+}
+.ph-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.ph-hero h1 {
+  margin: 0 0 20px;
+  font: 500 clamp(44px, 6vw, 84px)/1 var(--display);
+  color: var(--navy);
+}
+.ph-lede {
+  margin: 0 0 24px;
+  max-width: 46ch;
+  font: 500 clamp(19px, 2vw, 24px)/1.4 var(--display);
+  color: var(--copy);
+}
+.ph-intro {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.ph-hero-art {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+}
+.ph-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ph-sky { fill: var(--blue-pale); }
+.ph-hill-back { fill: var(--blue); opacity: 0.45; }
+.ph-hill-front { fill: var(--navy); opacity: 0.8; }
+.ph-ground { fill: var(--blue-pale); }
+.ph-ties { fill: none; stroke: var(--line-strong); stroke-width: 5; }
+.ph-rails { fill: none; stroke: var(--navy); stroke-width: 4; stroke-linecap: round; }
+.ph-stroke-soft { fill: none; stroke: var(--line-strong); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ph-line { fill: none; stroke: var(--navy); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.ph-line-soft { fill: none; stroke: var(--line-strong); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.ph-line-accent { fill: none; stroke: var(--red); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.ph-dash { stroke-dasharray: 2 9; }
+.ph-fill-accent { fill: var(--red); }
+.ph-rock { fill: var(--navy); }
+.ph-wall { fill: var(--blue-pale); stroke: var(--navy); stroke-width: 3; }
+.ph-burst { fill: var(--blue-pale); stroke: var(--red); stroke-width: 3; stroke-dasharray: 5 4; }
+
+.ph-chapters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: clamp(56px, 7vw, 104px);
+}
+.ph-chapter {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+}
+.ph-chapter:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.ph-chapter-art { width: 72px; margin-bottom: 18px; }
+.ph-chapter h2 {
+  margin: 0 0 12px;
+  font: 500 clamp(24px, 2.4vw, 30px)/1.15 var(--display);
+  color: var(--navy);
+}
+.ph-chapter p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--copy);
+}
+
+.ph-ways { margin-top: clamp(64px, 8vw, 120px); }
+.ph-ways-head { max-width: 62ch; }
+.ph-ways-head h2 {
+  margin: 0 0 12px;
+  font: 500 clamp(32px, 4vw, 52px)/1.05 var(--display);
+  color: var(--navy);
+}
+.ph-ways-head p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--copy);
+}
+.ph-ways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: 32px;
+}
+.ph-way {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+}
+.ph-way h3 {
+  margin: 14px 0 8px;
+  font: 500 1.35rem/1.2 var(--display);
+  color: var(--navy);
+}
+.ph-way p { margin: 0; line-height: 1.6; color: var(--copy); }
+.ph-ways-close {
+  max-width: 62ch;
+  margin: 32px 0 0;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.ph-closing {
+  margin-top: clamp(64px, 8vw, 120px);
+  padding: clamp(32px, 5vw, 72px);
+  border-radius: 24px;
+  background: var(--blue-pale);
+  border: 1px solid var(--line);
+}
+.ph-closing-inner { max-width: 960px; margin: 0 auto; }
+.ph-closing .his-words-block {
+  margin: 0 0 28px;
+  font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+  box-shadow: none;
+}
+.ph-closing .his-words-block::before { box-shadow: 0 0 0 5px var(--blue-pale); }
+.ph-closing-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.ph-closing-pair .his-words-block { margin-bottom: 0; }
+.ph-train { margin-top: 40px; }
+.ph-speed { stroke: var(--line-strong); stroke-width: 3; stroke-linecap: round; fill: none; }
+.ph-smoke { fill: var(--line-strong); }
+.ph-train-body { fill: var(--navy); }
+.ph-train-window { fill: var(--blue-pale); }
+.ph-lamp { fill: var(--accent-bright); }
+.ph-wheel { fill: var(--blue-pale); stroke: var(--red); stroke-width: 5; }
+.ph-rod { stroke: var(--red); stroke-width: 4; }
+.ph-track { stroke: var(--navy); stroke-width: 3; }
+
+@media (max-width: 960px) {
+  .ph-hero { grid-template-columns: 1fr; }
+  .ph-ways-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .ph-chapters,
+  .ph-ways-grid,
+  .ph-closing-pair { grid-template-columns: 1fr; }
+  .ph-closing-pair .his-words-block + .his-words-block { margin-top: 28px; }
+}
+
+/* Dark mode: card surfaces from engine.css tokens resolve at :root, so
+   re-point them inside the shell, and darken surfaces still using --white. */
+@media (prefers-color-scheme: dark) {
+  .site-shell {
+    --surface-base: var(--paper);
+    --surface-raised: var(--dark-surface);
+    --surface-overlay: var(--dark-section);
+    --surface-dark: var(--navy-deep);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+  .proof-section,
+  .benchmark-card,
+  .nanomaterials-card,
+  .nanomaterials-bridge,
+  .claim-filter-btn,
+  .interest-form,
+  .interest-form input[type="email"],
+  .interest-form input[type="text"],
+  .interest-form textarea,
+  .interest-received,
+  .photo-card figcaption,
+  .chapter-pill.active,
+  .ph-chapter,
+  .ph-way {
+    background: var(--dark-surface);
+  }
+  .ph-closing { background: var(--dark-section); }
+  .ph-closing .his-words-block::before { box-shadow: 0 0 0 5px var(--dark-section); }
+  .ph-sky,
+  .ph-ground { fill: var(--dark-section); }
+  .ph-wall,
+  .ph-train-window,
+  .ph-wheel { fill: var(--dark-surface); }
+  .ph-hill-front { fill: var(--blue); opacity: 0.55; }
+  .ph-rails,
+  .ph-line,
+  .ph-track { stroke: var(--on-dark-copy); }
+  .ph-rock,
+  .ph-train-body { fill: var(--on-dark-copy); }
+}
