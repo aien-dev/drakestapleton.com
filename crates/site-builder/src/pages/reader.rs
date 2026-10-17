@@ -71,6 +71,12 @@ pub fn render_reader_page(meta: &WorkFrontmatter, html_body: &str) -> Markup {
                 h1 { (meta.title) }
                 p class="reader-summary" { (meta.summary) }
             }
+            @match meta.slug.as_str() {
+                "aegis" => (crate::components::work_art::aegis_figures()),
+                "aien" => (crate::components::work_art::aien_figures()),
+                "research" => (crate::components::work_art::research_figures()),
+                _ => {}
+            }
             div class="reader-content" {
                 (PreEscaped(html_body))
             }

@@ -7,6 +7,7 @@ pub mod not_found;
 pub mod path;
 pub mod philosophy;
 pub mod reader;
+pub mod scholar;
 pub mod software;
 pub mod symphony;
 pub mod what_i_learned;
