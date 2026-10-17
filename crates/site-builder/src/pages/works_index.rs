@@ -16,7 +16,7 @@ pub fn render_works_index(works: &[WorkFrontmatter]) -> Markup {
                 @for work in works {
                     article class="pillar-card" {
                         div class="pillar-marker" { (work.date) }
-                        h2 style="font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px;" {
+                        h2 style="font-family: var(--heading); font-size: 1.5rem; margin: 0 0 12px;" {
                             a href={ "/" (work.slug) } { (work.title) }
                         }
                         p { (work.summary) }

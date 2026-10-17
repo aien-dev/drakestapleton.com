@@ -14,7 +14,7 @@ pub fn render_software_page() -> Markup {
             div class="grid cards-grid" style="margin-top: 36px;" {
                 article class="pillar-card" {
                     div class="pillar-marker" { "SOVEREIGN STACK" }
-                    h2 style="font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px;" {
+                    h2 style="font-family: var(--heading); font-size: 1.5rem; margin: 0 0 12px;" {
                         "AIEN"
                     }
                     p {
@@ -25,7 +25,7 @@ pub fn render_software_page() -> Markup {
 
                 article class="pillar-card" {
                     div class="pillar-marker" { "MULTI-AGENT HARNESS" }
-                    h2 style="font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px;" {
+                    h2 style="font-family: var(--heading); font-size: 1.5rem; margin: 0 0 12px;" {
                         "Atlas Symphony"
                     }
                     p {
@@ -36,7 +36,7 @@ pub fn render_software_page() -> Markup {
 
                 article class="pillar-card" {
                     div class="pillar-marker" { "DEFENSIVE PERIMETER" }
-                    h2 style="font-family: var(--display); font-size: 1.5rem; margin: 0 0 12px;" {
+                    h2 style="font-family: var(--heading); font-size: 1.5rem; margin: 0 0 12px;" {
                         "AEGIS Shield"
                     }
                     p {
