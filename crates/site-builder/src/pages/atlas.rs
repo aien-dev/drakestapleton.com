@@ -18,24 +18,36 @@ pub fn render_atlas_page() -> Markup {
                 }
 
                 (render_his_words("I turn care into systems people can use. Training plans, schedules, dashboards, research systems, and AI tools all grow from the same instinct: preserve what helps, learn from each result, and give people a stronger next step.", true))
+            }
 
-                h2 style="font-family: var(--display); margin-top: 36px;" { "The Four Core Invariants" }
-                ul class="links-list" style="margin-top: 16px;" {
-                    li {
-                        strong { "1. The Soul (Identity & Values): " }
-                        "The continuous record, ethical boundaries, and personal history preserved in cryptographic memory."
+        }
+        div class="container" style="padding: 0 var(--gutter) clamp(48px, 6vw, 96px);" {
+            section class="inv-section" {
+                h2 { "The Four Core Invariants" }
+                div class="inv-grid" {
+                    article class="inv-card" {
+                        span class="inv-num" { "01" }
+                        h3 { "The Soul" }
+                        p class="inv-sub" { "Identity & Values" }
+                        p { "The continuous record, ethical boundaries, and personal history preserved in cryptographic memory." }
                     }
-                    li {
-                        strong { "2. The Shield (AEGIS): " }
-                        "Defensive containment monitoring runtime boundaries, unauthorized privilege escalation, and network calls."
+                    article class="inv-card" {
+                        span class="inv-num" { "02" }
+                        h3 { "The Shield" }
+                        p class="inv-sub" { "AEGIS" }
+                        p { "Defensive containment monitoring runtime boundaries, unauthorized privilege escalation, and network calls." }
                     }
-                    li {
-                        strong { "3. The Runtime (AIEN): " }
-                        "Sovereign native compiled engine in pure Rust and Mojo executing on Grace Blackwell GB10 hardware."
+                    article class="inv-card" {
+                        span class="inv-num" { "03" }
+                        h3 { "The Runtime" }
+                        p class="inv-sub" { "AIEN" }
+                        p { "A sovereign stack on one machine: the Omega reaction runtime and native GPU path on Grace Blackwell GB10, the AIENOS C kernel (emulator-qualified, not yet booted on the Spark), and a Rust host runtime that decides policy before any tool runs." }
                     }
-                    li {
-                        strong { "4. The Spirit (Autonomous Daemons): " }
-                        "Spark Cortex knowledge consolidation, Dream state memory compaction, and supervisory loops."
+                    article class="inv-card" {
+                        span class="inv-num" { "04" }
+                        h3 { "The Spirit" }
+                        p class="inv-sub" { "Autonomous Daemons" }
+                        p { "Spark Cortex knowledge consolidation, Dream state memory compaction, and supervisory loops." }
                     }
                 }
             }
