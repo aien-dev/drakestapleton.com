@@ -85,13 +85,13 @@
 .uni-panel {
   position: relative;
   align-self: stretch;
-  padding: 2rem 1.75rem 2rem 1.25rem;
+  padding: 6.4rem 1.75rem 2rem 1.25rem;
   overflow-y: auto;
   max-height: calc(100svh - 84px);
   scrollbar-width: thin;
 }
 .uni-intro h1 { margin: 1rem 0 0.75rem; font: 800 clamp(2.4rem, 4vw, 3.4rem)/0.98 var(--u-font); letter-spacing: -0.02em; color: var(--u-text); }
-.uni-me { display: block; width: 104px; height: 104px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 3px var(--u-gold), 0 0 34px rgba(242, 191, 94, 0.35); }
+.uni-me { position: absolute; z-index: 3; top: 1.25rem; right: 1.5rem; width: 92px; height: 92px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 3px var(--u-gold), 0 0 34px rgba(242, 191, 94, 0.4); }
 .uni-lede { margin: 0 0 0.9rem; font: 400 1.35rem/1.4 var(--u-serif); color: var(--u-text); }
 .uni-sub { margin: 0 0 1.4rem; font: 400 1.05rem/1.55 var(--u-serif); color: var(--u-dim); }
 .uni-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; }
@@ -144,6 +144,8 @@
 @media (max-width: 1100px) {
   .uni { grid-template-columns: minmax(0, 1fr); min-height: 0; }
   .uni-panel { order: -1; max-height: none; padding: 1.5rem var(--gutter, 20px) 0.5rem; }
+  .uni-me { width: 64px; height: 64px; top: 0.9rem; right: var(--gutter, 20px); }
+  .uni-intro h1 { margin-top: 3rem; }
   .uni-stage { padding: 0.5rem 0 1rem 0; }
   .uni-scroll { overflow-x: auto; padding: 0 var(--gutter, 20px); -webkit-overflow-scrolling: touch; }
   .uni-map { min-width: 900px; }
