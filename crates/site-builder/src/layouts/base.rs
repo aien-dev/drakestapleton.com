@@ -34,9 +34,11 @@ pub fn render_base_layout(meta: &PageMeta, content: Markup) -> Markup {
                 link rel="stylesheet" href="/assets/style.css";
                 link rel="stylesheet" href="/assets/reader.css";
                 link rel="stylesheet" href="/assets/engine.css";
+                link rel="stylesheet" href="/assets/universe.css";
 
                 // HTMX for zero-build hypermedia interactivity
                 script defer src="/js/htmx.min.js" {}
+                script defer src="/js/universe.js" {}
                 (PreEscaped(r#"<script>
                     document.addEventListener('DOMContentLoaded', () => {
                         console.log('[AIEN Engine] Pure Rust Maud engine online. Zero hydration delay.');
