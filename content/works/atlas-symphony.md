@@ -59,7 +59,7 @@ Version 4.0, Hive face, August 2026. Formalized four lead roles, limited each no
 
 Current L-tier, 13 August 2026, Conductor, stewards, and focused cells. L1 coordinates the assignment. Independent L2 stewards own implementation, review, evidence, and operations. L3 cells perform focused edits, tests, provider checks, and receipts. Independent reviewers clear each implementation.
 
-The current Boston Atlas flow uses those three explicit levels. L1 coordinates the full assignment. L2 separates architecture, independent review, evidence, and operations. L3 handles focused edits, tests, provider checks, teardown verification, and receipts. Results return through the same chain, and independent reviewers approve implementation.
+The Atlas flow, first run on Boston and now on the Spark, uses those three explicit levels. L1 coordinates the full assignment. L2 separates architecture, independent review, evidence, and operations. L3 handles focused edits, tests, provider checks, teardown verification, and receipts. Results return through the same chain, and independent reviewers approve implementation.
 
 ## How a mission moves
 

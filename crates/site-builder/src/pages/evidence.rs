@@ -8,7 +8,7 @@ pub fn render_evidence_page(facts: Option<&Facts>) -> Markup {
                 p class="eyebrow" { "CANONICAL TRUST HUB & PHYSICAL SILICON RECEIPTS" }
                 h1 { "Canonical Evidence Hub & Verified Claims" }
                 p class="section-desc" {
-                    "Every architectural assertion is bound to verifiable cryptographic proofs, reproducible benchmarks, and physical silicon receipts."
+                    "Every claim on this page links to its record, and each record says where it ran: on the GB10, on the host, or in the emulator."
                 }
             }
 
@@ -33,7 +33,7 @@ pub fn render_evidence_page(facts: Option<&Facts>) -> Markup {
                     p class="stat-value tabular-nums" { "20.3x" }
                     p class="stat-unit" { "frozen baseline" }
                     p class="stat-label" {
-                        "Prime Drag Race native GPU sieve on GB10 against the frozen baseline; it ties the CUDA mirror at 19,701 vs 19,629 passes per second. "
+                        "Prime Drag Race native GPU sieve on GB10 at 19,701 passes per second, 20.3x its own frozen starting point of 971. "
                         a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
                     }
                 }

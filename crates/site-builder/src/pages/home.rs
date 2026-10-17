@@ -23,7 +23,7 @@ pub fn render_home_page(facts: Option<&Facts>) -> Markup {
                         "Building accountable AI architectures, compiled native inference, and sovereign systems on Grace Blackwell silicon. Every process runs under operator authority with zero uninspected abstractions."
                     }
                     div class="hero-actions" {
-                        a href="/research" class="btn btn-primary" { "Read Inference Research" }
+                        a href="/research" class="btn btn-primary" { "Read the Research" }
                         a href="/evidence" class="btn btn-secondary" { "Inspect Verification Receipts" }
                         a href="/works" class="btn btn-secondary" { "Explore Works" }
                     }
@@ -110,7 +110,7 @@ pub fn render_home_page(facts: Option<&Facts>) -> Markup {
                                 p class="stat-value tabular-nums" { "20.3x" }
                                 p class="stat-unit" { "frozen baseline" }
                                 p class="stat-label" {
-                                    "Prime Drag Race native GPU sieve on GB10; ties the CUDA mirror. "
+                                    "Prime Drag Race native GPU sieve on GB10, 20.3x its own frozen starting point. "
                                     a href="https://github.com/aien-dev/benchmarks/blob/main/prime-drag-race/CAMPAIGN-2026-10-05.md" { "Campaign record" }
                                 }
                             }

@@ -31,7 +31,7 @@ pub fn render_what_i_learned_page() -> Markup {
                     }
                     li {
                         strong { "Zero Disk Secrets: " }
-                        "Plaintext configuration files inevitably leak. Resolve credentials dynamically in volatile memory through a hardware TPM 2.0 key vault."
+                        "Plaintext configuration files inevitably leak. Keep credentials out of files and resolve them in volatile memory. The hardware-backed trust chain for this is still being qualified."
                     }
                     li {
                         strong { "Gratitude Moves Forward: " }

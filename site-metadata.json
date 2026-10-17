@@ -116,8 +116,8 @@
     "description": "AEGIS extends Atlas into on-prem cyber defense for authorized networks, with containment, evidence preservation, and a verified project evaluation."
   },
   "/works/research": {
-    "title": "Inference Research | Works by Drake Stapleton",
-    "description": "This research piece records work to lower software orchestration overhead in large language model inference through a native Rust ABI, a paged unified memory KV cache, and Grace Blackwell telemetry."
+    "title": "Research | Works by Drake Stapleton",
+    "description": "What the AIEN research program measures today: Turing yield, verified understanding, and distance to the hardware ceiling, and why the earlier inference study was withdrawn."
   },
   "/philosophy": {
     "title": "Philosophy | Drake Stapleton",

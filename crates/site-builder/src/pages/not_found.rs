@@ -13,7 +13,7 @@ pub fn render_not_found_page() -> Markup {
             div class="not-found-links" {
                 ul class="links-list" {
                     li { a href="/" { "Identity (Home)" } }
-                    li { a href="/research" { "LLM Inference Research" } }
+                    li { a href="/research" { "Research" } }
                     li { a href="/aien" { "AIEN Sovereign Architecture" } }
                     li { a href="/evidence" { "Canonical Evidence Hub" } }
                     li { a href="/atlas" { "Atlas Program" } }
