@@ -342,6 +342,7 @@ fn world_panel(i: usize, w: &World) -> Markup {
 pub fn render_home_page(facts: Option<&Facts>) -> Markup {
     html! {
         div class="uni" id="map" {
+            img class="uni-me" src="/images/drake.webp" alt="Drake Stapleton in a blue collared shirt" width="96" height="96";
             div class="uni-stage" {
                 div class="uni-scroll" {
                     div class="uni-map" {
@@ -357,7 +358,6 @@ pub fn render_home_page(facts: Option<&Facts>) -> Markup {
             }
             aside class="uni-panel" aria-live="polite" {
                 div class="uni-intro" {
-                    img class="uni-me" src="/images/drake-portrait.webp" alt="Drake Stapleton smiling in a blue shirt" width="120" height="120";
                     h1 { "Drake Stapleton" }
                     p class="uni-lede" { "A farm kid who became a chemist, then an engineer, and is now building a whole computer from the ground up." }
                     p class="uni-sub" { "This is a map of my life and my work. Pick any world, or take the tour." }
