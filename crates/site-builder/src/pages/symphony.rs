@@ -37,7 +37,7 @@ pub fn render_symphony_page(subpage: Option<&str>) -> Markup {
                     "Atlas Symphony structures AI work into bounded lanes. An operator defines specifications, dispatches specialized agents, enforces adversarial reviews by independent model architectures, and requires verifiable cryptographic receipts before any pull request is merged."
                 }
 
-                div class="grid cards-grid" style="margin-top: 32px;" {
+                div class="grid cards-grid" style="margin-top: 32px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));" {
                     article class="pillar-card" {
                         div class="pillar-marker" { "01 · DISPATCH" }
                         h3 { "Bounded Work Lanes" }
