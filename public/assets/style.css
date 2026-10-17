@@ -4849,20 +4849,20 @@ th {
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   }
-  .proof-section,
-  .benchmark-card,
-  .nanomaterials-card,
-  .nanomaterials-bridge,
-  .claim-filter-btn,
-  .interest-form,
-  .interest-form input[type="email"],
-  .interest-form input[type="text"],
-  .interest-form textarea,
-  .interest-received,
-  .photo-card figcaption,
-  .chapter-pill.active,
-  .ph-chapter,
-  .ph-way {
+  .site-shell .proof-section,
+  .site-shell .benchmark-card,
+  .site-shell .nanomaterials-card,
+  .site-shell .nanomaterials-bridge,
+  .site-shell .claim-filter-btn,
+  .site-shell .interest-form,
+  .site-shell .interest-form input[type="email"],
+  .site-shell .interest-form input[type="text"],
+  .site-shell .interest-form textarea,
+  .site-shell .interest-received,
+  .site-shell .photo-card figcaption,
+  .site-shell .chapter-pill.active,
+  .site-shell .ph-chapter,
+  .site-shell .ph-way {
     background: var(--dark-surface);
   }
   .ph-closing { background: var(--dark-section); }
@@ -4878,4 +4878,8 @@ th {
   .ph-track { stroke: var(--on-dark-copy); }
   .ph-rock,
   .ph-train-body { fill: var(--on-dark-copy); }
+  .site-shell .btn-primary,
+  .site-shell .btn-primary:hover {
+    color: var(--navy-deep);
+  }
 }

@@ -19,7 +19,7 @@ pub fn render_donate_page() -> Markup {
                     "I build this with my own hands and my own money. Every dollar you give goes straight into the work."
                 }
 
-                div style="margin-top: 32px; padding: 32px; border: 1px solid var(--line-strong); background: var(--white);" {
+                div style="margin-top: 32px; padding: 32px; border: 1px solid var(--line-strong); background: var(--surface-raised);" {
                     p class="eyebrow" { "MANIFUND" }
                     h2 style="margin: 12px 0;" { "Back the Project Publicly" }
                     p {

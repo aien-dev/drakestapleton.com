@@ -22,17 +22,17 @@ pub fn render_interest_page() -> Markup {
                     
                     div {
                         label for="name" style="display: block; font-family: var(--mono); font-size: 0.85rem; margin-bottom: 6px;" { "YOUR NAME" }
-                        input type="text" id="name" name="name" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--white); border-radius: 4px;" {}
+                        input type="text" id="name" name="name" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--surface-raised); border-radius: 4px;" {}
                     }
 
                     div {
                         label for="email" style="display: block; font-family: var(--mono); font-size: 0.85rem; margin-bottom: 6px;" { "YOUR EMAIL" }
-                        input type="email" id="email" name="email" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--white); border-radius: 4px;" {}
+                        input type="email" id="email" name="email" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--surface-raised); border-radius: 4px;" {}
                     }
 
                     div {
                         label for="message" style="display: block; font-family: var(--mono); font-size: 0.85rem; margin-bottom: 6px;" { "MESSAGE" }
-                        textarea id="message" name="message" rows="5" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--white); border-radius: 4px;" {}
+                        textarea id="message" name="message" rows="5" required="" style="width: 100%; padding: 12px; border: 1px solid var(--line-strong); background: var(--surface-raised); border-radius: 4px;" {}
                     }
 
                     button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;" {
